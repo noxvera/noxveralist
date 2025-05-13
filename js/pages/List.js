@@ -99,14 +99,14 @@ export default {
                         </ol>
                     </template>
                     <h3>Important Notes</h3>
+                    <p>
+                        Levels with [ID: 1] are unreleased, and levels with [ID: 0] are unfinished. If you would like a copy of an <u>unreleased</u> level, feel free to contact me on Discord (my tag is: 2894)
+                    </p>
                     <p> 
                         Levels above [placeholder] are all most likely harder than top 1 (basically, Impossible Levels List difficulty).
                     </p>
                     <p> 
                         arevxon, Cyrobyte, asjd, aelt, and someone (green user) are all accounts belonging to me.
-                    </p>
-                    <p>
-                        Levels with [ID: 1] are unreleased, and levels with [ID: 0] are unfinished. If you would like a copy of an <u>unreleased</u> level, feel free to contact me on Discord (my tag is: 2894)
                     </p>
                     <p>
                         Levels that are very low effort and/or under 10 seconds are not included here (or else this list would have like 500 levels). There may be some exceptions.
