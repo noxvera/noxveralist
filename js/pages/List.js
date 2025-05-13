@@ -114,15 +114,16 @@ export default {
                     <p>
                         Old/unnerfed/buffed versions aren't included unless the difference compared to the current version is significant enough.
                     </p>
+                    
                     <h3>Submission Requirements</h3>
                     <p>
-                        Achieved the record without using hacks (CBF is fine, fps bypass while using 2.1 is fine as long as it's under 360fps)
+                        Achieved the record without using hacks (CBF is fine, FPS bypass while using 2.1 is fine as long as it's under 360fps).
                     </p>
                     <p>
-                        Achieved the record on the level that is listed on the site - please check the level ID before you submit a record
+                        Achieved the record on the level that is listed on the site - please check the level ID before you submit a record.
                     </p>
                     <p>
-                        Have either source audio or clicks/taps in the video. Edited audio only does not count
+                        Have either source audio or clicks/taps in the video. Edited audio only does not count.
                     </p>
                     <p>
                         The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt.
