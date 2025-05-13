@@ -98,9 +98,25 @@ export default {
                             </li>
                         </ol>
                     </template>
+                    <h3>Important Notes</h3>
+                    <p> 
+                        Levels above [placeholder] are all most likely harder than top 1 (basically, Impossible Levels List difficulty).
+                    </p>
+                    <p> 
+                        arevxon, Cyrobyte, asjd, aelt, and someone (green user) are all accounts belonging to me.
+                    </p>
+                    <p>
+                        Most levels here can be sorted into 3 categories, released (ID is included under level info), unreleased, and unfinished. If you would like a copy of an <u>unreleased</u> level, feel free to contact me on Discord (my tag is: 2894)
+                    </p>
+                    <p>
+                        Levels that are very low effort and/or under 10 seconds are not included here (or else this list would have like 500 levels). There may be some exceptions.
+                    </p>
+                    <p>
+                        Old/unnerfed/buffed versions aren't included unless the difference compared to the current version is significant enough.
+                    </p>
                     <h3>Submission Requirements</h3>
                     <p>
-                        Achieved the record without using hacks (however, FPS bypass is allowed, up to 360fps)
+                        Achieved the record without using hacks (CBF is fine, fps bypass while using 2.1 is fine as long as it's under 360fps)
                     </p>
                     <p>
                         Achieved the record on the level that is listed on the site - please check the level ID before you submit a record
@@ -109,19 +125,13 @@ export default {
                         Have either source audio or clicks/taps in the video. Edited audio only does not count
                     </p>
                     <p>
-                        The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt. Everyplay records are exempt from this
+                        The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt.
                     </p>
                     <p>
                         The recording must also show the player hit the endwall, or the completion will be invalidated.
                     </p>
                     <p>
-                        Do not use secret routes or bug routes
-                    </p>
-                    <p>
-                        Do not use easy modes, only a record of the unmodified level qualifies
-                    </p>
-                    <p>
-                        Once a level falls onto the Legacy List, we accept records for it for 24 hours after it falls off, then afterwards we never accept records for said level
+                        Taking secret ways that were built into the level is allowed, as well as any small skips (either intentional or unintentional). Taking large unintentional secret ways is not allowed.
                     </p>
                 </div>
             </div>
