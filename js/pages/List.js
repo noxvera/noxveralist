@@ -100,39 +100,39 @@ export default {
                     </template>
                     <h3>Important Notes</h3>
                     <p>
-                        Levels with [ID: 1] are unreleased, and levels with [ID: 0] are unfinished. If you would like a copy of an <u>unreleased</u> level, feel free to contact me on Discord (my tag is: 2894)
+                        - <span style="color: #F42C2E;">Levels with ID: 1 are unreleased, and levels with ID: 0 are unfinished.</span> If you would like a copy of an <u>unreleased</u> level, feel free to contact me on Discord (username: 2894)
                     </p>
                     <p> 
-                        Levels above [placeholder] are all most likely harder than top 1 (basically, Impossible Levels List difficulty).
+                        - arevxon, Cyrobyte, asjd, aelt, and someone (green user) are all accounts belonging to me.
                     </p>
                     <p> 
-                        arevxon, Cyrobyte, asjd, aelt, and someone (green user) are all accounts belonging to me.
+                        - Levels above [placeholder] are all most likely harder than top 1 (basically, Impossible Levels List difficulty).
                     </p>
                     <p>
-                        Levels that are very low effort and/or under 10 seconds are not included here (or else this list would have like 500 levels). There may be some exceptions.
+                        - Levels that are very low effort and/or under 10 seconds are not included here (or else this list would have like 500 levels). There may be some exceptions.
                     </p>
                     <p>
-                        Old/unnerfed/buffed versions aren't included unless the difference compared to the current version is significant enough.
+                        - Old/unnerfed/buffed versions aren't included unless the difference compared to the current version is significant enough.
                     </p>
-                    
+                    <br/>
                     <h3>Submission Requirements</h3>
                     <p>
-                        Achieved the record without using hacks (CBF is fine, FPS bypass while using 2.1 is fine as long as it's under 360fps).
+                        - Achieved the record without using hacks (CBF is fine, FPS bypass while using 2.1 is fine as long as it's under 360fps).
                     </p>
                     <p>
-                        Achieved the record on the level that is listed on the site - please check the level ID before you submit a record.
+                        - Achieved the record on the level that is listed on the site - please check the level ID before you submit a record.
                     </p>
                     <p>
-                        Have either source audio or clicks/taps in the video. Edited audio only does not count.
+                        - Have either source audio or clicks/taps in the video. Edited audio only does not count.
                     </p>
                     <p>
-                        The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt.
+                        - The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt.
                     </p>
                     <p>
-                        The recording must also show the player hit the endwall, or the completion will be invalidated.
+                        - The recording must also show the player hit the endwall, or the completion will be invalidated.
                     </p>
                     <p>
-                        Taking secret ways that were built into the level is allowed, as well as any small skips (either intentional or unintentional). Taking large unintentional secret ways is not allowed.
+                        - Taking secret ways that were built into the level is allowed, as well as any small skips (either intentional or unintentional). Taking large unintentional secret ways is not allowed.
                     </p>
                 </div>
             </div>
