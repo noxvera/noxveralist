@@ -103,7 +103,7 @@ export default {
                         - <span style="color: #F42C2E;">Levels with ID: 1 are unreleased, and levels with ID: 0 are unfinished.</span> If you would like a copy of an <u>unreleased</u> level, feel free to contact me on Discord (username: 2894)
                     </p>
                     <p> 
-                        - arevxon, Cyrobyte, asjd, aelt, and someone (green user) are all accounts belonging to me.
+                        - aelt, Cyrobyte, and someone (green user) are all accounts belonging to me.
                     </p>
                     <p> 
                         - Levels above [placeholder] are all most likely harder than top 1 (basically, Impossible Levels List difficulty).
