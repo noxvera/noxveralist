@@ -227,3 +227,9 @@ p::after,
     margin-top: -0.4416666667em;
     display: table;
 }
+
+.subtitle{
+    content: "";
+    font-family: "Lexend Deca", sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+}

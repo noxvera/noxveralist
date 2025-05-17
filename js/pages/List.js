@@ -31,6 +31,7 @@ export default {
                         <td class="level" :class="{ 'active': selected == i, 'error': !level }">
                             <button @click="selected = i">
                                 <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
+                                <span v-if="level.subtitle">{{ level?.subtitle || ""}}</span>
                             </button>
                         </td>
                     </tr>
@@ -133,6 +134,9 @@ export default {
                     </p>
                     <p>
                         - Taking secret ways that were built into the level is allowed, as well as any small skips (either intentional or unintentional). Taking large unintentional secret ways is not allowed.
+                    </p>
+                    <p>
+                        - Globed 2P completions are not allowed.
                     </p>
                 </div>
             </div>

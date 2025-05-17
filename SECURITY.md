@@ -4,13 +4,11 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.0.x   | :white_check_mark: |
+| 0.2.1   | :white_check_mark: |
+| < 0.2.1 | :x:                |
 
 ## Reporting a Vulnerability
 
-You can Report vulnerabilities through the
-[discord server](https://discord.gg/shittylist) or by DM'ing Raily
-(iRaily#1230), BlueStone (Bluestone.#1449), Electro (Electro#0457) or
-Prometheus(Prometheus#9463). Responses to vulnerability reports usually take
-around 3 hours to more than a day, depending on how difficult fixing a
-vulnerability is.
+You can report vulnerabilities by DMing noxvera (username: `2894`). 
+Responses to vulnerability reports take around \[instant\] to
+\[forever\] depending on how difficult fixing the vulnerability is.
