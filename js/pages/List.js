@@ -13,7 +13,7 @@ const roleIconMap = {
     dev: "code",
     trial: "user-lock",
 };
-
+// line 34 style="font-family: 'Lexend Deca', sans-serif;"
 export default {
     components: { Spinner, LevelAuthors },
     template: `
@@ -28,10 +28,10 @@ export default {
                             <p v-if="i + 1 <= 150" class="type-label-lg">#{{ i + 1 }}</p>
                             <p v-else class="type-label-lg">Legacy</p>
                         </td>
-                        <td class="level" :class="{ 'active': selected == i, 'error': !level }">
-                            <button @click="selected = i">
+                        <td class="level" :class="{ 'active': selected == i, 'error': !level}">
+                            <button @click="selected = i" :class="{ 'highlight-yellow': level?.yellow === true }">
                                 <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
-                                <span v-if="level.subtitle">{{ level?.subtitle || ""}}</span>
+                                <span v-if="level.subtitle" class="subtitle">{{ level?.subtitle || ""}}</span>
                             </button>
                         </td>
                     </tr>

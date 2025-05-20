@@ -229,7 +229,24 @@ p::after,
 }
 
 .subtitle{
-    content: "";
+    /* margin-bottom: 0px;
+    margin-top: 0px;
+    display: inline-block;
+    line-height: 1px; */
     font-family: "Lexend Deca", sans-serif;
     -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.highlight-yellow {
+  background-color: yellow !important;
+  color: black !important;
+}
+
+.highlight-yellow:hover {
+  background-color: #ffee58 !important;
+}
+
+.active .highlight-yellow {
+  background-color: #fdd835 !important;
+  color: black !important;
 }
