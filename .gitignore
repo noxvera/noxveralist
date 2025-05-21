@@ -1,5 +1,6 @@
 .idea/
 .vscode/
 deno.json
+list2.code-workspace
 
 node_modules/

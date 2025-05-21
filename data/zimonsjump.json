@@ -1,0 +1,30 @@
+{
+    "id": 96131103,
+    "name": "zimons jump",
+    "author": "noxvera",
+    "creators": [],
+    "verifier": "syberchase",
+    "verification": "#",
+    "percentToQualify": "100",
+    "password": "not copyable lol",
+    "records": [
+            {
+            "user": "noxvera",
+            "link": "#",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "galoche",
+            "link": "#",
+            "percent": 100,
+            "hz": 60
+        },
+            {
+            "user": "jamalmurray",
+            "link": "https://youtu.be/4E9i3UIrfUk",
+            "percent": 100,
+            "hz": 240
+        }
+    ]
+}

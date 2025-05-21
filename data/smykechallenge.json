@@ -8,5 +8,11 @@
     "percentToQualify": "100",
     "password": "Free To Copy",
     "records": [
+        {
+            "user": "jamalmurray",
+            "link": "https://youtu.be/a9kOqImuR7A",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

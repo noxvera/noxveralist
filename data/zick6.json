@@ -8,5 +8,11 @@
     "percentToQualify": "100",
     "password": "not copyable lol",
     "records": [
+        {
+            "user": "jamalmurray",
+            "link": "https://youtu.be/OQUEwI_IewU",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

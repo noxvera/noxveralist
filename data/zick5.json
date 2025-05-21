@@ -8,5 +8,17 @@
     "percentToQualify": "100",
     "password": "Free To Copy",
     "records": [
+            {
+            "user": "jamalmurray",
+            "link": "https://youtu.be/4KQFr5cxux8",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "galoche",
+            "link": "https://drive.google.com/file/d/16NRx669LDj7nOc0pApesMvH5Fkw_GQ4N/view?usp=sharing",
+            "percent": 100,
+            "hz": 60
+        }
     ]
 }

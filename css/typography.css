@@ -237,16 +237,23 @@ p::after,
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
-.highlight-yellow {
+.highlight-higheffort {
   background-color: yellow !important;
   color: black !important;
 }
 
-.highlight-yellow:hover {
+.highlight-higheffort:hover {
   background-color: #ffee58 !important;
 }
 
-.active .highlight-yellow {
+.active .highlight-higheffort {
   background-color: #fdd835 !important;
   color: black !important;
+}
+
+.red-id {
+  color: #F42C2E;
+}
+.yellow-id {
+  color: #f7fa31;
 }

@@ -13,7 +13,7 @@ const roleIconMap = {
     dev: "code",
     trial: "user-lock",
 };
-// line 34 style="font-family: 'Lexend Deca', sans-serif;"
+
 export default {
     components: { Spinner, LevelAuthors },
     template: `
@@ -29,7 +29,7 @@ export default {
                             <p v-else class="type-label-lg">Legacy</p>
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level}">
-                            <button @click="selected = i" :class="{ 'highlight-yellow': level?.yellow === true }">
+                            <button @click="selected = i" :class="{ 'highlight-higheffort': level?.higheffort === true }">
                                 <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
                                 <span v-if="level.subtitle" class="subtitle">{{ level?.subtitle || ""}}</span>
                             </button>
@@ -49,7 +49,9 @@ export default {
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>
-                            <p>{{ level.id }}</p>
+                              <p :class="{ 'red-id': ['cancelled', 'lost'].includes(level.id), 'yellow-id': ['unfinished'].includes(level.id)  }">
+                                {{ level.id }}
+                            </p>
                         </li>
                         <li>
                             <div class="type-title-sm">Password</div>
@@ -87,7 +89,7 @@ export default {
                         <p class="error" v-for="error of errors">{{ error }}</p>
                     </div>
                     <div class="og">
-                        <p class="type-label-md">Website layout made by <a href="https://tsl.pages.dev/" target="_blank">TheShittyList</a></p>
+                        <p class="type-label-md">Website layout made by <a href="https://tsl.pages.dev/" target="_blank">TSL</a></p>
                     </div>
                     <template v-if="editors">
                         <h3>List Editors</h3>
@@ -99,9 +101,12 @@ export default {
                             </li>
                         </ol>
                     </template>
-                    <h3>Important Notes</h3>
+                    <h3>Important Notes (please read!!!)</h3>
                     <p>
-                        - <span style="color: #F42C2E;">Levels with ID: 1 are unreleased, and levels with ID: 0 are unfinished.</span> If you would like a copy of an <u>unreleased</u> level, feel free to contact me on Discord (username: 2894)
+                        - Levels on the list highlighted <span style="color:yellow;">yellow</span> are levels I consider to have actual effort put into them (though they might still be bad)
+                    </p>
+                    <p>
+                        - If you would like a copy of an <u>unreleased</u> level, feel free to contact me on Discord (username: 2894)
                     </p>
                     <p> 
                         - aelt, Cyrobyte, and someone (green user) are all accounts belonging to me.
@@ -111,9 +116,6 @@ export default {
                     </p>
                     <p>
                         - Levels that are very low effort and/or under 10 seconds are not included here (or else this list would have like 500 levels). There may be some exceptions.
-                    </p>
-                    <p>
-                        - Old/unnerfed/buffed versions aren't included unless the difference compared to the current version is significant enough.
                     </p>
                     <br/>
                     <h3>Submission Requirements</h3>

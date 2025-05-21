@@ -1,0 +1,30 @@
+{
+    "id": 82686159,
+    "name": "silentclub challenge",
+    "author": "noxvera",
+    "creators": ["galoche"],
+    "verifier": "galoche",
+    "verification": "#",
+    "percentToQualify": "100",
+    "password": "not copyable lol",
+    "records": [
+            {
+            "user": "noxvera",
+            "link": "#",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "syberchase",
+            "link": "#",
+            "percent": 100,
+            "hz": 120
+        },
+        {
+            "user": "jamalmurray",
+            "link": "https://youtu.be/haKXWDxqc4g",
+            "percent": 100,
+            "hz": 240
+        }
+    ]
+}
