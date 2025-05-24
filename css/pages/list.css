@@ -21,6 +21,8 @@
     width: 100%;
 }
 .page-list .list .level button {
+    position: relative;
+    overflow: hidden;
     background-color: var(--color-background);
     color: var(--color-on-background);
     border: none;
@@ -30,7 +32,31 @@
     word-break: normal;
     overflow-wrap: anywhere;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
+
+.page-list .list .level button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: rgba(255, 255, 255, 0.11111);
+    z-index: 0;
+    transition: width 0.5s ease;
+}
+
+.page-list .list .level button:hover::before {
+    width: 100%;
+}
+
+.page-list .list .level button > * {
+    position: relative;
+    z-index: 1;
+}
+
+
 .page-list .list .level.error button {
     color: var(--color-error);
     cursor: not-allowed;
@@ -71,6 +97,16 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+}
+.page-list .level-container .level .packs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+}
+.page-list .level-container .level .packs .tag {
+    display: flex;
+    flex-shrink: 0;
+    background-size: 100% 100% !important;
 }
 .page-list .level-container .level .records {
     table-layout: fixed;
@@ -125,4 +161,13 @@
 }
 .page-list .meta .editors li a:hover {
     text-decoration: underline;
+}
+.tag p {
+    font-family: "Lexend Deca", sans-serif;
+    display:block;
+    border-radius: 14px;
+    padding: 7px;
+    color: white;
+    /* mix-blend-mode: difference; */
+    /* color: rgb(128, 128, 128); */
 }

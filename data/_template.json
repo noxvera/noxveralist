@@ -1,0 +1,30 @@
+{
+    "id": 159,
+    "name": "Level Name",
+    "author": "Level Publisher",
+    "creators": [
+    "Creator 1",
+    "Creator 2",
+    "Creator 3"
+],
+    "verifier": "Level Verifier",
+    "verification": "Verification Video",
+    "percentToQualify": 100,
+    "records": [
+        {
+            "user": "Record Holder 1",
+            "link": "Record Link",
+            "percent": 100,
+            "hz": 360
+        },
+        {
+            "user": "Record Holder 2",
+            "link": "Record Link",
+            "percent": 100,
+            "hz": 360
+        }
+    ]
+}
+
+// DELETE COMMENTS WHEN WHEN USING TEMPLATE
+// put `"mobile": true' if it is a mobile record

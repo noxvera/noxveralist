@@ -22,13 +22,47 @@
     background-color: var(--color-error);
     color: var(--color-on-error);
 }
+
+.page-leaderboard .search-bar {
+	position: sticky;
+	top: 0;
+	padding: 0.5rem 0;
+    display: flex;
+	align-items: center;
+    justify-content: flex-start;
+	gap: 1rem;
+	background-color: var(--color-background);
+    z-index: 10;
+}
+
+.page-leaderboard .search-bar img {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.page-leaderboard .search-bar input {
+	background-color: transparent; 
+    border: none; 
+    border-bottom: 1px solid var(--color-on-background);
+    padding: 0.5rem 0; 
+    width: 100%; 
+    color: var(--color-on-background);
+    font-size: 1rem; 
+    outline: none; 
+}
+
 .page-leaderboard .board-container,
 .page-leaderboard .player-container {
     grid-row: 2;
-    padding-block: 2rem;
+    
 }
 .page-leaderboard .board-container {
     padding-inline: 1rem;
+	position: relative;
+}
+
+.page-leaderboard .player-container {
+	padding-block: 2rem;
 }
 .page-leaderboard .board {
     table-layout: auto;
@@ -85,6 +119,18 @@
 .page-leaderboard .player .table .score p {
     text-align: end;
 }
+
+.page-leaderboard .player .packs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+}
+.page-leaderboard .player .packs .tag {
+    display: flex;
+    flex-shrink: 0;
+    background-size: 100% 100% !important;
+}
+
 .page-leaderboard .player .table .level {
     width: 100%;
 }

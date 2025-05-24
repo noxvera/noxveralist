@@ -1,0 +1,50 @@
+[    {
+        "name": "zick Pack",
+        "levels": [
+            "zick1",
+            "zick2",
+            "zick3",
+            "zick4",
+            "zick5",
+            "zick6"
+        ],
+        "colour": "#a200ff"
+    },
+    {
+        "name": "impossible zick Pack",
+        "levels": [
+            "zick7",
+            "zick8",
+            "zick9"
+        ],
+        "colour": "#f42c2e"
+    },
+        {
+        "name": "zick Pack II",
+        "levels": [
+            "zickx",
+            "zick11",
+            "zick12"
+        ],
+        "colour": "#a200ff"
+    },
+        {
+        "name": "dylan Pack",
+        "levels": [
+            "iamdylan",
+            "theycallmedylan"
+        ],
+        "colour": "#9aa398"
+    },
+        {
+        "name": "Abomination Pack",
+        "levels": [
+            "balancedlevel",
+            "guranteedseex",
+            "solidpiss",
+            "epep409v3",
+            "silentclubchallenge"
+        ],
+        "colour": "#000000"
+    }
+]

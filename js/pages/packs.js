@@ -1,4 +1,4 @@
-import { store } from "../main.js";
+/* import { store } from "../main.js";
 import { embed } from "../util.js";
 import { score } from "../score.js";
 // import { packs } from "../pack.js";
@@ -80,3 +80,4 @@ export default {
         score,
     },
 };
+*/
