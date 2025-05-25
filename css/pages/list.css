@@ -20,7 +20,8 @@
 .page-list .list .level {
     width: 100%;
 }
-.page-list .list .level button {
+
+.shared-list .list .level button {
     position: relative;
     overflow: hidden;
     background-color: var(--color-background);
@@ -35,7 +36,7 @@
     transition: background-color 0.3s;
 }
 
-.page-list .list .level button::before {
+.shared-list .list .level button::before {
     content: "";
     position: absolute;
     top: 0;
@@ -44,18 +45,17 @@
     width: 0;
     background-color: rgba(255, 255, 255, 0.11111);
     z-index: 0;
-    transition: width 0.5s ease;
+    transition: width 0.3s ease;
 }
 
-.page-list .list .level button:hover::before {
+.shared-list .list .level button:hover::before {
     width: 100%;
 }
 
-.page-list .list .level button > * {
+.shared-list .list .level button > * {
     position: relative;
     z-index: 1;
 }
-
 
 .page-list .list .level.error button {
     color: var(--color-error);

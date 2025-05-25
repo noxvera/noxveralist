@@ -12,6 +12,9 @@ export default {
         </main>
         <main v-else class="page-roulette">
             <div class="sidebar">
+                <p class="type-label-md" style="color: #ffffff">
+                    I've kept this here but you probably shouldn't use this since many levels are unfinished/lost.
+                </p>
                 <p class="type-label-md" style="color: #aaa">
                     Shameless copy of the Extreme Demon Roulette by <a href="https://matcool.github.io/extreme-demon-roulette/" target="_blank">matcool</a>.
                 </p>

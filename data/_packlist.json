@@ -46,5 +46,21 @@
             "silentclubchallenge"
         ],
         "colour": "#000000"
+    },
+        {
+        "name": "Pre-2020 Pack",
+        "levels": [
+            "wenistower2019version",
+            "pillars"
+        ],
+        "colour": "#000000"
+    },
+        {
+        "name": "2017 Pack",
+        "levels": [
+            "razing717auto",
+            "razing717auto2"
+        ],
+        "colour": "#000000"
     }
 ]

@@ -14,7 +14,7 @@ export default {
         <main v-if="loading">
             <Spinner></Spinner>
         </main>
-        <main v-else class="pack-list">
+        <main v-else class="pack-list shared-list">
             <div class="packs-nav">
                 <div>
                     <button @click="switchLevels(i)" v-for="(pack, i) in packs" :style="{background: pack.colour}" class="type-label-lg">
@@ -29,8 +29,11 @@ export default {
                             <p class="type-label-lg">#{{ i + 1 }}</p>
                         </td>
                         <td class="level" :class="{ 'active': selectedLevel == i, 'error': !level }">
-                            <button :style= "[selectedLevel == i ? {background: pack.colour} : {}]" @click="selectedLevel = i">
+                            <button :style= "[selectedLevel == i ? {background: pack.colour} : {}]" @click="selectedLevel = i" 
+                                :class="{ 'highlight-higheffort': level[0]?.level?.higheffort === true }"
+                                :style="[selectedLevel == i ? { background: pack.colour } : {}]">
                                 <span class="type-label-lg">{{ level[0].level.name || \`Error (\.json)\` }}</span>
+                                <span v-if="level[0].level.subtitle" class="subtitle">{{ level[0].level.subtitle }}</span>
                             </button>
                         </td>
                     </tr>
@@ -39,15 +42,21 @@ export default {
             <div class="level-container">
                 <div class="level" v-if="selectedPackLevels[selectedLevel]">
                     <h1>{{ selectedPackLevels[selectedLevel][0].level.name }}</h1>
-                    <LevelAuthors :author="selectedPackLevels[selectedLevel][0].level.author" :creators="selectedPackLevels[selectedLevel][0].level.creators" :verifier="selectedPackLevels[selectedLevel][0].level.verifier"></LevelAuthors>
+                    <LevelAuthors :author="selectedPackLevels[selectedLevel][0].level.author" 
+                        :creators="selectedPackLevels[selectedLevel][0].level.creators" 
+                        :verifier="selectedPackLevels[selectedLevel][0].level.verifier"></LevelAuthors>
                     <div style="display:flex">
-                        <div v-for="pack in selectedPackLevels[selectedLevel][0].level.packs" class="tag" :style="{background:pack.colour, color:getFontColour(pack.colour)}">{{pack.name}}</div>
+                        <div v-for="pack in selectedPackLevels[selectedLevel][0].level.packs" class="tag" 
+                        :style="{background:pack.colour, color:getFontColour(pack.colour)}">{{pack.name}}</div>
                     </div>
                     <iframe class="video" :src="embed(selectedPackLevels[selectedLevel][0].level.verification)" frameborder="0"></iframe>
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">ID</div>
-                            <p>{{ selectedPackLevels[selectedLevel][0].level.id }}</p>
+                                <p :class="{ 'red-id': ['cancelled', 'lost'].includes(selectedPackLevels[selectedLevel][0].level.id),
+                                'yellow-id': ['unfinished'].includes(selectedPackLevels[selectedLevel][0].level.id)}">
+                                    {{ selectedPackLevels[selectedLevel][0].level.id }}
+                                </p>
                         </li>
                         <li>
                             <div class="type-title-sm">Password</div>
