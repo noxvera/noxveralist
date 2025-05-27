@@ -22,8 +22,12 @@ export default {
         </main>
         <main v-else class="page-list shared-list">
             <div class="list-container">
+                <div class="search-bar">
+                    <img :src="'/assets/search' + (store.dark ? '-dark' : '') + '.svg'" alt="Search icon">
+                    <input v-model="searchQuery" type="text" placeholder="Search level" />
+                </div>
                 <table class="list" v-if="list">
-                    <tr v-for="([level, err], i) in list">
+                    <tr v-for="([level, err], i) in filteredList">
                         <td class="rank">
                             <p v-if="i + 1 <= 150" class="type-label-lg">#{{ i + 1 }}</p>
                             <p v-else class="type-label-lg">Legacy</p>
@@ -84,7 +88,7 @@ export default {
                     </table>
                 </div>
                 <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
-                    <p>Someone forgot to add .json to the end of a file name, Ping a Staff Member</p>
+                    <p>No results</p>
                 </div>
             </div>
             <div class="meta-container">
@@ -93,9 +97,10 @@ export default {
                         <p class="error" v-for="error of errors">{{ error }}</p>
                     </div>
                     <div class="og">
-                        <p class="type-label-md">Original Layout by <a href="https://tsl.pages.dev/#/" target="_blank">The Shitty List</a></p>
+                        <p class="type-label-md">Original Layout by <a href="https://tsl.pages.dev/#/" target="_blank">TSL</a></p>
                     </div>
                     <template v-if="editors">
+                    
                         <h3>List Editors</h3>
                         <ol class="editors">
                             <li v-for="editor in editors">
@@ -104,7 +109,9 @@ export default {
                                 <p v-else>{{ editor.name }}</p>
                             </li>
                         </ol>
+                    
                     </template>
+                    
                     <h3>Important Notes (please read!!!)</h3>
                     <p>
                         - Levels on the list highlighted <span style="color:#ffd700;">Gold</span> are levels I consider to have actual effort put into them (though they might still be bad)
@@ -121,7 +128,6 @@ export default {
                     <p>
                         - Levels that are very low effort and/or under 10 seconds are not included here (or else this list would have like 500 levels). There may be some exceptions.
                     </p>
-                    <br/>
                     <h3>Submission Requirements</h3>
                     <p>
                         - Achieved the record without using hacks (CBF is fine, FPS bypass while using 2.1 is fine as long as it's under 360fps).
@@ -156,10 +162,16 @@ export default {
         errors: [],
         roleIconMap,
         store,
+        searchQuery: '',
     }),
     computed: {
         level() {
-            return this.list[this.selected][0];
+            return this.filteredList[this.selected]?.[0];
+        },
+        filteredList() {
+            if (!this.searchQuery) return this.list;
+            const query = this.searchQuery.toLowerCase();
+            return this.list.filter(([level]) => level?.name?.toLowerCase()?.includes(query));
         },
     },
     async mounted() {

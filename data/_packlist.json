@@ -23,7 +23,7 @@
         "name": "zick Pack II",
         "levels": [
             "zickx",
-            "zick11",
+            "oldzick11",
             "zick12"
         ],
         "colour": "#a200ff"
@@ -48,7 +48,16 @@
         "colour": "#000000"
     },
         {
-        "name": "Pre-2020 Pack",
+        "name": "2017 Pack",
+        "levels": [
+            "razing717auto",
+            "razing717auto2",
+            "thenightmareauto"
+        ],
+        "colour": "#000000"
+    },
+        {
+        "name": "2019 Pack",
         "levels": [
             "wenistower2019version",
             "pillars"
@@ -56,11 +65,11 @@
         "colour": "#000000"
     },
         {
-        "name": "2017 Pack",
+        "name": "2020 Pack",
         "levels": [
-            "razing717auto",
-            "razing717auto2"
+            "layout"
         ],
         "colour": "#000000"
     }
+    
 ]

@@ -3,12 +3,13 @@
     column-gap: 2rem;
 }
 .nav .nav__tab {
+    transform: translateX(-40px);
     padding-top: 4px;
     border-bottom: 4px solid transparent;
     display: flex;
     align-items: center;
     padding-inline: 0.5rem;
-    transition: border-color 100ms ease;
+    transition: border-color 300ms ease;
 }
 .nav .nav__tab.router-link-active {
     border-color: var(--color-on-primary);
@@ -21,6 +22,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-right: -10rem; /* move section right */
 }
 .nav .nav__actions .nav__icon {
     height: 3rem;
@@ -32,7 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 100ms ease;
+    transition: background-color 300ms ease;
 }
 .nav .nav__actions .nav__icon:hover {
     background-color: rgba(255, 255, 255, 0.2);
@@ -47,8 +49,25 @@
     color: var(--color-primary);
     border-radius: 0.5rem;
     box-shadow: 0 1px 0.5rem 0 rgba(0, 0, 102, 0.5);
-    transition: transform 100ms ease;
+    transition: transform 300ms ease;
 }
 .nav .nav__actions .nav__cta:hover:not(:active) {
     transform: translateY(-2px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* space between icon and text */
+}
+
+.logo img.list-icon {
+    height: 2rem; /* adjust as needed */
+    width: auto;
+}
+
+
+
+header .nav {
+    margin-left: 20px; /* keep consistent spacing */
 }

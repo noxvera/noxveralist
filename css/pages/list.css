@@ -1,7 +1,7 @@
 .page-list .list-container,
 .page-list .level-container,
 .page-list .meta-container {
-    padding-block: 2rem;
+    padding-block: 2rem; /* change later*/
 }
 .page-list .list-container {
     padding-inline: 1rem;
@@ -21,6 +21,7 @@
     width: 100%;
 }
 
+/* share with listpacks.js */
 .shared-list .list .level button {
     position: relative;
     overflow: hidden;
@@ -34,6 +35,8 @@
     overflow-wrap: anywhere;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-block: 0.1rem; /* gap between level button */
+    
 }
 
 .shared-list .list .level button::before {
@@ -171,3 +174,116 @@
     /* mix-blend-mode: difference; */
     /* color: rgb(128, 128, 128); */
 }
+
+/* records */
+
+.records tr.record {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-background);
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+
+    display: table;
+    width: 100%;
+    margin-bottom: 0.1rem;
+}
+
+.records tr.record td {
+    padding: 0rem 0.5rem;
+    vertical-align: middle;
+}
+
+.records tr.record::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: rgba(255, 255, 255, 0.11111);
+    z-index: 0;
+    transition: width 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+.records tr.record:hover::before {
+    width: 100%;
+}
+
+.records tr.record > * {
+    position: relative;
+    z-index: 1;
+}
+
+/*search bar*/
+.page-list .search-bar {
+	/* position: sticky; */
+	top: 0;
+	padding: 0rem 0;
+    display: flex;
+	align-items: center;
+    justify-content: flex-start;
+	gap: 1rem;
+	background-color: var(--color-background);
+    z-index: 10;
+    margin-bottom: 0.75em;
+    
+}
+
+.page-list .search-bar img {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.page-list .search-bar input {
+	background-color: transparent; 
+    border: none; 
+    border-bottom: 1px solid var(--color-on-background);
+    padding: 0.5rem 0; 
+    width: 100%; 
+    color: var(--color-on-background);
+    font-size: 1rem; 
+    outline: none; 
+}
+
+/*
+.page-list .meta-container .importantnotes {
+  background-color: rgba(0, 0, 0, 0.1); /* background already there
+  transition: transform 200ms ease, background-color 200ms ease;
+  position: relative;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+>> put back importantnotes class at LINE 114 List.js <<
+
+.page-list .meta-container .importantnotes:hover {
+  transform: translateY(-3px); 
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.page-list .meta-container .importantnotes p {
+  margin: 2rem 0; /* spacing between paragraph
+  line-height: 1.75; /* spacing inside paragraph
+}
+
+>> put back editors-container class at LINE 103 List.js
+.page-list .meta-container .editors-container {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.page-list .meta-container .editors-container:hover {
+  transform: translateY(-3px);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.page-list .meta-container .editors-container a {
+  margin: 0rem 0; /* spacing between paragraph
+  line-height: 0.2; /* spacing inside paragraph
+}
+  */

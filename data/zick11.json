@@ -1,13 +1,18 @@
-
 {
-    "id": 96461120,
+    "id": "96461120",
     "name": "zick 11",
-    "author": "noxvera",
+    "author": "N/A",
     "creators": ["noxvera"],
-    "verifier": "jamalmurray",
-    "verification": "https://youtu.be/ATlDa6uRnLg",
-    "percentToQualify": "100",
+    "verifier": "N/A",
+    "verification": "https://youtu.be/ztPFnJnUbFs",
+    "percentToQualify": "60",
     "password": "Free To Copy",
     "records": [
+            {
+            "user": "jamalmurray",
+            "link": "#",
+            "percent": 65,
+            "hz": 240
+        }
     ]
 }

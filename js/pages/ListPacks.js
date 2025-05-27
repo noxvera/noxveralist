@@ -29,9 +29,12 @@ export default {
                             <p class="type-label-lg">#{{ i + 1 }}</p>
                         </td>
                         <td class="level" :class="{ 'active': selectedLevel == i, 'error': !level }">
-                            <button :style= "[selectedLevel == i ? {background: pack.colour} : {}]" @click="selectedLevel = i" 
-                                :class="{ 'highlight-higheffort': level[0]?.level?.higheffort === true }"
-                                :style="[selectedLevel == i ? { background: pack.colour } : {}]">
+                            <button
+                            @click="selectedLevel = i"
+                            :class="{
+                                'highlight-higheffort': level[0]?.level?.higheffort === true,
+                                'selected': selectedLevel === i}"
+                                :style="selectedLevel === i ? { background: pack.colour } : {}">
                                 <span class="type-label-lg">{{ level[0].level.name || \`Error (\.json)\` }}</span>
                                 <span v-if="level[0].level.subtitle" class="subtitle">{{ level[0].level.subtitle }}</span>
                             </button>
@@ -94,11 +97,11 @@ export default {
                     </div>
                     <h3>About the packs</h3>
                     <p>
-                        These are list packs all chosen by the staff team that you can beat levels for and get the packs attached to your profile
+                        These packs are basically "level series". Some levels not made by me might be included here, as well as levels not on the list.
                     </p>
                     <h3>How can I get these packs?</h3>
                     <p>
-                        It's as simple as just beating the levels and getting your records added! The packs will automatically appear on your profile when all levels have been completed
+                        Packs will automatically appear on your profile when all levels in the pack have been completed.
                     </p>
                 </div>
             </div>

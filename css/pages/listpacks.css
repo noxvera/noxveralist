@@ -24,6 +24,33 @@
     background-size: 100% 100% !important;
 }
 
+/*
+.packs-nav button:hover{
+    transition: transform 300ms ease;
+    transform: translateY(4px);
+}
+*/
+
+.packs-nav button {
+    transform: translateY(0);
+    transition: transform 250ms ease;
+}
+
+.packs-nav button:hover:not(.selected):not(:active) {
+    transform: translateY(4px);
+}
+
+.packs-nav button:active {
+    transform: translateY(7px);
+}
+
+/* doesnt work  */
+.packs-nav button.selected {
+  background: red;
+  transform: translateY(3px) !important;
+}
+
+
 .packs-nav button p {
     
     color: #ffffff

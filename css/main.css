@@ -60,14 +60,25 @@ header {
     }
 }
 header .logo {
-    justify-self: end;
+    position: relative;
+    /* margin-left: 127px; /* 146.2187px max */
+    margin-left: auto;
+    margin-right: 21px;
+    margin-bottom: 9px;
     align-self: center;
     display: flex;
     align-items: flex-end;
     gap: 1rem;
+    flex-wrap: nowrap;
+    
 }
 header .nav {
     flex: 1;
+}
+
+.logo img.list-icon {
+    transform: translateY(4px);
+    
 }
 
 main {

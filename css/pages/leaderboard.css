@@ -89,6 +89,7 @@
     text-align: start;
     word-break: normal;
     overflow-wrap: anywhere;
+    margin-block: 0.1rem; /* gap between player button */
 }
 .page-leaderboard .board .user button:hover {
     background-color: var(--color-background-hover);
@@ -129,6 +130,7 @@
     display: flex;
     flex-shrink: 0;
     background-size: 100% 100% !important;
+    border-radius: 0.4em;
 }
 
 .page-leaderboard .player .table .level {
@@ -136,4 +138,78 @@
 }
 .page-leaderboard .player .table a:hover {
     text-decoration: underline;
+}
+
+/* transition */
+.page-leaderboard .board .user button {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: start;
+    word-break: normal;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.page-leaderboard .board .user button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: rgba(255, 255, 255, 0.11111);
+    z-index: 0;
+    transition: width 0.3s ease;
+}
+
+.page-leaderboard .board .user button:hover::before {
+    width: 100%;
+}
+
+.page-leaderboard .board .user button > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* records */
+.page-leaderboard .table tr {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-background);
+    align-items: center;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border-radius: 0.5em;
+    
+}
+
+.page-leaderboard .table tr::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* width: 105%;
+    margin-left: -2.5%; */
+    background-color: rgba(255, 255, 255, 0.11111);
+    z-index: 4;
+    transition: clip-path 0.3s ease;
+    border-radius: 0.5em;
+    clip-path: inset(0% 100% 0% 0% round 0.5em);
+}
+
+.page-leaderboard .table tr:hover::before {
+    clip-path: inset(0% -5% 0% 0% round 0.5em);
+}
+
+.page-leaderboard .table tr > * {
+    position: relative;
+    z-index: 1;
 }
