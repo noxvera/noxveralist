@@ -1,4 +1,35 @@
-[    {
+[    
+    {
+        "name": "2017 Pack",
+        "levels": [
+            "razing717auto",
+            "razing717auto2",
+            "thenightmareauto"
+        ],
+        "colour": "#000000"
+    },
+        {
+        "name": "2019 Pack",
+        "levels": [
+            "wenistower2019version",
+            "pillars",
+            "dislikethislevel"
+        ],
+        "colour": "#000000"
+    },
+        {
+        "name": "2020 Pack",
+        "levels": [
+            "layout",
+            "astronaut13layout",
+            "cosmiclayout",
+            "microsoftcartesla",
+            "collab1",
+            "xsteplayout"
+        ],
+        "colour": "#000000"
+    },
+    {
         "name": "zick Pack",
         "levels": [
             "zick1",
@@ -24,10 +55,12 @@
         "levels": [
             "zickx",
             "oldzick11",
+            "zick11",
             "zick12"
         ],
         "colour": "#a200ff"
     },
+
         {
         "name": "dylan Pack",
         "levels": [
@@ -36,6 +69,7 @@
         ],
         "colour": "#9aa398"
     },
+
         {
         "name": "Abomination Pack",
         "levels": [
@@ -46,30 +80,5 @@
             "silentclubchallenge"
         ],
         "colour": "#000000"
-    },
-        {
-        "name": "2017 Pack",
-        "levels": [
-            "razing717auto",
-            "razing717auto2",
-            "thenightmareauto"
-        ],
-        "colour": "#000000"
-    },
-        {
-        "name": "2019 Pack",
-        "levels": [
-            "wenistower2019version",
-            "pillars"
-        ],
-        "colour": "#000000"
-    },
-        {
-        "name": "2020 Pack",
-        "levels": [
-            "layout"
-        ],
-        "colour": "#000000"
     }
-    
 ]
