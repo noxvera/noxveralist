@@ -236,3 +236,10 @@ export async function fetchPackLevels(packname) {
         return null;
     }
 }
+
+export async function getIdClass(id) {
+    const idStr = typeof id === 'string' ? id : String(id);
+    if (idStr.includes('cancelled') || idStr.includes('lost')) return 'red-id';
+    if (idStr.includes('unfinished')) return 'yellow-id';
+    return '';
+}

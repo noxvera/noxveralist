@@ -23,6 +23,10 @@ header.dark {
     --color-on-error: white;
 }
 
+html {
+    overflow-x: hidden; 
+}
+
 html,
 body {
     height: 100%;
@@ -63,7 +67,7 @@ header .logo {
     position: relative;
     /* margin-left: 127px; /* 146.2187px max */
     margin-left: auto;
-    margin-right: 21px;
+    margin-right: 24px;
     margin-bottom: 9px;
     align-self: center;
     display: flex;
@@ -104,4 +108,8 @@ input[type="checkbox"] {
     width: 1.25rem;
     cursor: pointer;
     margin: 0;
+}
+
+.link-hover-underline:hover {
+  text-decoration: underline;
 }

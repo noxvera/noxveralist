@@ -4,6 +4,7 @@
     padding-block: 2rem; /* change later*/
 }
 .page-list .list-container {
+    padding-block: 0.7rem 2rem;
     padding-inline: 1rem;
 }
 .page-list .meta-container {
@@ -217,11 +218,11 @@
     z-index: 1;
 }
 
+
 /*search bar*/
 .page-list .search-bar {
 	/* position: sticky; */
-	top: 0;
-	padding: 0rem 0;
+	padding: 0rem 0.5rem;
     display: flex;
 	align-items: center;
     justify-content: flex-start;
@@ -229,7 +230,7 @@
 	background-color: var(--color-background);
     z-index: 10;
     margin-bottom: 0.75em;
-    
+    /* transform: translateY(-20px); */
 }
 
 .page-list .search-bar img {
@@ -249,6 +250,9 @@
 }
 
 /*
+
+everything below is for rightbar
+
 .page-list .meta-container .importantnotes {
   background-color: rgba(0, 0, 0, 0.1); /* background already there
   transition: transform 200ms ease, background-color 200ms ease;
@@ -286,4 +290,4 @@
   margin: 0rem 0; /* spacing between paragraph
   line-height: 0.2; /* spacing inside paragraph
 }
-  */
+*/

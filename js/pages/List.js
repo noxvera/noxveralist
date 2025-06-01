@@ -58,7 +58,7 @@ export default {
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>
-                            <p :class="{ 'red-id': ['cancelled', 'lost'].includes(level.id), 'yellow-id': ['unfinished'].includes(level.id) }">
+                            <p :class="getIdClass(level.id)">
                                 {{ level.id }}
                             </p>
                         </li>
@@ -120,32 +120,28 @@ export default {
                         - If you would like a copy of an <u>unreleased</u> level, feel free to contact me on Discord (username: 2894)
                     </p>
                     <p> 
-                        - aelt, Cyrobyte, and someone (green user) are all accounts belonging to me.
+                        - <a href="https://gdbrowser.com/u/k74" class="link-hover-underline" target="_blank">k74</a>, 
+                        <a href="https://gdbrowser.com/u/cyrobyte" class="link-hover-underline" target="_blank">Cyrobyte</a>, 
+                        and <a href="https://gdbrowser.com/search/19952001?user" class="link-hover-underline" target="_blank">someone (green user)</a> are all accounts belonging to me.
                     </p>
                     <p> 
-                        - Levels above [placeholder] are all most likely harder than top 1 (basically, Impossible Levels List difficulty).
+                        - Levels above [placeholder] are all most likely harder than top 1 (basically, <a href="https://docs.google.com/document/d/1byBf60vW_Tq7TjQPyniBxQ1Iw9CtSURJU4_Cl1IziqY" class="link-hover-underline" target="_blank" >ILL</a> difficulty).
                     </p>
                     <p>
                         - Levels that are very low effort and/or under 10 seconds are not included here (or else this list would have like 500 levels). There may be some exceptions.
                     </p>
                     <h3>Submission Requirements</h3>
                     <p>
-                        - Achieved the record without using hacks (CBF is fine, FPS bypass while using 2.1 is fine as long as it's under 360fps).
+                        - Record must be achieved without using hacks (CBF is fine, FPS bypass while using 2.1 is fine as long as it's under 360fps).
                     </p>
                     <p>
-                        - Achieved the record on the level that is listed on the site - please check the level ID before you submit a record.
+                        - The recording must include clicks.
                     </p>
                     <p>
-                        - Have either source audio or clicks/taps in the video. Edited audio only does not count.
+                        - The recording must show the previous death animation (unless completed first attempt), and the entire ending animation sequence.
                     </p>
                     <p>
-                        - The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt.
-                    </p>
-                    <p>
-                        - The recording must also show the player hit the endwall, or the completion will be invalidated.
-                    </p>
-                    <p>
-                        - Taking secret ways that were built into the level is allowed, as well as any small skips (either intentional or unintentional). Taking large unintentional secret ways is not allowed.
+                        - Taking secret ways is allowed.
                     </p>
                     <p>
                         - Globed 2P completions are not allowed.
@@ -200,6 +196,12 @@ export default {
         this.loading = false;
     },
     methods: {
+        getIdClass(id) {
+            const idStr = typeof id === 'string' ? id : String(id);
+            if (idStr.includes('cancelled') || idStr.includes('lost')) return 'red-id';
+            if (idStr.includes('unfinished')) return 'yellow-id';
+            return '';
+        },
         embed,
         score,
         getFontColour,

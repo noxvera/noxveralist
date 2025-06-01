@@ -56,10 +56,9 @@ export default {
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">ID</div>
-                                <p :class="{ 'red-id': ['cancelled', 'lost'].includes(selectedPackLevels[selectedLevel][0].level.id),
-                                'yellow-id': ['unfinished'].includes(selectedPackLevels[selectedLevel][0].level.id)}">
-                                    {{ selectedPackLevels[selectedLevel][0].level.id }}
-                                </p>
+                            <p :class="getIdClass(selectedPackLevels[selectedLevel][0].level.id)">
+                                {{ selectedPackLevels[selectedLevel][0].level.id }}
+                            </p>
                         </li>
                         <li>
                             <div class="type-title-sm">Password</div>
@@ -157,6 +156,13 @@ export default {
             );
 
             this.loadingPack = false;
+        },
+        // too lazy to put this into another file
+        getIdClass(id) {
+            const idStr = typeof id === 'string' ? id : String(id);
+            if (idStr.includes('cancelled') || idStr.includes('lost')) return 'red-id';
+            if (idStr.includes('unfinished')) return 'yellow-id';
+            return '';
         },
         score,
         embed,

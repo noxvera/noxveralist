@@ -207,6 +207,12 @@ input[type="number"],
     display: table;
 }
 
+/*
+.type-label-lg {
+    font-size: clamp(0.9rem, 0.9vw, 1.2rem);
+} 
+*/
+
 p,
 .type-body {
     font-family: "Lexend Deca", sans-serif;
