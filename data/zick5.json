@@ -1,4 +1,5 @@
 {
+    "challenge": true,
     "id": 92873017,
     "name": "zick 5",
     "author": "noxvera",
@@ -19,6 +20,12 @@
             "link": "https://drive.google.com/file/d/16NRx669LDj7nOc0pApesMvH5Fkw_GQ4N/view?usp=sharing",
             "percent": 100,
             "hz": 60
+        },
+        {
+            "user": "syberchase",
+            "link": "#",
+            "percent": 100,
+            "hz": 120
         }
     ]
 }

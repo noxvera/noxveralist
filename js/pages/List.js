@@ -22,6 +22,12 @@ export default {
         </main>
         <main v-else class="page-list shared-list">
             <div class="list-container">
+            <div class="filter-bar">
+            <label class="checkbox-label">
+                <input type="checkbox" v-model="hideChallenges"/>
+                    Hide challenge/short levels
+            </label>
+            </div>
                 <div class="search-bar">
                     <img :src="'/assets/search' + (store.dark ? '-dark' : '') + '.svg'" alt="Search icon">
                     <input v-model="searchQuery" type="text" placeholder="Search level" />
@@ -29,11 +35,11 @@ export default {
                 <table class="list" v-if="list">
                     <tr v-for="([level, err], i) in filteredList">
                         <td class="rank">
-                            <p v-if="i + 1 <= 150" class="type-label-lg">#{{ i + 1 }}</p>
+                            <p v-if="level?.originalIndex + 1 <= 150" class="type-label-lg">#{{ level?.originalIndex + 1 }}</p>
                             <p v-else class="type-label-lg">Legacy</p>
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level}">
-                            <button @click="selected = i" :class="{ 'highlight-higheffort': level?.higheffort === true}">
+                            <button @click="selectedLevel = level" :class="{ 'highlight-higheffort': level?.higheffort === true}">
                                 <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
                                 <span v-if="level.subtitle" class="subtitle">{{ level?.subtitle || ""}}</span>
                             </button>
@@ -54,7 +60,8 @@ export default {
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
-                            <p>{{ score(selected + 1, 100, level.percentToQualify) }}</p>
+                            <p>{{ score(level.originalIndex + 1, 100, parseFloat(String(level.percentToQualify).replace('*', ''))) }}</p>
+
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>
@@ -68,7 +75,9 @@ export default {
                         </li>
                     </ul>
                     <h2>Records</h2>
-                    <p v-if="selected + 1 <= 150"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
+                    <p v-if="selected + 1 <= 150">
+                        <strong>{{ parseFloat(String(level.percentToQualify).replace('*', '')) }}%<span v-if="String(level.percentToQualify).includes('*')">*</span></strong> or better to qualify
+                    </p>
                     <p v-else>This level does not accept new records.</p>
                     <table class="records">
                         <tr v-for="record in level.records" class="record">
@@ -117,6 +126,10 @@ export default {
                         - Levels on the list highlighted <span style="color:#ffd700;">Gold</span> are levels I consider to have actual effort put into them (though they might still be bad)
                     </p>
                     <p>
+                        - Qualifying percents with an asterisk indicate that it is a 2.1 percentage. 
+                        You can use <a href="https://geode-sdk.org/mods/zsa.percentage-toggle" class="link-hover-underline" target="_blank">the percentage toggle mod</a> to view 2.1 percentages in-game.
+                    </p>
+                    <p>
                         - If you would like a copy of an <u>unreleased</u> level, feel free to contact me on Discord (username: 2894)
                     </p>
                     <p> 
@@ -131,6 +144,9 @@ export default {
                         - Levels that are very low effort and/or under 10 seconds are not included here (or else this list would have like 500 levels). There may be some exceptions.
                     </p>
                     <h3>Submission Requirements</h3>
+                    <p>
+                        - (Important) Levels easier than [zick 5] do not require video because of how easy they are/literally auto.
+                    </p>
                     <p>
                         - Record must be achieved without using hacks (CBF is fine, FPS bypass while using 2.1 is fine as long as it's under 360fps).
                     </p>
@@ -159,21 +175,42 @@ export default {
         roleIconMap,
         store,
         searchQuery: '',
+        hideChallenges: false,
+        selectedLevel: null,
     }),
     computed: {
         level() {
-            return this.filteredList[this.selected]?.[0];
+            return this.selectedLevel;
         },
         filteredList() {
-            if (!this.searchQuery) return this.list;
-            const query = this.searchQuery.toLowerCase();
-            return this.list.filter(([level]) => level?.name?.toLowerCase()?.includes(query));
+            let result = this.list;
+            if (this.searchQuery) {
+                const query = this.searchQuery.toLowerCase();
+                result = result.filter(([level]) =>
+                level?.name?.toLowerCase()?.includes(query)
+            );
+            }     
+            if (this.hideChallenges) {
+                result = result.filter(([level]) => !level?.challenge);
+            }
+            return result;
+            // return this.list.filter(ientry => ientry?.user?.toLowerCase()?.includes(query));
         },
     },
     async mounted() {
         // Hide loading spinner
-        this.list = await fetchList();
+        //this.list = await fetchList();
+        const rawList = await fetchList();
+        this.list = rawList.map((entry, index) => {
+            entry[0].originalIndex = index;
+            return entry;
+        });
         this.editors = await fetchEditors();
+        
+        // initialize selectedLvel
+        if (this.filteredList.length > 0) {
+            this.selectedLevel = this.filteredList[0][0];
+        }
 
         // Error handling
         if (!this.list) {

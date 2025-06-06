@@ -1,5 +1,6 @@
 
 {
+    "challenge": true,
     "id": 92132070,
     "name": "Zick 1",
     "author": "noxvera",
@@ -14,6 +15,12 @@
             "link": "https://youtu.be/TD2i4CNs3iU",
             "percent": 100,
             "hz": 240
+        },
+        {
+            "user": "syberchase",
+            "link": "#",
+            "percent": 100,
+            "hz": 120
         }
     ]
 }

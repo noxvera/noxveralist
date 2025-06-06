@@ -22,7 +22,6 @@
     padding-inline: 0.4rem;
     transition: border-color 300ms ease;
     white-space: nowrap;
-    
 }
 
 .nav .nav__tab.router-link-active {
@@ -71,7 +70,6 @@
 
 .nav .nav__tab span {
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
 }
 
@@ -93,7 +91,7 @@
 }
 
 header .nav {
-    margin-left: 20px; /* keep consistent spacing */
+    margin-left: 10px; /* keep consistent spacing */
 }
 
 @media screen and (max-width: 768px), 

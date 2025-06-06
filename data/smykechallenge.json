@@ -1,4 +1,5 @@
 {
+    "challenge": true,
     "id": 75870234,
     "name": "smyke challenge",
     "author": "noxvera",
@@ -13,6 +14,12 @@
             "link": "https://youtu.be/a9kOqImuR7A",
             "percent": 100,
             "hz": 240
+        },
+        {
+            "user": "syberchase",
+            "link": "put video link later",
+            "percent": 100,
+            "hz": 120
         }
     ]
 }

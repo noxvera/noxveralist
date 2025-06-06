@@ -84,6 +84,8 @@ export async function fetchLeaderboard() {
             return;
         }
 
+        level.percentToQualify = parseFloat(String(level.percentToQualify).replace('*', ''));
+
         // Verification
         const verifier = Object.keys(scoreMap).find(
             (u) => u === level.verifier,
@@ -100,6 +102,7 @@ export async function fetchLeaderboard() {
             level: level.name,
             score: score(rank + 1, 100, level.percentToQualify),
             link: level.verification,
+            path: level.path,
         });
 
         // Records
@@ -209,6 +212,9 @@ export async function fetchPackLevels(packname) {
                 const levelResult = await fetch(`${dir}/${path}.json`);
                 try {
                     const level = await levelResult.json();
+                    // level.percentToQualify = parseFloat(String(level.percentToQualify).replace(/\*/g, ''));
+                    level.percentToQualifyRaw = level.percentToQualify;
+                    level.percentToQualify = parseFloat(String(level.percentToQualify).replace('*', ''));
                     level.verifier = nameMap[level.verifier] || level.verifier;
                     level.author = nameMap[level.author] || level.author;
                     level.creators = level.creators.map((creator) => nameMap[creator] || creator);

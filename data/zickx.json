@@ -1,4 +1,5 @@
 {
+    "challenge": true,
     "id": 96065267,
     "name": "zick x",
     "author": "noxvera",
@@ -8,5 +9,11 @@
     "percentToQualify": "100",
     "password": "not copyable lol",
     "records": [
+        {
+            "user": "syberchase",
+            "link": "placeholder",
+            "percent": 70,
+            "hz": 240
+        }
     ]
 }

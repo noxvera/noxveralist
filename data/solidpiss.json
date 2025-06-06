@@ -5,8 +5,14 @@
     "creators": ["noxvera, syberchase"],
     "verifier": "N/A",
     "verification": "https://youtu.be/n8ZLkrQjm7M",
-    "percentToQualify": "28",
+    "percentToQualify": "27",
     "password": "Free To Copy",
     "records": [
+        {
+            "user": "syberchase",
+            "link": "placeholder",
+            "percent": 61,
+            "hz": 240
+        }
     ]
 }

@@ -12,7 +12,7 @@ export default {
         </main>
         <main v-else class="page-roulette">
             <div class="sidebar">
-                <p class="type-label-md" style="color: #ffffff">
+                <p class="type-label-md">
                     I've kept this here but you probably shouldn't use this since many levels are unfinished/lost.
                 </p>
                 <p class="type-label-md" style="color: #aaa">

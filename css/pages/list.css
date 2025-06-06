@@ -249,6 +249,17 @@
     outline: none; 
 }
 
+.filter-bar {
+    margin-bottom: 0.6rem;
+    margin-top: 0.3rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 /*
 
 everything below is for rightbar

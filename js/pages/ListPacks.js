@@ -102,6 +102,10 @@ export default {
                     <p>
                         Packs will automatically appear on your profile when all levels in the pack have been completed.
                     </p>
+                    <h3>About individual packs</h3>
+                        <p>
+                        [placeholder]
+                        </p>
                 </div>
             </div>
         </main>

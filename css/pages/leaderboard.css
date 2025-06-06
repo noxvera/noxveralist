@@ -130,7 +130,7 @@
     display: flex;
     flex-shrink: 0;
     background-size: 100% 100% !important;
-    border-radius: 0.4em;
+    border-radius: 0.6em;
 }
 
 .page-leaderboard .player .table .level {
@@ -199,7 +199,7 @@
     /* width: 105%;
     margin-left: -2.5%; */
     background-color: rgba(255, 255, 255, 0.11111);
-    z-index: 4;
+    z-index: 1;
     transition: clip-path 0.3s ease;
     border-radius: 0.5em;
     clip-path: inset(0% 100% 0% 0% round 0.5em);

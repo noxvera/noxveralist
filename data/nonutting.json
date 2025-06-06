@@ -1,5 +1,6 @@
 
 {
+    "challenge": true,
     "id": 96080270,
     "name": "no nutting",
     "author": "noxvera",
@@ -14,6 +15,12 @@
             "link": "https://youtu.be/YULY9S7Wyc0",
             "percent": 100,
             "hz": 240
+        },
+        {
+            "user": "syberchase",
+            "link": "#",
+            "percent": 100,
+            "hz": 120
         }
     ]
 }
