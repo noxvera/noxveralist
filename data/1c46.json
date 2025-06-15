@@ -1,0 +1,18 @@
+{
+    "id": "unreleased",
+    "name": "1c46",
+    "author": "N/A",
+    "creators": ["noxvera"],
+    "verifier": "N/A",
+    "verification": "https://youtu.be/nxAIWM3phlo",
+    "percentToQualify": "81",
+    "password": "N/A",
+    "records": [
+        {
+            "user": "noxvera",
+            "link": "#",
+            "percent": 82,
+            "hz": 240
+        }
+    ]
+}

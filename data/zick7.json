@@ -9,17 +9,17 @@
     "percentToQualify": "43",
     "password": "Free To Copy",
     "records": [
-                    {
+        {
+            "user": "syberchase",
+            "link": "#",
+            "percent": 46,
+            "hz": 120
+        },
+        {
             "user": "noxvera",
             "link": "#",
             "percent": 43,
             "hz": 240
-        },
-            {
-            "user": "syberchase",
-            "link": "#",
-            "percent": 43,
-            "hz": 120
         }
     ]
 }
