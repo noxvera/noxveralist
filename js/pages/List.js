@@ -127,18 +127,18 @@ export default {
                     </p>
                     <p>
                         - Qualifying percents with an asterisk indicate that it is a 2.1 percentage. 
-                        You can use <a href="https://geode-sdk.org/mods/zsa.percentage-toggle" class="link-hover-underline" target="_blank">the percentage toggle mod</a> to view 2.1 percentages in-game.
+                        You can use the <a href="https://geode-sdk.org/mods/zsa.percentage-toggle" class="link-hover-underline" target="_blank">percentage toggle mod</a> to view 2.1 percentages in-game.
                     </p>
                     <p>
                         - If you would like a copy of an <u>unreleased</u> level, feel free to contact me on Discord (username: 2894)
                     </p>
                     <p> 
-                        - <a href="https://gdbrowser.com/u/k74" class="link-hover-underline" target="_blank">k74</a>, 
+                        - <a href="https://gdbrowser.com/u/1kv" class="link-hover-underline" target="_blank">1kV</a>, 
                         <a href="https://gdbrowser.com/u/cyrobyte" class="link-hover-underline" target="_blank">Cyrobyte</a>, 
                         and <a href="https://gdbrowser.com/search/19952001?user" class="link-hover-underline" target="_blank">someone (green user)</a> are all accounts belonging to me.
                     </p>
                     <p> 
-                        - Levels above [placeholder] are all most likely harder than top 1 (basically, <a href="https://docs.google.com/document/d/1byBf60vW_Tq7TjQPyniBxQ1Iw9CtSURJU4_Cl1IziqY" class="link-hover-underline" target="_blank" >ILL</a> difficulty).
+                        - Levels above 1c46 (#14) are all most likely harder than top 1 (basically, <a href="https://docs.google.com/document/d/1byBf60vW_Tq7TjQPyniBxQ1Iw9CtSURJU4_Cl1IziqY" class="link-hover-underline" target="_blank" >ILL</a> difficulty).
                     </p>
                     <p>
                         - Levels that are very low effort and/or under 10 seconds are not included here (or else this list would have like 500 levels). There may be some exceptions.
