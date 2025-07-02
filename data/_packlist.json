@@ -89,5 +89,17 @@
             "silentclubchallenge"
         ],
         "colour": "#000000"
+    },
+        {
+        "name": "Auto Pack",
+        "levels": [
+            "cosmiclayout",
+            "razing717auto2",
+            "razing717auto",
+            "pillars",
+            "astronaut13layout",
+            "silentclubchallenge"
+        ],
+        "colour": "#ECBC0C"
     }
 ]
