@@ -4,17 +4,11 @@
     "name": "zick 7",
     "author": "noxvera",
     "creators": ["noxvera"],
-    "verifier": "N/A",
+    "verifier": "syberchase",
     "verification": "https://youtu.be/mkXb8jgCUmY",
     "percentToQualify": "43",
     "password": "Free To Copy",
     "records": [
-        {
-            "user": "syberchase",
-            "link": "#",
-            "percent": 46,
-            "hz": 120
-        },
         {
             "user": "noxvera",
             "link": "#",
