@@ -111,5 +111,14 @@ input[type="checkbox"] {
 }
 
 .link-hover-underline:hover {
-  text-decoration: underline;
+    color: #63c1ff;
+    text-decoration: underline;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+    margin-left: 4px;
 }

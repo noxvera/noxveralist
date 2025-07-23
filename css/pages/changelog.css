@@ -1,0 +1,35 @@
+.page-changelog {
+  padding: 30px;
+  margin: 0 auto;
+  white-space: nowrap;
+  color: var(--color-on-background);
+}
+
+.page-changelog h1 {
+  font-size: 250%;
+  margin: 0 0 10px 0;
+  /* color: #ccc; */
+  letter-spacing: 0.00001em; /* bruh */
+}
+
+.page-changelog .changelog-subtle {
+  font-size: 75%;
+  color: #aaa;
+  margin-bottom: 0.5em;
+}
+
+.page-changelog .changelog-date {
+  font-size: 150%;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+.page-changelog p {
+  font-size: 90%;
+  color: #ccc;
+  margin: 6px 0;
+  display: block;
+  width: 100%;
+}

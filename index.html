@@ -7,21 +7,15 @@
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@500;700&display=swap"
-            rel="stylesheet"
-        />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@500;700&display=swap"/>
         <link rel="stylesheet" type="text/css" href="/css/reset.css" />
         <link rel="stylesheet" type="text/css" href="/css/typography.css" />
         <link rel="stylesheet" type="text/css" href="/css/main.css" />
         <link rel="stylesheet" type="text/css" href="/css/pages/list.css" />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="/css/pages/leaderboard.css"
-        />
+        <link rel="stylesheet" type="text/css" href="/css/pages/leaderboard.css"/>
         <link rel="stylesheet" type="text/css" href="/css/pages/listpacks.css" />
         <link rel="stylesheet" type="text/css" href="/css/pages/roulette.css" />
+        <link rel="stylesheet" type="text/css" href="/css/pages/changelog.css">
         <link rel="stylesheet" type="text/css" href="/css/components/nav.css" />
         <link rel="stylesheet" type="text/css" href="/css/components/btn.css" />
         <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
@@ -35,7 +29,7 @@
                     <img src="list_icon.png" alt="List Icon" class="list-icon nav__cta">
                 </a>
                 <h2>noxvera List</h2>
-                <p>v0.5.1</p>
+                <p>v0.6.0</p>
             </div>
             <nav class="nav">
                 <router-link class="nav__tab" to="/">
@@ -49,6 +43,9 @@
                 </router-link>
                 <router-link class="nav__tab" to="/roulette">
                     <span class="type-label-lg">Roulette</span>
+                </router-link>
+                <router-link class="nav__tab" to="/changelog">
+                    <span class="type-label-lg">Changelog</span>
                 </router-link>
                 <div class="nav__actions">
                     <button

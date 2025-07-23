@@ -66,7 +66,7 @@ export default {
                         </li>
                     </ul>
                     <h2>Records</h2>
-                    <p v-if="selected + 1 <= 150"><strong>{{ selectedPackLevels[selectedLevel][0].level.percentToQualify }}%</strong> or better to qualify</p>
+                    <p v-if="selected + 1 <= 200"><strong>{{ selectedPackLevels[selectedLevel][0].level.percentToQualify }}%</strong> or better to qualify</p>
                     <p v-else>100% or better to qualify</p>
                     <table class="records">
                         <tr v-for="record in selectedPackLevels[selectedLevel][0].level.records" class="record">
@@ -100,7 +100,7 @@ export default {
                     </p>
                     <h3>How can I get these packs?</h3>
                     <p>
-                        Packs will automatically appear on your profile when all levels in the pack have been completed.
+                        Packs will automatically appear on your profile when all levels in the pack have been completed. (Note that it is impossible to complete some packs due to some levels not being on the list)
                     </p>
                     <h3>About individual packs</h3>
                         <p>

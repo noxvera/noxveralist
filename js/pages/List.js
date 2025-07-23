@@ -24,8 +24,16 @@ export default {
             <div class="list-container">
             <div class="filter-bar">
             <label class="checkbox-label">
+                <input type="checkbox" v-model="hideUnverified"/>
+                    Hide unverified levels
+             </label>
+            <label class="checkbox-label">
+                <input type="checkbox" v-model="hideUnfinished"/>
+                    Hide unfinished/cancelled levels
+            </label>
+            <label class="checkbox-label">
                 <input type="checkbox" v-model="hideChallenges"/>
-                    Hide challenge/short levels
+                    Hide challenge levels
             </label>
             </div>
                 <div class="search-bar">
@@ -35,7 +43,7 @@ export default {
                 <table class="list" v-if="list">
                     <tr v-for="([level, err], i) in filteredList">
                         <td class="rank">
-                            <p v-if="level?.originalIndex + 1 <= 150" class="type-label-lg">#{{ level?.originalIndex + 1 }}</p>
+                            <p v-if="level?.originalIndex + 1 <= 200" class="type-label-lg">#{{ level?.originalIndex + 1 }}</p>
                             <p v-else class="type-label-lg">Legacy</p>
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level}">
@@ -75,7 +83,7 @@ export default {
                         </li>
                     </ul>
                     <h2>Records</h2>
-                    <p v-if="selected + 1 <= 150">
+                    <p v-if="selected + 1 <= 200">
                         <strong>{{ parseFloat(String(level.percentToQualify).replace('*', '')) }}%<span v-if="String(level.percentToQualify).includes('*')">*</span></strong> or better to qualify
                     </p>
                     <p v-else>This level does not accept new records.</p>
@@ -176,6 +184,8 @@ export default {
         store,
         searchQuery: '',
         hideChallenges: false,
+        hideUnverified: false,
+        hideUnfinished: false,
         selectedLevel: null,
     }),
     computed: {
@@ -189,10 +199,27 @@ export default {
                 result = result.filter(([level]) =>
                 level?.name?.toLowerCase()?.includes(query)
             );
-            }     
+            } 
+
             if (this.hideChallenges) {
                 result = result.filter(([level]) => !level?.challenge);
             }
+
+            if (this.hideUnverified) {
+                result = result.filter(([level]) => level?.verifier !== 'N/A');
+            }
+
+            if (this.hideUnfinished) {
+                result = result.filter(([level]) => {
+                    const idStr = String(level?.id || '').toLowerCase();
+                    return (
+                        !idStr.includes('cancelled') &&
+                        !idStr.includes('lost') &&
+                        !idStr.includes('unfinished')
+                    );
+                });
+            }
+
             return result;
             // return this.list.filter(ientry => ientry?.user?.toLowerCase()?.includes(query));
         },
