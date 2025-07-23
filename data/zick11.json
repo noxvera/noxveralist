@@ -8,7 +8,13 @@
     "percentToQualify": "52",
     "password": "Free To Copy",
     "records": [
-            {
+        {
+            "user": "noxvera",
+            "link": "#",
+            "percent": 66,
+            "hz": 240
+        },
+        {
             "user": "jamalmurray",
             "link": "#",
             "percent": 65,

@@ -7,7 +7,13 @@
     "verifier": "noxvera",
     "verification": "https://youtu.be/JCEVuzOlY44",
     "percentToQualify": "100",
-    "password": "free to copy",
+    "password": "Free to Copy",
     "records": [
+                {
+            "user": "syberchase",
+            "link": "#",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }
