@@ -31,10 +31,10 @@ export default {
                 <input type="checkbox" v-model="hideUnfinished"/>
                     Hide unfinished/cancelled levels
             </label>
-            <label class="checkbox-label">
+            ${/* <label class="checkbox-label">
                 <input type="checkbox" v-model="hideChallenges"/>
                     Hide challenge levels
-            </label>
+            </label> */''}
             </div>
                 <div class="search-bar">
                     <img :src="'/assets/search' + (store.dark ? '-dark' : '') + '.svg'" alt="Search icon">
@@ -46,12 +46,14 @@ export default {
                             <p v-if="level?.originalIndex + 1 <= 200" class="type-label-lg">#{{ level?.originalIndex + 1 }}</p>
                             <p v-else class="type-label-lg">Legacy</p>
                         </td>
-                        <td class="level" :class="{ 'active': selected == i, 'error': !level}">
-                            <button @click="selectedLevel = level" :class="{ 'highlight-higheffort': level?.higheffort === true}">
-                                <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
-                                <span v-if="level.subtitle" class="subtitle">{{ level?.subtitle || ""}}</span>
-                            </button>
-                        </td>
+                    <td class="level" :class="{ 'error': !level }">
+  <div :class="{ active: selectedLevel === level }">
+    <button @click="selectedLevel = level" :class="{ 'highlight-higheffort': level?.higheffort === true }">
+      <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
+      <span v-if="level.subtitle" class="subtitle">{{ level?.subtitle || "" }}</span>
+    </button>
+  </div>
+</td>
                     </tr>
                 </table>
             </div>
@@ -129,16 +131,13 @@ export default {
                     
                     </template>
                     
-                    <h3>Important Notes (please read!!!)</h3>
+                    <h3>Important Notes (please read!!)</h3>
                     <p>
                         - Levels on the list highlighted <span style="color:#ffd700;">Gold</span> are levels I consider to have actual effort put into them (though they might still be bad)
                     </p>
                     <p>
-                        - Qualifying percents with an asterisk indicate that it is a 2.1 percentage. 
+                        - Qualifying percentages with an asterisk (*) indicate that it is a 2.1 percentage. 
                         You can use the <a href="https://geode-sdk.org/mods/zsa.percentage-toggle" class="link-hover-underline" target="_blank">percentage toggle mod</a> to view 2.1 percentages in-game.
-                    </p>
-                    <p>
-                        - If you would like a copy of an <u>unreleased</u> level, feel free to contact me on Discord (username: 2894)
                     </p>
                     <p> 
                         - <a href="https://gdbrowser.com/u/1kv" class="link-hover-underline" target="_blank">1kV</a>, 
@@ -146,30 +145,9 @@ export default {
                         and <a href="https://gdbrowser.com/search/19952001?user" class="link-hover-underline" target="_blank">someone (green user)</a> are all accounts belonging to me.
                     </p>
                     <p> 
-                        - Levels above 1c46 (#14) are all most likely harder than top 1 (basically, <a href="https://docs.google.com/document/d/1byBf60vW_Tq7TjQPyniBxQ1Iw9CtSURJU4_Cl1IziqY" class="link-hover-underline" target="_blank" >ILL</a> difficulty).
+                        - Levels above 1c46 (#14) are all most likely harder than top 1 (<a href="https://impossiblelevels.com/" class="link-hover-underline" target="_blank" >ILL</a> difficulty).
                     </p>
-                    <p>
-                        - Levels that are very low effort and/or under 10 seconds are not included here (or else this list would have like 500 levels). There may be some exceptions.
-                    </p>
-                    <h3>Submission Requirements</h3>
-                    <p>
-                        - (Important) Levels easier than [zick 5] do not require video because of how easy they are/literally auto.
-                    </p>
-                    <p>
-                        - Record must be achieved without using hacks (CBF is fine, FPS bypass while using 2.1 is fine as long as it's under 360fps).
-                    </p>
-                    <p>
-                        - The recording must include clicks.
-                    </p>
-                    <p>
-                        - The recording must show the previous death animation (unless completed first attempt), and the entire ending animation sequence.
-                    </p>
-                    <p>
-                        - Taking secret ways is allowed.
-                    </p>
-                    <p>
-                        - Globed 2P completions are not allowed.
-                    </p>
+                    <h3 style="color: #4fb6fcff"><br><u><a href="/guidelines.pdf" target="_blank">Submission Requirements</a></u></h3>
                 </div>
             </div>
         </main>
@@ -215,7 +193,8 @@ export default {
                     return (
                         !idStr.includes('cancelled') &&
                         !idStr.includes('lost') &&
-                        !idStr.includes('unfinished')
+                        !idStr.includes('unfinished') &&
+                        !idStr.includes('n/a')
                     );
                 });
             }

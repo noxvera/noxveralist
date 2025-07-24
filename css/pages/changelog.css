@@ -1,21 +1,21 @@
 .page-changelog {
-  padding: 30px;
+  padding: 25px;
   margin: 0 auto;
   white-space: nowrap;
   color: var(--color-on-background);
 }
 
 .page-changelog h1 {
-  font-size: 250%;
-  margin: 0 0 10px 0;
+  font-size: 275%;
+  margin: 0 0 15px 0;
   /* color: #ccc; */
   letter-spacing: 0.00001em; /* bruh */
 }
 
-.page-changelog .changelog-subtle {
+.page-changelog .changelog-subtitle {
   font-size: 75%;
   color: #aaa;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.75em;
 }
 
 .page-changelog .changelog-date {
@@ -32,4 +32,35 @@
   margin: 6px 0;
   display: block;
   width: 100%;
+}
+
+
+/* scroll bar*/
+
+/*
+.page-changelog-wrapper {
+  grid-column: span 3;
+  display: grid;
+}
+
+.page-changelog-content {
+  grid-column: 2;
+  overflow-y: auto;
+  height: 100%;
+}
+*/
+
+
+main.page-changelog-wrapper {
+  display: block;
+  height: 100%;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.page-changelog-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
 }

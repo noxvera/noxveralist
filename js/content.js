@@ -249,3 +249,8 @@ export async function getIdClass(id) {
     if (idStr.includes('unfinished')) return 'yellow-id';
     return '';
 }
+
+export async function fetchChangelog() {
+    const res = await fetch('/data/_changelog.json');
+    return await res.json();
+}

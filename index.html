@@ -25,11 +25,13 @@
     <body id="app">
         <header :class="{ dark: store.dark }">
             <div class="logo">
-                <a href="https://gdbrowser.com/u/noxvera">
+                <a href="https://gdbrowser.com/u/noxvera" target="_blank">
                     <img src="list_icon.png" alt="List Icon" class="list-icon nav__cta">
                 </a>
                 <h2>noxvera List</h2>
-                <p>v0.6.0</p>
+                <a href="https://github.com/noxvera/noxveralist/releases" class="link-hover-underline" target="_blank">
+                <p>v0.6.1</p>
+                </a>
             </div>
             <nav class="nav">
                 <router-link class="nav__tab" to="/">
@@ -41,12 +43,12 @@
                 <router-link class="nav__tab" to="/leaderboard">
                     <span class="type-label-lg">Leaderboard</span>
                 </router-link>
-                <router-link class="nav__tab" to="/roulette">
+                <!-- <router-link class="nav__tab" to="/roulette">
                     <span class="type-label-lg">Roulette</span>
-                </router-link>
+                </router-link> -->
                 <router-link class="nav__tab" to="/changelog">
                     <span class="type-label-lg">Changelog</span>
-                </router-link>
+                </router-link> 
                 <div class="nav__actions">
                     <button
                         class="nav__icon"
