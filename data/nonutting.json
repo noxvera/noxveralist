@@ -6,21 +6,9 @@
     "author": "noxvera",
     "creators": [],
     "verifier": "noxvera",
-    "verification": "#",
+    "verification": "https://youtu.be/MGRBXVuYY0M",
     "percentToQualify": "100",
     "password": "Free To Copy",
     "records": [
-        {
-            "user": "jamalmurray",
-            "link": "https://youtu.be/YULY9S7Wyc0",
-            "percent": 100,
-            "hz": 240
-        },
-        {
-            "user": "syberchase",
-            "link": "#",
-            "percent": 100,
-            "hz": 120
-        }
     ]
 }
