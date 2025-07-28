@@ -17,8 +17,13 @@ export default {
         <main v-else class="pack-list shared-list">
             <div class="packs-nav">
                 <div>
-                    <button @click="switchLevels(i)" v-for="(pack, i) in packs" :style="{background: pack.colour}" class="type-label-lg">
-                        <p>{{pack.name}}</p>
+                    <button
+                        @click="switchLevels(i)"
+                        v-for="(pack, i) in packs"
+                        :style="{ background: pack.colour }"
+                        :class="['type-label-lg', { selected: selected === i }]"
+                    >
+                        <p>{{ pack.name }}</p>
                     </button>
                 </div>
             </div>
@@ -96,7 +101,7 @@ export default {
                     </div>
                     <h3>About the packs</h3>
                     <p>
-                        These packs are basically "level series". Some levels not made by me might be included here, as well as levels not on the list.
+                        These packs are basically "level series". Levels not made by me as well as levels not on the list are included here.
                     </p>
                     <h3>How can I get these packs?</h3>
                     <p>
@@ -152,15 +157,19 @@ export default {
     methods: {
         async switchLevels(i) {
             this.loadingPack = true;
-
+            const previousLevelId = this.selectedPackLevels[this.selectedLevel]?.[0]?.level?.id;
             this.selected = i;
-            this.selectedLevel = 0;
-            this.selectedPackLevels = await fetchPackLevels(
-                this.packs[this.selected].name
+            const newLevels = await fetchPackLevels(this.packs[this.selected].name);
+            this.selectedPackLevels = newLevels;
+            const matchingIndex = newLevels.findIndex(
+            level => level?.[0]?.level?.id === previousLevelId
             );
 
+            //stay on the same level if found
+            this.selectedLevel = matchingIndex !== -1 ? matchingIndex : 0;
             this.loadingPack = false;
         },
+
         // too lazy to put this into another file
         getIdClass(id) {
             const idStr = typeof id === 'string' ? id : String(id);

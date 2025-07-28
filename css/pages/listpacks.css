@@ -45,22 +45,20 @@
 }
 
 .packs-nav button:hover:not(.selected):not(:active) {
-    transform: translateY(4px);
+    transform: translateY(5px);
 }
 
 .packs-nav button:active {
-    transform: translateY(7px);
+    transform: translateY(9px);
 }
 
 /* doesnt work  */
 .packs-nav button.selected {
-  background: red;
-  transform: translateY(3px) !important;
+    transform: translateY(5px) !important;
 }
 
 
 .packs-nav button p {
-    
     color: #ffffff
 }
 

@@ -255,9 +255,9 @@
 }
 
 .checkbox-label {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+    display: block;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 /*

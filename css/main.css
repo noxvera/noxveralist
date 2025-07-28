@@ -110,6 +110,10 @@ input[type="checkbox"] {
     margin: 0;
 }
 
+.link-hover-underline {
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
 .link-hover-underline:hover {
     color: #63c1ff;
     text-decoration: underline;
