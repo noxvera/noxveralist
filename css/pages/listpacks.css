@@ -52,7 +52,6 @@
     transform: translateY(9px);
 }
 
-/* doesnt work  */
 .packs-nav button.selected {
     transform: translateY(5px) !important;
 }
