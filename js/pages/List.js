@@ -1,7 +1,7 @@
 import { store } from '../main.js';
-import { embed, getFontColour } from '../util.js';
+import { embed, getFontColour, getTags } from '../util.js';
 import { score } from '../score.js';
-import { fetchEditors, fetchList } from '../content.js';
+import { fetchEditors, fetchList, availableTags } from '../content.js';
 
 import Spinner from '../components/Spinner.js';
 import LevelAuthors from '../components/List/LevelAuthors.js';
@@ -22,24 +22,47 @@ export default {
         </main>
         <main v-else class="page-list shared-list">
             <div class="list-container">
-            <div class="filter-bar">
-            <label class="checkbox-label">
-                <input type="checkbox" v-model="hideUnverified"/>
-                    Hide unverified levels
-             </label>
-            <label class="checkbox-label">
-                <input type="checkbox" v-model="hideUnfinished"/>
-                    Hide unfinished/cancelled levels
-            </label>
-            ${/* <label class="checkbox-label">
-                <input type="checkbox" v-model="hideChallenges"/>
-                    Hide challenge levels
-            </label> */''}
-            </div>
-                <div class="search-bar">
+            ${/*
+                <div class="filter-bar"
+                    <label class="checkbox-label">
+                        <input type="checkbox" v-model="hideUnverified"/>
+                            Hide unverified levels
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" v-model="hideUnfinished"/>
+                            Hide unfinished/cancelled levels
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" v-model="hideChallenges"/>
+                            Hide challenge levels
+                    </label>
+                </div>*/''}
+                <div class="search-bar search-container">
                     <img :src="'/assets/search' + (store.dark ? '-dark' : '') + '.svg'" alt="Search icon">
-                    <input v-model="searchQuery" type="text" placeholder="Search level" />
+                    <input v-model="searchQuery" type="text" placeholder="Search map (e.g., 'zick')" />
+                    <button class="filter-button" @click="showTagMenu = true">
+                        <img src=/assets/funnel.svg alt="Filter" class="filter-icon" /> ${/* https://lucide.dev/icons/funnel */''}
+                    </button>
                 </div>
+                <transition name="overlay" appear>
+                    <div v-if="showTagMenu" class="tag-popup-overlay" @click.self="closeFilterMenu">
+                        <transition name="popup" appear>
+                            <div class="tag-popup" @click.stop>
+                                <button class="close-x" @click="closeFilterMenu">×</button>
+                                <h3>Filter by Tags</h3>
+                                <div class="tag-list">
+                                    <label v-for="tag in availableTags" :key="tag">
+                                        <input type="checkbox" :value="tag" v-model="selectedTags" />
+                                        {{ tag }}
+                                    </label>
+                                </div>
+                                <div class="close-wrapper">
+                                    <button class="close-btn" @click="closeFilterMenu">Close</button>
+                                </div>
+                            </div>
+                        </transition>
+                    </div>
+                </transition>
                 <table class="list" v-if="list">
                     <tr v-for="([level, err], i) in filteredList">
                         <td class="rank">
@@ -47,19 +70,22 @@ export default {
                             <p v-else class="type-label-lg">Legacy</p>
                         </td>
                     <td class="level" :class="{ 'error': !level }">
-  <div :class="{ active: selectedLevel === level }">
-    <button @click="selectedLevel = level" :class="{ 'highlight-higheffort': level?.higheffort === true }">
-      <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
-      <span v-if="level.subtitle" class="subtitle">{{ level?.subtitle || "" }}</span>
-    </button>
-  </div>
-</td>
+                        <div :class="{ active: selectedLevel === level }">
+                            <button @click="selectedLevel = level" :class="{ 'highlight-higheffort': level?.higheffort === true }">
+                                <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
+                                <span v-if="level.subtitle" class="subtitle">{{ level?.subtitle || "" }}</span>
+                            </button>
+                        </div>
+                    </td>
                     </tr>
                 </table>
             </div>
             <div class="level-container">
                 <div class="level" v-if="level">
                     <h1>{{ level.name }}</h1>
+                    <div class="divider-line"></div>
+                    <p v-if="level.description" class="level-description">{{ level.description }}</p>
+                    <p v-else class="level-description">No description has been added yet.</p>
                     <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
                     <div class="packs" v-if="level.packs.length > 0">
                         <div v-for="pack in level.packs" class="tag" :style="{background:pack.colour, color: getFontColour(pack.colour) || '#000000'}">
@@ -71,17 +97,34 @@ export default {
                         <li>
                             <div class="type-title-sm">Points when completed</div>
                             <p>{{ score(level.originalIndex + 1, 100, parseFloat(String(level.percentToQualify).replace('*', ''))) }}</p>
-
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>
-                            <p :class="getIdClass(level.id)">
-                                {{ level.id }}
-                            </p>
+                                <p :class="getIdClass(level.id)">
+                                    ${/* 
+                                        The following is commented out because gdbrowser cant display unlisted levels for some reason
+                                        <template v-if="/^[0-9]+$/.test(level.id)">
+                                        <a :href="'https://gdbrowser.com/' + level.id" target="_blank" rel="noopener noreferrer"> */''}
+                                            {{ level.id }}
+                                        ${/* </a>
+                                    </template>
+                                    <template v-else>
+                                        {{ level.id }}
+                                    </template> */''}
+                                </p>
                         </li>
                         <li>
-                            <div class="type-title-sm">Password</div>
-                            <p>{{ level.password || 'Free to Copy' }}</p>
+                            <div class="type-title-sm">Song ID</div>
+                            <p>
+                                <template v-if="/^[0-9]+$/.test(level.songID)">
+                                    <a :href="'https://www.newgrounds.com/audio/listen/' + level.songID" target="_blank" rel="noopener noreferrer">
+                                        {{ level.songID }}
+                                    </a>
+                                </template>
+                                <template v-else>
+                                    {{ level.songID || 'Free to Copy' }}
+                                </template>
+                            </p>
                         </li>
                     </ul>
                     <h2>Records</h2>
@@ -116,24 +159,22 @@ export default {
                         <p class="error" v-for="error of errors">{{ error }}</p>
                     </div>
                     <div class="og">
-                        <p class="type-label-md">Original Layout by <a href="https://tsl.pages.dev/#/" target="_blank">TSL</a></p>
+                        <p class="type-label-md">Original Layout by <a class="link-hover-underline" href="https://tsl.pages.dev/#/" target="_blank">TSL</a></p>
                     </div>
                     <template v-if="editors">
-                    
                         <h3>List Editors</h3>
                         <ol class="editors">
                             <li v-for="editor in editors">
                                 <img :src="\`/assets/\${roleIconMap[editor.role]}\${store.dark ? '-dark' : ''}.svg\`" :alt="editor.role">
-                                <a v-if="editor.link" class="type-label-lg link" target="_blank" :href="editor.link">{{ editor.name }}</a>
+                                <a v-if="editor.link" class="type-label-lg link-hover-underline" target="_blank" :href="editor.link">{{ editor.name }}</a>
                                 <p v-else>{{ editor.name }}</p>
                             </li>
                         </ol>
-                    
                     </template>
                     
                     <h3>Important Notes (please read!!)</h3>
                     <p>
-                        - Levels on the list highlighted <span style="color:#ffd700;">Gold</span> are levels I consider to have actual effort put into them (though they might still be bad)
+                        - Maps on the list highlighted <span style="color:#ffd700;">Gold</span> are maps I consider to have actual effort put into them (though they might still be bad).
                     </p>
                     <p>
                         - Qualifying percentages with an asterisk (*) indicate that it is a 2.1 percentage. 
@@ -145,9 +186,9 @@ export default {
                         and <a href="https://gdbrowser.com/search/19952001?user" class="link-hover-underline" target="_blank">someone (green user)</a> are all accounts belonging to me.
                     </p>
                     <p> 
-                        - Levels above 1c46 (#14) are all most likely harder than top 1 (<a href="https://impossiblelevels.com/" class="link-hover-underline" target="_blank" >ILL</a> difficulty).
+                        - Maps above average icedcave lvl (#18) are all most likely harder than top 1 (<a href="https://impossiblelevels.com/" class="link-hover-underline" target="_blank" >ILL difficulty</a>).
                     </p>
-                    <h3 style="color: #4fb6fcff"><br><u><a href="/guidelines.pdf" target="_blank">Submission Requirements</a></u></h3>
+                    <h3 style="color: #4fb6fcff"><u><a href="/guidelines.pdf" target="_blank">Submission Requirements</a></u></h3>
                 </div>
             </div>
         </main>
@@ -161,48 +202,39 @@ export default {
         roleIconMap,
         store,
         searchQuery: '',
+        /*
         hideChallenges: false,
         hideUnverified: false,
         hideUnfinished: false,
+        */
         selectedLevel: null,
+        selectedTags: JSON.parse(localStorage.getItem('selectedTags')) || [],
+        showTagMenu: false,
+        showFilterMenu: false,
+        availableTags,
     }),
+
     computed: {
         level() {
             return this.selectedLevel;
         },
-        filteredList() {
-            let result = this.list;
-            if (this.searchQuery) {
-                const query = this.searchQuery.toLowerCase();
-                result = result.filter(([level]) =>
-                level?.name?.toLowerCase()?.includes(query)
-            );
-            } 
+    filteredList() {
+        return this.list.filter(([level]) => {
+            const tags = getTags(level);
 
-            if (this.hideChallenges) {
-                result = result.filter(([level]) => !level?.challenge);
-            }
+            const matchesSearch =
+                this.searchQuery === "" ||
+                level.name.toLowerCase().includes(this.searchQuery.toLowerCase());
 
-            if (this.hideUnverified) {
-                result = result.filter(([level]) => level?.verifier !== 'N/A');
-            }
+            const matchesTags =
+                this.selectedTags.length === 0 ||
+                this.selectedTags.every(tag => tags.includes(tag));
 
-            if (this.hideUnfinished) {
-                result = result.filter(([level]) => {
-                    const idStr = String(level?.id || '').toLowerCase();
-                    return (
-                        !idStr.includes('cancelled') &&
-                        !idStr.includes('lost') &&
-                        !idStr.includes('unfinished') &&
-                        !idStr.includes('n/a')
-                    );
-                });
-            }
-
-            return result;
-            // return this.list.filter(ientry => ientry?.user?.toLowerCase()?.includes(query));
-        },
+            return matchesSearch && matchesTags;
+        });
+    }
     },
+    
     async mounted() {
         // Hide loading spinner
         //this.list = await fetchList();
@@ -213,7 +245,7 @@ export default {
         });
         this.editors = await fetchEditors();
         
-        // initialize selectedLvel
+        // initialize selectedLevel
         if (this.filteredList.length > 0) {
             this.selectedLevel = this.filteredList[0][0];
         }
@@ -238,6 +270,7 @@ export default {
 
         this.loading = false;
     },
+
     methods: {
         getIdClass(id) {
             const idStr = typeof id === 'string' ? id : String(id);
@@ -248,5 +281,26 @@ export default {
         embed,
         score,
         getFontColour,
+        /*
+        toggleTag(tag) {
+            if (this.selectedTags.includes(tag)) {
+                this.selectedTags = this.selectedTags.filter(t => t !== tag);
+            } else {
+                this.selectedTags.push(tag);
+            }
+        }
+        */
+        toggleTag(tag) {
+            const i = this.selectedTags.indexOf(tag);
+            if (i === -1) {
+                this.selectedTags.push(tag);
+            } else {
+                this.selectedTags.splice(i, 1);
+            }
+            localStorage.setItem('selectedTags', JSON.stringify(this.selectedTags));
+        },
+        closeFilterMenu() {
+            this.showTagMenu = false;
+        }     
     },
 };

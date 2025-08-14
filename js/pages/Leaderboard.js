@@ -24,7 +24,7 @@ export default {
         <div class="page-leaderboard">
             <div class="error-container">
                 <p class="error" v-if="err.length > 0">
-                    Leaderboard may be incorrect, as the following levels could not be loaded: {{ err.join(', ') }}
+                    Leaderboard may be incorrect, as the following maps could not be loaded: {{ err.join(', ') }}
                 </p>
             </div>
             <div class="board-container">
@@ -38,7 +38,7 @@ export default {
                             <p class="type-label-lg">#{{ entry.position }}</p>
                         </td>
                         <td class="total">
-                            <p class="type-label-lg">{{ localize(entry.total) }}</p>
+                            <p class="type-label-lg">{{ entry.user === 'unverified' ? '-' : localize(entry.total) }}</p>
                         </td>
                         <td class="user" :class="{ 'active': selected == entry.position - 1 }">
                             <button @click="selected = entry.position - 1">
@@ -51,13 +51,19 @@ export default {
             <div class="player-container">
                 <div class="player">
                     <h1>#{{ selected + 1 }} {{ entry.user }}</h1>
-                    <h3>{{ entry.total }}</h3>
+                    <h3 class="bold-line">
+                        {{ localize(entry.total, false) }} points,
+                        <span v-if="entry.verified.length > 0">
+                            Hardest: {{ entry.verified[0].level }}
+                            <span v-if="entry.verified[0].rank"> (#{{ entry.verified[0].rank }})</span>
+                        </span>
+                    </h3>
                     <div class="packs" v-if="entry.packs.length > 0">
                         <div v-for="pack in entry.packs" class="tag" :style="{background:pack.colour, color:getFontColour(pack.colour)}">
                             {{pack.name}}
                         </div>
                     </div>
-                    <h2 v-if="entry.verified.length > 0">Verified ({{ entry.verified.length}})</h2>
+                    <h2> {{ entry.user === 'unverified' ? 'Unverified' : 'Verified' }} ({{ entry.verified.length }}) </h2>
                     <table class="table">
                         <tr v-for="score in entry.verified">
                             <td class="rank">
@@ -118,11 +124,28 @@ export default {
     },
     async mounted() {
         const [leaderboard, err] = await fetchLeaderboard();
-        this.leaderboard = leaderboard;
+        const verified = [];
+        const unverified = [];
+
+        for (const entry of leaderboard) {
+            if (entry.user === "N/A") {
+                entry.user = "unverified";
+                unverified.push(entry);
+            } else {
+                verified.push(entry);
+            }
+        }
+
+        this.leaderboard = [...verified, ...unverified];
+
+        this.leaderboard.forEach((entry, index) => {
+            entry.position = index + 1;
+        });
+
         this.err = err;
-        // Hide loading spinner
         this.loading = false;
     },
+
     methods: {
         localize,
         getFontColour,

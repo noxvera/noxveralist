@@ -32,13 +32,6 @@
     background-size: 100% 100% !important;
 }
 
-/*
-.packs-nav button:hover{
-    transition: transform 300ms ease;
-    transform: translateY(4px);
-}
-*/
-
 .packs-nav button {
     transform: translateY(0);
     transition: transform 250ms ease;
@@ -55,7 +48,6 @@
 .packs-nav button.selected {
     transform: translateY(5px) !important;
 }
-
 
 .packs-nav button p {
     color: #ffffff
@@ -100,6 +92,7 @@
     overflow-wrap: anywhere;
     cursor: pointer;
     background-size: 100% 100% !important;
+    margin-block: 0.075rem; /* gap between level button */
 }
 .pack-list .list .level.error button {
     color: var(--color-error);
@@ -180,6 +173,7 @@
     color: var(--color-on-error);
     border-radius: 0.5rem;
 }
+/*
 .pack-list .meta .editors {
     display: flex;
     flex-direction: column;
@@ -195,7 +189,7 @@
 }
 .pack-list .meta .editors li a:hover {
     text-decoration: underline;
-}
+} */
 .tag {
     font-family: "Lexend Deca", sans-serif;
     display: block;
@@ -203,4 +197,20 @@
     color: white;
     background-color: #5d5d5d;
     padding: 7px;
+}
+
+.mainlist-placement {
+    position: relative;
+    bottom: 2px;
+    right: 1px;
+    font-weight: bold;
+    font-size: 0.6em;
+    color: #999;
+}
+
+.scroll-indicator{
+    font-size: 0.9em;
+    margin-bottom: -12px; /* distance between indicator and pack description */
+    margin-top: -10px; /* distance between indicator and pack row*/
+    color: #999;
 }

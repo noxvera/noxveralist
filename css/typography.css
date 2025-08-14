@@ -207,12 +207,6 @@ input[type="number"],
     display: table;
 }
 
-/*
-.type-label-lg {
-    font-size: clamp(0.9rem, 0.9vw, 1.2rem);
-} 
-*/
-
 p,
 .type-body {
     font-family: "Lexend Deca", sans-serif;
@@ -250,11 +244,9 @@ p::after,
     color: black !important;
     transition: background-color 0.3s;
 }
-
 .highlight-higheffort:hover {
     background-color: #fddc5c !important;
 }
-
 .highlight-higheffort::before {
     content: "";
     position: absolute;
@@ -266,11 +258,9 @@ p::after,
     transition: width 0.5s ease;
     z-index: 1;
 }
-
 .highlight-higheffort:hover::before {
     width: 100%;
 }
-
 .highlight-higheffort::after {
     content: "";
     position: absolute;
@@ -297,13 +287,20 @@ p::after,
     opacity: 1;
 }
 
-/*
-.highlight-higheffort.active:hover::after {
-  animation: none !important;
-  opacity: 0 !important;
+.highlight-higheffort > * {
+    position: relative;
+    z-index: 3;
 }
-*/
-/* Shine animation keyframes */
+.active .highlight-higheffort {
+    background-color: #f5bf03 !important;
+    color: black !important;
+}
+
+td.level .active button:not(.highlight-higheffort) {
+    background-color: black !important;
+    color: white !important;
+}
+
 @keyframes shine {
     from {
         left: -75%;
@@ -313,25 +310,9 @@ p::after,
     }
 }
 
-.highlight-higheffort > * {
-    position: relative;
-    z-index: 3;
-}
-
-.active .highlight-higheffort {
-    background-color: #f5bf03 !important;
-    color: black !important;
-}
-
 .red-id {
     color: #F42C2E;
 }
 .yellow-id {
     color: #f7fa31;
-}
-
-
-td.level .active button:not(.highlight-higheffort) {
-    background-color: black !important;
-    color: white !important;
 }

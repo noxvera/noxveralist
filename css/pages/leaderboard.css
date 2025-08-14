@@ -140,7 +140,7 @@
     text-decoration: underline;
 }
 
-/* transition */
+/* button transition */
 .page-leaderboard .board .user button {
     position: relative;
     overflow: hidden;
@@ -186,7 +186,6 @@
     transition: background-color 0.3s ease;
     cursor: pointer;
     border-radius: 0.5em;
-    
 }
 
 .page-leaderboard .table tr::before {

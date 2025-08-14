@@ -1,4 +1,4 @@
-import { fetchPacks, fetchPackLevels } from "../content.js";
+import { fetchPacks, fetchPackLevels, fetchList } from "../content.js";
 import { getFontColour, embed } from "../util.js";
 import { score } from "../score.js";
 
@@ -28,8 +28,14 @@ export default {
                 </div>
             </div>
             <div class="list-container">
-                <table class="list" v-if="selectedPackLevels">
-                    <tr v-for="(level, i) in selectedPackLevels">
+                <div class="filter-bar">
+                    <label class="checkbox-label">
+                    <input type="checkbox" v-model="sortByMainListOrder"/>
+                    Sort by difficulty
+                </label>
+                </div>
+                <table class="list" v-if="displayedPackLevels">
+                    <tr v-for="(level, i) in displayedPackLevels">
                         <td class="rank">
                             <p class="type-label-lg">#{{ i + 1 }}</p>
                         </td>
@@ -48,33 +54,38 @@ export default {
                 </table>
             </div>
             <div class="level-container">
-                <div class="level" v-if="selectedPackLevels[selectedLevel]">
-                    <h1>{{ selectedPackLevels[selectedLevel][0].level.name }}</h1>
-                    <LevelAuthors :author="selectedPackLevels[selectedLevel][0].level.author" 
-                        :creators="selectedPackLevels[selectedLevel][0].level.creators" 
-                        :verifier="selectedPackLevels[selectedLevel][0].level.verifier"></LevelAuthors>
+                <div class="level" v-if="displayedPackLevels[selectedLevel]">
+                    <h1>
+                        {{ displayedPackLevels[selectedLevel][0].level.name }}
+                        <span class="mainlist-placement">
+                            (#{{ selectedLevelPlacement ?? 'N/A' }})
+                        </span>
+                    </h1>
+                    <LevelAuthors :author="displayedPackLevels[selectedLevel][0].level.author" 
+                        :creators="displayedPackLevels[selectedLevel][0].level.creators" 
+                        :verifier="displayedPackLevels[selectedLevel][0].level.verifier"></LevelAuthors>
                     <div style="display:flex">
-                        <div v-for="pack in selectedPackLevels[selectedLevel][0].level.packs" class="tag" 
+                        <div v-for="pack in displayedPackLevels[selectedLevel][0].level.packs" class="tag" 
                         :style="{background:pack.colour, color:getFontColour(pack.colour)}">{{pack.name}}</div>
                     </div>
-                    <iframe class="video" :src="embed(selectedPackLevels[selectedLevel][0].level.verification)" frameborder="0"></iframe>
+                    <iframe class="video" :src="embed(displayedPackLevels[selectedLevel][0].level.verification)" frameborder="0"></iframe>
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">ID</div>
-                            <p :class="getIdClass(selectedPackLevels[selectedLevel][0].level.id)">
-                                {{ selectedPackLevels[selectedLevel][0].level.id }}
+                            <p :class="getIdClass(displayedPackLevels[selectedLevel][0].level.id)">
+                                {{ displayedPackLevels[selectedLevel][0].level.id }}
                             </p>
                         </li>
                         <li>
-                            <div class="type-title-sm">Password</div>
-                            <p>{{ selectedPackLevels[selectedLevel][0].level.password || 'Free to Copy' }}</p>
+                            <div class="type-title-sm">song ID</div>
+                            <p>{{ displayedPackLevels[selectedLevel][0].level.songID || 'Free to Copy' }}</p>
                         </li>
                     </ul>
                     <h2>Records</h2>
-                    <p v-if="selected + 1 <= 200"><strong>{{ selectedPackLevels[selectedLevel][0].level.percentToQualify }}%</strong> or better to qualify</p>
+                    <p v-if="selected + 1 <= 200"><strong>{{ displayedPackLevels[selectedLevel][0].level.percentToQualify }}%</strong> or better to qualify</p>
                     <p v-else>100% or better to qualify</p>
                     <table class="records">
-                        <tr v-for="record in selectedPackLevels[selectedLevel][0].level.records" class="record">
+                        <tr v-for="record in displayedPackLevels[selectedLevel][0].level.records" class="record">
                             <td class="percent">
                                 <p>{{ record.percent }}%</p>
                             </td>
@@ -99,13 +110,14 @@ export default {
                     <div class="errors" v-show="errors.length > 0">
                         <p class="error" v-for="error of errors">{{ error }}</p>
                     </div>
+                    <p class="scroll-indicator">You can scroll sideways to see more packs</p>
                     <h3>About the packs</h3>
                     <p>
-                        These packs are basically "level series". Levels not made by me as well as levels not on the list are included here.
+                        These packs are basically "map series". Maps not made by me as well as maps not on the list are included here.
                     </p>
                     <h3>How can I get these packs?</h3>
                     <p>
-                        Packs will automatically appear on your profile when all levels in the pack have been completed. (Note that it is impossible to complete some packs due to some levels not being on the list)
+                        Packs will automatically appear on your profile when all maps in the pack have been cleared. (Note that it is impossible to clear some packs due to some maps not being on the list)
                     </p>
                     <h3>About individual packs</h3>
                         <p>
@@ -123,17 +135,51 @@ export default {
         selectedPackLevels: [],
         loading: true,
         loadingPack: true,
+        listOrderMap: {},
+        sortByMainListOrder: false,
     }),
     computed: {
         pack() {
             return this.packs[this.selected];
         },
+        displayedPackLevels() {
+        if (!this.selectedPackLevels) return [];
+        if (!this.sortByMainListOrder) {
+            return this.selectedPackLevels; // natural pack order
+        }
+        // Sort by list order (difficulty)
+        return [...this.selectedPackLevels].sort((a, b) => {
+            // Defensive fallback: If no id found, sort to end
+            const idA = a?.[0]?.level?.id;
+            const idB = b?.[0]?.level?.id;
+            const indexA = idA in this.listOrderMap ? this.listOrderMap[idA] : Infinity;
+            const indexB = idB in this.listOrderMap ? this.listOrderMap[idB] : Infinity;
+            return indexA - indexB;
+        });
+    },
+    selectedLevelPlacement() {
+        const level = this.displayedPackLevels[this.selectedLevel]?.[0]?.level;
+        if (!level) return null;
+        const placement = this.listOrderMap[level.id];
+        return placement !== undefined ? placement + 1 : null; // index
+    }
     },
     async mounted() {
         this.packs = await fetchPacks();
         this.selectedPackLevels = await fetchPackLevels(
             this.packs[this.selected].name
         );
+
+            const mainList = await fetchList();
+
+    this.listOrderMap = {};
+    mainList.forEach(([level], idx) => {
+        if (level && level.id)
+            this.listOrderMap[level.id] = idx;
+    });
+
+    this.loading = false;
+    this.loadingPack = false;
 
         // Error handling todo: make error handling
         // if (!this.packs) {
@@ -181,4 +227,17 @@ export default {
         embed,
         getFontColour,
     },
+    watch: {
+        sortByMainListOrder(newVal, oldVal) {
+            // Always get ID from original unsorted list
+            const currentLevelId = this.selectedPackLevels[this.selectedLevel]?.[0]?.level?.id;
+
+            this.$nextTick(() => {
+                const newIndex = this.displayedPackLevels.findIndex(
+                    level => level?.[0]?.level?.id === currentLevelId
+                );
+                this.selectedLevel = newIndex !== -1 ? newIndex : 0;
+            });
+        }
+    }
 };

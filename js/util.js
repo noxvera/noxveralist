@@ -5,13 +5,64 @@ export function getYoutubeIdFromUrl(url) {
     )?.[1] ?? '';
 }
 
-export function embed(video) {
-    return `https://www.youtube.com/embed/${getYoutubeIdFromUrl(video)}`;
+function parseTimeToSeconds(time) {
+
+    if (!time) return 0;
+
+    if (/^\d+$/.test(time)) {
+        return parseInt(time, 10);
+    }
+
+    const regex = /(\d+)(h|m|s)/g;
+    let totalSeconds = 0;
+    let match;
+    while ((match = regex.exec(time)) !== null) {
+        const value = parseInt(match[1], 10);
+        const unit = match[2];
+        if (unit === 'h') totalSeconds += value * 3600;
+        else if (unit === 'm') totalSeconds += value * 60;
+        else if (unit === 's') totalSeconds += value;
+    }
+
+    if (totalSeconds === 0) {
+        return parseInt(time, 10) || 0;
+    }
+
+    return totalSeconds;
 }
 
-export function localize(num) {
-    return num.toLocaleString(undefined, { minimumFractionDigits: 3 });
+export function embed(video) {
+    if (!video) return 'https://www.youtube.com/embed/invalid'; //return empty if no url
+
+    let startSeconds = null;
+    try {
+        const url = new URL(video, 'https://example.com');
+        const t = url.searchParams.get('t') || url.searchParams.get('start');
+        if (t) startSeconds = parseTimeToSeconds(t);
+
+        // check for t=
+        if (url.hash) {
+        const hash = url.hash.substring(1);
+        const m = hash.match(/t=([\dhms]+)/i);
+        if (m) startSeconds = parseTimeToSeconds(m[1]);
+        }
+    } catch {
+        // ignore if invalid url
+    }
+    
+    const id = getYoutubeIdFromUrl(video);
+    if (!id) return 'https://www.youtube.com/embed/invalid';
+
+    return `https://www.youtube.com/embed/${id}${startSeconds ? `?start=${startSeconds}` : ''}`;
 }
+
+
+export function localize(number, useCommas = true, decimals = 2) {
+    const fixed = Number(number).toFixed(decimals);
+    if (!useCommas) return fixed;
+    return fixed.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 
 export function getThumbnailFromId(id) {
     return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
@@ -67,4 +118,32 @@ export function getFontColour(hex){
     const blackContrast = getContrast(hex, "#000000");
     
     return whiteContrast > blackContrast ? "#ffffff" : "#000000";
+}
+
+export function getTags(level) {
+    const tags = [];
+
+    if (level.challenge) tags.push("challenge");
+    if (level.higheffort) tags.push("high effort");
+
+    const idStr = String(level.id).toLowerCase();
+    if (!idStr.includes("n/a") && !idStr.includes("unfinished") && !idStr.includes("cancelled") && !idStr.includes("lost") && !idStr.includes("unreleased")) {
+        tags.push("released");
+    }
+
+    if (level.verifier && level.verifier.toLowerCase() !== "n/a") {
+        tags.push("verified");
+    } else {
+        tags.push("unverified");
+    }
+
+    if (level.songID === "NONG") {
+        tags.push("NONG");
+    }
+
+    if (!level.records || level.records.length === 0) {
+        tags.push("no progress");
+    }
+
+    return tags;
 }

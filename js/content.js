@@ -254,3 +254,7 @@ export async function fetchChangelog() {
     const res = await fetch('/data/_changelog.json');
     return await res.json();
 }
+
+export const availableTags = [
+    'released', 'verified', 'unverified', 'challenge', 'high effort', /* 'NONG', 'no progress' */
+];
