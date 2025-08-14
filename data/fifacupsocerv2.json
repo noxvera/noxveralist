@@ -2,12 +2,13 @@
     "higheffort": true,
     "id": "unfinished",
     "name": "fifa cup SOCER v2",
+    "description": "Originally going to be an extension and to replace the original fifa cup SOCER, however I made it into a v2 due to how different it ended up. Inspired by brazil worldcup and Silent clubstep. 7-1",
     "author": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/67wLW8xRsCs",
     "percentToQualify": "7",
-    "password": "N/A",
+    "songID": "default",
     "records": [
     ]
 }

@@ -2,12 +2,13 @@
     "challenge": true,
     "id": 92345357,
     "name": "Zick 3",
+    "description": "ts the easiest shit ever but people find it hard for some reason",
     "author": "noxvera",
-    "creators": [],
+    "creators": ["noxvera"],
     "verifier": "noxvera",
     "verification": "https://youtu.be/qQedJVrH3-E",
     "percentToQualify": "100",
-    "password": "Free To Copy",
+    "songID": "830628",
     "records": [
             {
             "user": "jamalmurray",

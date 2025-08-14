@@ -7,7 +7,7 @@
     "verifier": "galoche",
     "verification": "https://www.youtube.com/watch?v=b5CTvuncjww",
     "percentToQualify": "100",
-    "password": "Free To Copy",
+    "songID": "33326",
     "records": [
         {
             "user": "jamalmurray",
@@ -17,6 +17,12 @@
         },
         {
             "user": "syberchase",
+            "link": "put video link later",
+            "percent": 100,
+            "hz": 120
+        },
+        {
+            "user": "noxvera",
             "link": "put video link later",
             "percent": 100,
             "hz": 120

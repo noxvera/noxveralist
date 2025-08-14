@@ -6,7 +6,7 @@
     "verifier": "noxvera",
     "verification": "https://youtu.be/nX7B7qbIyzU",
     "percentToQualify": "100",
-    "password": "123456",
+    "songID": "default",
     "records": [
         {
             "user": "galoche",

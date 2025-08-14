@@ -1,12 +1,13 @@
 {
     "id": "unfinished",
     "name": "aj0001mochardzong",
+    "description": "Unreleasable due to the name.",
     "author": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/dkqorp4yHyQ",
     "percentToQualify": "36",
-    "password": "N/A",
+    "songID": "default",
     "records": [
     ]
 }

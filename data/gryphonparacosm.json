@@ -2,12 +2,13 @@
     "higheffort": true,
     "id": "unreleased",
     "name": "Gryphon Paracosm",
+    "description": "Map that I started building in 2021 and didn't finish until 2023. The 2nd half of the wave kind of fell off, but it's still probably one of the best maps I have made. Was going to be decorated, but it got cancelled after the decorator took 4 months to decorate 3% of the map. Dedicated to @galoche's cat Gryphon.",
     "author": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/3gSWtSjz0LI",
-    "percentToQualify": "3",
-    "password": "N/A",
+    "percentToQualify": "4",
+    "songID": "559803",
     "records": [
     ]
 }

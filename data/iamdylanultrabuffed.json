@@ -1,12 +1,13 @@
 {
     "id": "unreleased",
     "name": "i am dylan ultrabuffed",
+    "description": "ultra dylan i am buffed",
     "author": "N/A",
     "creators": ["noxvera", "syberchase"],
     "verifier": "N/A",
     "verification": "https://youtu.be/y4ovmNWKgts",
     "percentToQualify": "4",
-    "password": "N/A",
+    "songID": "639309",
     "records": [
     ]
 }

@@ -2,12 +2,13 @@
     "challenge": true,
     "id": "123005906",
     "name": "1c46",
+    "description": "You must play the map yourself to uncover the lore behind this map................",
     "author": "1kV",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/nxAIWM3phlo",
     "percentToQualify": "82",
-    "password": "Free To Copy",
+    "songID": "N/A",
     "records": [
         {
             "user": "noxvera",

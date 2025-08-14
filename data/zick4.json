@@ -2,12 +2,13 @@
     "challenge": true,
     "id": 92783871,
     "name": "zick 4",
+    "description": "Starting with this map I forgot to capitalize \"zick\"..",
     "author": "noxvera",
-    "creators": [],
+    "creators": ["noxvera"],
     "verifier": "noxvera",
     "verification": "https://youtu.be/I7RFDaxRr8g",
     "percentToQualify": "100",
-    "password": "Free To Copy",
+    "songID": "473413",
     "records": [
             {
             "user": "jamalmurray",

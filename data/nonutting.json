@@ -3,12 +3,13 @@
     "challenge": true,
     "id": 96080270,
     "name": "no nutting",
+    "description": "don't fail.",
     "author": "noxvera",
     "creators": [],
     "verifier": "noxvera",
     "verification": "https://youtu.be/MGRBXVuYY0M",
     "percentToQualify": "100",
-    "password": "Free To Copy",
+    "songID": "383154",
     "records": [
     ]
 }

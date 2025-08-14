@@ -8,5 +8,10 @@
         "role": "dev",
         "name": "noxvera",
         "link": "https://github.com/noxvera/noxveralist"
+    },
+        {
+        "role": "dev",
+        "name": "Prometheus",
+        "link": "https://www.youtube.com/@Prometheus_Alt"
     }
 ]

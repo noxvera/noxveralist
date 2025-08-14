@@ -2,18 +2,13 @@
     "challenge": true,
     "id": "92633210",
     "name": "edp445 challenge",
+    "description": "https://youtu.be/m4S-8nmMxdI?t=2650",
     "author": "noxvera",
-    "creators": ["noxvera"],
+    "creators": ["noxvera", "Zobros"],
     "verifier": "noxvera",
-    "verification": "#",
+    "verification": "https://youtu.be/4R4nLHOgVck",
     "percentToQualify": "100",
-    "password": "not copyable lol",
+    "songID": "624882",
     "records": [
-        {
-            "user": "syberchase",
-            "link": "https://www.youtube.com/watch?v=VEiFeo8j7Qk",
-            "percent": 100,
-            "hz": 240
-        }
     ]
 }
