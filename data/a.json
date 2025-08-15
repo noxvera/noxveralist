@@ -3,12 +3,12 @@
     "id": 116927642,
     "name": "a",
     "description": "I made this in like 5 minutes while on @jamalmurray's account since I didn't want to leave a \"noxvera was here \" type message.",
-    "author": "jamalmurray",
+    "publisher": "jamalmurray",
     "creators": ["noxvera"],
     "verifier": "jamalmurray",
     "verification": "https://youtu.be/cPvjHi4eNNY",
     "percentToQualify": "161504",
-    "songID": "Free To Copy",
+    "song": "Free To Copy",
     "records": [
         {
             "user": "syberchase",

@@ -3,12 +3,12 @@
     "challenge": true,
     "id": 96461120,
     "name": "old zick 11",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera"],
     "verifier": "jamalmurray",
     "verification": "https://youtu.be/ATlDa6uRnLg",
     "percentToQualify": "100",
-    "songID": "742681",
+    "song": "742681",
     "records": [
         {
             "user": "syberchase",

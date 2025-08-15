@@ -1,12 +1,12 @@
 {
     "id": 62112375,
     "name": "cosmic layout",
-    "author": "Cyrobyte",
+    "publisher": "Cyrobyte",
     "creators": ["noxvera"],
     "verifier": "noxvera",
     "verification": "#",
     "percentToQualify": "100",
-    "songID": "591740",
+    "song": "591740",
     "records": [
     ]
 }

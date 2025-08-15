@@ -1,12 +1,12 @@
 {
     "id": "unfinished",
     "name": "algerian toilet",
-    "author": "N/A",
+    "publisher": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/SVd-GyQkq9o",
     "percentToQualify": "7",
-    "songID": "541008",
+    "song": "541008",
     "records": [
     ]
 }

@@ -2,12 +2,12 @@
     "challenge": true,
     "id": 92316478,
     "name": "Zick 2",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": [],
     "verifier": "noxvera",
     "verification": "https://youtu.be/WFub4umdVfQ",
     "percentToQualify": "100",
-    "songID": "792302",
+    "song": "792302",
     "records": [
         {
             "user": "jamalmurray",

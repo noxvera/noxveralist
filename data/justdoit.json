@@ -2,12 +2,12 @@
     "challenge": true,
     "id": 96306219,
     "name": "Just Do It",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera"],
     "verifier": "jamalmurray",
     "verification": "https://youtu.be/1NvVTuWBLZc",
     "percentToQualify": "100",
-    "songID": "default",
+    "song": "default",
     "records": [
                     {
             "user": "syberchase",

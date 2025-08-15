@@ -1,12 +1,12 @@
 {
     "id": 68310165,
     "name": "plasma rush",
-    "author": "Cyrobyte",
+    "publisher": "Cyrobyte",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/CBmDFjSjUvA",
     "percentToQualify": "43",
-    "songID": "468939",
+    "song": "468939",
     "records": [
     ]
 }

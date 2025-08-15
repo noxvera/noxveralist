@@ -1,12 +1,12 @@
 {
     "id": "unfinished",
     "name": "corrosion p5",
-    "author": "N/A",
+    "publisher": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/XyRH1R8bud0",
     "percentToQualify": "100",
-    "songID": "224958",
+    "song": "224958",
     "records": [
     ]
 }

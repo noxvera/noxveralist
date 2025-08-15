@@ -86,7 +86,7 @@ export default {
                     <div class="divider-line"></div>
                     <p v-if="level.description" class="level-description">{{ level.description }}</p>
                     <p v-else class="level-description">No description has been added yet.</p>
-                    <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
+                    <LevelAuthors :publisher="level.publisher" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
                     <div class="packs" v-if="level.packs.length > 0">
                         <div v-for="pack in level.packs" class="tag" :style="{background:pack.colour, color: getFontColour(pack.colour) || '#000000'}">
                             <p>{{pack.name}}</p>
@@ -114,15 +114,15 @@ export default {
                                 </p>
                         </li>
                         <li>
-                            <div class="type-title-sm">Song ID</div>
+                            <div class="type-title-sm">Song</div>
                             <p>
-                                <template v-if="/^[0-9]+$/.test(level.songID)">
-                                    <a :href="'https://www.newgrounds.com/audio/listen/' + level.songID" target="_blank" rel="noopener noreferrer">
-                                        {{ level.songID }}
+                                <template v-if="/^[0-9]+$/.test(level.song)">
+                                    <a :href="'https://www.newgrounds.com/audio/listen/' + level.song" target="_blank" rel="noopener noreferrer">
+                                        {{ level.song }}
                                     </a>
                                 </template>
                                 <template v-else>
-                                    {{ level.songID || 'Free to Copy' }}
+                                    {{ level.song || 'Free to Copy' }}
                                 </template>
                             </p>
                         </li>
@@ -188,7 +188,7 @@ export default {
                     <p> 
                         - Maps above average icedcave lvl (#18) are all most likely harder than top 1 (<a href="https://impossiblelevels.com/" class="link-hover-underline" target="_blank" >ILL difficulty</a>).
                     </p>
-                    <h3 style="color: #4fb6fcff"><u><a href="/guidelines.pdf" target="_blank">Submission Requirements</a></u></h3>
+                    <h3 style="color: #4fb6fcff"><u><a href="/assets/docs/guidelines.pdf" target="_blank">Submission Requirements</a></u></h3>
                 </div>
             </div>
         </main>

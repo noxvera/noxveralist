@@ -80,7 +80,7 @@
     padding-right: 2rem;
     max-width: 48rem;
 }
-.page-list .level-container .level .level-authors {
+.page-list .level-container .level .level-publisher {
     display: grid;
     grid-template-columns: max-content 1fr;
     grid-auto-rows: max-content;

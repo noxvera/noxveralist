@@ -3,12 +3,12 @@
     "id": 108492813,
     "name": "chigga map",
     "description": "While at badminton I stole @galoche's (my fat enemy) phone and made this map",
-    "author": "galoche",
+    "publisher": "galoche",
     "creators": ["noxvera"],
     "verifier": "noxvera",
     "verification": "https://youtu.be/j_iPZCY7Tt8?t=7",
     "percentToQualify": "100",
-    "songID": "default",
+    "song": "default",
     "records": [
     ]
 }

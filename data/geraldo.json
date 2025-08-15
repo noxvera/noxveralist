@@ -2,12 +2,12 @@
     "challenge": true,
     "id": 119064680,
     "name": "geraldo",
-    "author": "syberchase",
+    "publisher": "syberchase",
     "creators": ["syberchase", "noxvera"],
     "verifier": "syberchase",
     "verification": "https://www.youtube.com/watch?v=IO4pWJW1tLI",
     "percentToQualify": "100",
-    "songID": "default",
+    "song": "default",
     "records": [
             {
             "user": "jamalmurray",

@@ -2,12 +2,12 @@
     "challenge": true,
     "id": 82686159,
     "name": "silentclub challenge",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["galoche", "a bunch of other people"],
     "verifier": "galoche",
     "verification": "#",
     "percentToQualify": "100",
-    "songID": "557651",
+    "song": "557651",
     "records": [
             {
             "user": "noxvera",

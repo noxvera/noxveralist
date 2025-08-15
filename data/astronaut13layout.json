@@ -1,12 +1,12 @@
 {
     "id": 61263637,
     "name": "astronaut 13 layout",
-    "author": "Cyrobyte",
+    "publisher": "Cyrobyte",
     "creators": ["noxvera"],
     "verifier": "noxvera",
     "verification": "https://youtu.be/tnLDj0s9gzI",
     "percentToQualify": "100",
-    "songID": "597874",
+    "song": "597874",
     "records": [
     ]
 }

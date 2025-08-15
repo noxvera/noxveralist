@@ -2,12 +2,12 @@
     "id": "unreleased",
     "name": "i am dylan ultrabuffed",
     "description": "ultra dylan i am buffed",
-    "author": "N/A",
+    "publisher": "N/A",
     "creators": ["noxvera", "syberchase"],
     "verifier": "N/A",
     "verification": "https://youtu.be/y4ovmNWKgts",
     "percentToQualify": "4",
-    "songID": "639309",
+    "song": "639309",
     "records": [
     ]
 }

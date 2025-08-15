@@ -137,7 +137,7 @@ export function getTags(level) {
         tags.push("unverified");
     }
 
-    if (level.songID === "NONG") {
+    if (level.song === "NONG") {
         tags.push("NONG");
     }
 

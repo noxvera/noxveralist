@@ -3,12 +3,12 @@
     "id": "unreleased",
     "name": "fat ninjas",
     "description": "LEGENDARY collab between me, @galoche, and @syberchase that was started in 2022 (and has yet to be finished because I'm stalling really hard).",
-    "author": "N/A",
+    "publisher": "N/A",
     "creators": ["noxvera","galoche","syberchase"],
     "verifier": "N/A",
     "verification": "https://youtu.be/ZYE3KElKIig",
     "percentToQualify": "46",
-    "songID": "161504",
+    "song": "161504",
     "records": [
     ]
 }

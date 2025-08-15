@@ -1,12 +1,12 @@
 {
     "id": "109215759",
     "name": "fifa cup SOCER",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera"],
     "verifier": "syberchase",
     "verification": "https://youtu.be/04vif7Vau9s",
     "percentToQualify": "60*",
-    "songID": "default",
+    "song": "default",
     "records": [
     ]
 }

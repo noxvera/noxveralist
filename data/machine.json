@@ -2,12 +2,12 @@
     "subtitle": "machine 1",
     "id": "unfinished",
     "name": "[unnamed]",
-    "author": "N/A",
+    "publisher": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/zqhnOnzfc0o",
     "percentToQualify": "100",
-    "songID": "default",
+    "song": "default",
     "records": [
     ]
 }

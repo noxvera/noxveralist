@@ -2,12 +2,12 @@
     "challenge": true,
     "id": "60773051",
     "name": "dislike this level",
-    "author": "Cyrobyte",
+    "publisher": "Cyrobyte",
     "creators": ["noxvera"],
     "verifier": "noxvera",
     "verification": "#",
     "percentToQualify": "100",
-    "songID": "722594",
+    "song": "722594",
     "records": [
     ]
 }

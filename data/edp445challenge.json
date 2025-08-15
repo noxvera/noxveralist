@@ -3,12 +3,12 @@
     "id": "92633210",
     "name": "edp445 challenge",
     "description": "https://youtu.be/m4S-8nmMxdI?t=2650",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera", "Zobros"],
     "verifier": "noxvera",
     "verification": "https://youtu.be/4R4nLHOgVck",
     "percentToQualify": "100",
-    "songID": "624882",
+    "song": "624882",
     "records": [
     ]
 }

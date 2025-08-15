@@ -1,12 +1,12 @@
 {
     "id": "119412746",
     "name": "meredith practice",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera", "syberchase", "IcEDcave", "BoBoBoBoBoBoBo"],
     "verifier": "N/A",
     "verification": "https://youtu.be/pT7lBD4NKDk",
     "percentToQualify": "90",
-    "songID": "default",
+    "song": "default",
     "records": [
     ]
 }

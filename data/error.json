@@ -1,12 +1,12 @@
 {
     "id": "unfinished",
     "name": "Error",
-    "author": "N/A",
+    "publisher": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "#",
     "percentToQualify": "100",
-    "songID": "N/A",
+    "song": "N/A",
     "records": [
     ]
 }

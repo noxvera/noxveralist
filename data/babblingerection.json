@@ -2,12 +2,12 @@
     "challenge": "true",
     "id": "unfinished",
     "name": "babbling erection",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera, syberchase"],
     "verifier": "N/A",
     "verification": "#",
     "percentToQualify": "100",
-    "songID": "N/A",
+    "song": "N/A",
     "records": [
     ]
 }

@@ -2,12 +2,12 @@
     "challenge": true,
     "id": "78750144",
     "name": "aggressive fart chal",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera", "syberchase"],
     "verifier": "N/A",
     "verification": "#",
     "percentToQualify": "100",
-    "songID": "624882",
+    "song": "624882",
     "records": [
     ]
 }

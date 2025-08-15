@@ -2,12 +2,12 @@
     "challenge": true,
     "id": 75870234,
     "name": "smyke challenge",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": [],
     "verifier": "galoche",
     "verification": "https://www.youtube.com/watch?v=b5CTvuncjww",
     "percentToQualify": "100",
-    "songID": "33326",
+    "song": "33326",
     "records": [
         {
             "user": "jamalmurray",

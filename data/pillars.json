@@ -1,12 +1,12 @@
 {
     "id": 58169198,
     "name": "Pillars",
-    "author": "Cyrobyte",
+    "publisher": "Cyrobyte",
     "creators": ["noxvera"],
     "verifier": "noxvera",
     "verification": "https://youtu.be/nX7B7qbIyzU",
     "percentToQualify": "100",
-    "songID": "default",
+    "song": "default",
     "records": [
         {
             "user": "galoche",

@@ -3,12 +3,12 @@
     "id": 95449215,
     "name": "zick 9",
     "description": "I originally wanted to rebuild and nerf this to around zick 11 difficulty (since the old version was just an ultrabuffed version of syberchase chaleng), but I accidentally made the base gameplay way too hard and decided to just keep it. (silly me!)",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/Am2vqGgaBtc",
     "percentToQualify": "22",
-    "songID": "590533",
+    "song": "590533",
     "records": [
     ]
 }

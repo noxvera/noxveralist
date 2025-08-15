@@ -61,7 +61,7 @@ export default {
                             (#{{ selectedLevelPlacement ?? 'N/A' }})
                         </span>
                     </h1>
-                    <LevelAuthors :author="displayedPackLevels[selectedLevel][0].level.author" 
+                    <LevelAuthors :publisher="displayedPackLevels[selectedLevel][0].level.publisher" 
                         :creators="displayedPackLevels[selectedLevel][0].level.creators" 
                         :verifier="displayedPackLevels[selectedLevel][0].level.verifier"></LevelAuthors>
                     <div style="display:flex">
@@ -77,8 +77,8 @@ export default {
                             </p>
                         </li>
                         <li>
-                            <div class="type-title-sm">song ID</div>
-                            <p>{{ displayedPackLevels[selectedLevel][0].level.songID || 'Free to Copy' }}</p>
+                            <div class="type-title-sm">song</div>
+                            <p>{{ displayedPackLevels[selectedLevel][0].level.song || 'Free to Copy' }}</p>
                         </li>
                     </ul>
                     <h2>Records</h2>
@@ -102,7 +102,8 @@ export default {
                     </table>
                 </div>
                 <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
-                    <p>(ノಠ益ಠ)ノ彡┻━┻</p>
+                    ${/* <p>(ノಠ益ಠ)ノ彡┻━┻</p> */''}
+                    <p> Failed to load pack. Retry in a few minutes or notify list staff.</p>
                 </div>
             </div>
             <div class="meta-container">

@@ -1,12 +1,12 @@
 {
     "id": "unfinished",
     "name": "they call me dylan",
-    "author": "N/A",
+    "publisher": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/EM34Di7TApU",
     "percentToQualify": "0",
-    "songID": "611511",
+    "song": "611511",
     "records": [
     ]
 }

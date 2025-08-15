@@ -2,12 +2,12 @@
     "challenge": true,
     "id": "85930690",
     "name": "drbsdyon niprl",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera", "syberchase"],
     "verifier": "noxvera",
     "verification": "https://youtu.be/nLOxrhVAdFY",
     "percentToQualify": "100",
-    "songID": "default",
+    "song": "default",
     "records": [
     ]
 }

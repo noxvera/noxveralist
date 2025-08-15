@@ -1,12 +1,12 @@
 {
     "id": "29669098",
     "name": "The Nightmare auto",
-    "author": "someone (green user)",
+    "publisher": "someone (green user)",
     "creators": ["noxvera", "Jax"],
     "verifier": "noxvera",
     "verification": "#",
     "percentToQualify": "100",
-    "songID": "default",
+    "song": "default",
     "records": [
     ]
 }

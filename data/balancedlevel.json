@@ -1,12 +1,12 @@
 {
     "id": "cancelled",
     "name": "balanced level",
-    "author": "N/A",
+    "publisher": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/Fq2pU0l-ow8",
     "percentToQualify": "15",
-    "songID": "N/A",
+    "song": "N/A",
     "records": [
     ]
 }

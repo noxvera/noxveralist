@@ -2,12 +2,18 @@
     "challenge": true,
     "id": "123005009",
     "name": "version 2 v2",
-    "author": "1kV",
+    "publisher": "1kV",
     "creators": ["syberchase","noxvera"],
     "verifier": "N/A",
     "verification": "#",
-    "percentToQualify": "5",
-    "songID": "464352",
+    "percentToQualify": "8",
+    "song": "464352",
     "records": [
+        {
+            "user": "syberchase",
+            "link": "#",
+            "percent": 9,
+            "hz": 240
+        }
     ]
 }

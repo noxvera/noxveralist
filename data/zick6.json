@@ -2,12 +2,12 @@
     "challenge": true,
     "id": 93269184,
     "name": "zick 6",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": [],
     "verifier": "noxvera",
     "verification": "https://youtu.be/qDuu8TQcZsE",
     "percentToQualify": "100",
-    "songID": "music library",
+    "song": "music library",
     "records": [
         {
             "user": "jamalmurray",

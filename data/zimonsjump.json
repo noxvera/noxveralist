@@ -2,12 +2,12 @@
     "challenge": true,
     "id": 96131103,
     "name": "zimons jump",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["syberchase"],
     "verifier": "syberchase",
     "verification": "#",
     "percentToQualify": "100",
-    "songID": "default",
+    "song": "default",
     "records": [
             {
             "user": "noxvera",

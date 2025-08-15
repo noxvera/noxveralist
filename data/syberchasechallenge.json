@@ -2,12 +2,12 @@
     "challenge": true,
     "id": "77542357",
     "name": "syberchase challenge",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera"],
     "verifier": "syberchase",
     "verification": "#",
     "percentToQualify": "100",
-    "songID": "33326",
+    "song": "33326",
     "records": [
     ]
 }

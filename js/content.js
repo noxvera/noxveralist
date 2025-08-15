@@ -18,7 +18,7 @@ export async function fetchList() {
                 try {
                     const level = await levelResult.json();
                     level.verifier = nameMap[level.verifier] || level.verifier;
-                    level.author = nameMap[level.author] || level.author;
+                    level.publisher = nameMap[level.publisher] || level.publisher;
                     level.creators = level.creators.map((creator) => nameMap[creator] || creator);
                     let packs = packsList.filter((x) =>
                         x.levels.includes(path)
@@ -138,17 +138,20 @@ export async function fetchLeaderboard() {
             });
         });
     });
-    for (let user of Object.entries(scoreMap)) {
-        let levels = [...user[1]["verified"], ...user[1]["completed"]].map(
-            (x) => x["path"]
-        );
-        for (let pack of packResult) {
-            if (pack.levels.every((e1) => levels.includes(e1))) {
-                user[1]["packs"].push(pack);
-            }
+for (let [username, data] of Object.entries(scoreMap)) {
+    let levels = [...data.verified, ...data.completed].map(x => x.path);
+
+    for (let pack of packResult) {
+        // ✅ Skip packs with no levels
+        if (!pack.levels || pack.levels.length === 0) continue;
+
+        // ✅ Only add pack if all its levels are in the user's completed/verified list
+        if (pack.levels.every(e1 => levels.includes(e1))) {
+            data.packs.push(pack);
         }
-        
     }
+}
+
 
     // Wrap in extra Object containing the user and total score
     let res = Object.entries(scoreMap).map(([user, scores]) => {
@@ -216,7 +219,7 @@ export async function fetchPackLevels(packname) {
                     level.percentToQualifyRaw = level.percentToQualify;
                     level.percentToQualify = parseFloat(String(level.percentToQualify).replace('*', ''));
                     level.verifier = nameMap[level.verifier] || level.verifier;
-                    level.author = nameMap[level.author] || level.author;
+                    level.publisher = nameMap[level.publisher] || level.publisher;
                     level.creators = level.creators.map((creator) => nameMap[creator] || creator);
 
 

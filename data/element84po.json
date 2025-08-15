@@ -2,13 +2,12 @@
     "higheffort": true,
     "id": "cancelled",
     "name": "Element 84 Po",
-    "author": "N/A",
+    "publisher": "N/A",
     "creators": ["noxvera", "Smyke"],
     "verifier": "N/A",
     "verification": "https://youtu.be/rJEBJq2Enbs",
     "percentToQualify": "100",
-    "songID": "default",
+    "song": "default",
     "records": [
     ]
 }
-

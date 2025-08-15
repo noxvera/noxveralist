@@ -3,12 +3,12 @@
     "id": "lost (80362165)",
     "name": "wenis tower",
     "description": "Ancient ass map that @syberchase decided to rebuild based off of this video after it was lost. The last ~15% is still lost because of my insanely awful noclip run.",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/xw0DesWvsAQ",
     "percentToQualify": "100",
-    "songID": "default",
+    "song": "default",
     "records": [
     ]
 }

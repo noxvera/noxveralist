@@ -2,12 +2,12 @@
 {
     "id": "unreleased",
     "name": "epep409 v3",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera","epep409"],
     "verifier": "N/A",
     "verification": "https://youtu.be/tH-oDVtRfiI",
     "percentToQualify": "100",
-    "songID": "311087",
+    "song": "311087",
     "records": [
     ]
 }

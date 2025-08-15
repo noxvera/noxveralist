@@ -1,12 +1,12 @@
 {
     "id": "122884041",
     "name": "the ten",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera", "OctorElZ"],
     "verifier": "N/A",
     "verification": "https://youtu.be/XpDFaFeZziY",
     "percentToQualify": "3",
-    "songID": "607493",
+    "song": "607493",
     "records": [
     ]
 }

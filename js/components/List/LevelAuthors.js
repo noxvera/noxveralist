@@ -1,6 +1,6 @@
 export default {
     props: {
-        author: {
+        publisher: {
             type: String,
             required: true,
         },
@@ -14,11 +14,11 @@ export default {
         },
     },
     template: `
-        <div class="level-authors">
+        <div class="level-publisher">
             <template v-if="creators.length === 0">
                 <div class="type-title-sm">Creator</div>
                 <p class="type-body">
-                    <span>{{ author }}</span>
+                    <span>{{ publisher }}</span>
                 </p>
             </template>
             <template v-else>
@@ -37,7 +37,7 @@ export default {
             
             <div class="type-title-sm">Publisher</div>
             <p class="type-body">
-                <span>{{ author }}</span>
+                <span>{{ publisher }}</span>
             </p>
         </div>
     `,

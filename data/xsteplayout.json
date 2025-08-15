@@ -1,12 +1,12 @@
 {
     "id": 61284068,
     "name": "Xstep layout",
-    "author": "Cyrobyte",
+    "publisher": "Cyrobyte",
     "creators": ["noxvera"],
     "verifier": "noxvera",
     "verification": "#",
     "percentToQualify": "100",
-    "songID": "default",
+    "song": "default",
     "records": [
         {
             "user": "jamalmurray",

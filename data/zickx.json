@@ -2,12 +2,12 @@
     "challenge": true,
     "id": 96065267,
     "name": "zick x",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": [],
     "verifier": "syberchase",
     "verification": "https://www.youtube.com/watch?v=ouXVl051JwQ",
     "percentToQualify": "100",
-    "songID": "639309",
+    "song": "639309",
     "records": [
     ]
 }

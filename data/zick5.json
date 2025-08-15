@@ -3,12 +3,12 @@
     "id": 92873017,
     "name": "zick 5",
     "description": "Random part I took from luminoso by Viprin, with added random invisible spikes everywhere.",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera","Viprin"],
     "verifier": "noxvera",
     "verification": "#",
     "percentToQualify": "100",
-    "songID": "default",
+    "song": "default",
     "records": [
             {
             "user": "jamalmurray",

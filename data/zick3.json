@@ -3,12 +3,12 @@
     "id": 92345357,
     "name": "Zick 3",
     "description": "ts the easiest shit ever but people find it hard for some reason",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera"],
     "verifier": "noxvera",
     "verification": "https://youtu.be/qQedJVrH3-E",
     "percentToQualify": "100",
-    "songID": "830628",
+    "song": "830628",
     "records": [
             {
             "user": "jamalmurray",

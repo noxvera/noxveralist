@@ -2,12 +2,12 @@
     "challenge": true,
     "id": "121879207",
     "name": "zingh zatterbutt",
-    "author": "noxvera",
+    "publisher": "noxvera",
     "creators": ["noxvera"],
     "verifier": "syberchase",
     "verification": "https://youtu.be/YE-pry9LvCg?t=833",
     "percentToQualify": "100",
-    "songID": "2457",
+    "song": "2457",
     "records": [
     ]
 }
