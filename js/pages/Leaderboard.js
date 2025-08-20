@@ -38,7 +38,7 @@ export default {
                             <p class="type-label-lg">#{{ entry.position }}</p>
                         </td>
                         <td class="total">
-                            <p class="type-label-lg">{{ entry.user === 'Unverified' ? '-' : localize(entry.total) }}</p>
+                            <p class="type-label-lg">{{ entry.user === 'Unverified' ? '-' : entry.total }}</p>
                         </td>
                         <td class="user" :class="{ 'active': selected == entry.position - 1 }">
                             <button @click="selected = entry.position - 1">

@@ -84,7 +84,22 @@ export default {
                 <div class="level" v-if="level">
                     <h1>{{ level.name }}</h1>
                     <div class="divider-line"></div>
-                    <p v-if="level.description" class="level-description">{{ level.description }}</p>
+                    <p v-if="level.description" class="level-description">
+                        <template v-for="(part, i) in parseDescription(level.description)" :key="i">
+                            <a
+                            v-if="part.type === 'link'"
+                            :href="part.href"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="link-icon link-hover-underline"
+                            >
+                                {{ part.text }}
+                            </a>
+                            <span v-else>
+                                {{ part.text }}
+                            </span>
+                        </template>
+                    </p>
                     <p v-else class="level-description">No description has been added yet.</p>
                     <LevelAuthors :publisher="level.publisher" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
                     <div class="packs" v-if="level.packs.length > 0">
@@ -181,7 +196,7 @@ export default {
                         and <a href="https://gdbrowser.com/search/19952001?user" class="link-hover-underline link-icon" target="_blank">someone (green user)</a> are all accounts belonging to me.
                     </p>
                     <p> 
-                        - Maps above average icedcave lvl (#18) are all most likely harder than top 1 (<a href="https://impossiblelevels.com/" class="link-hover-underline link-icon" target="_blank" >ILL difficulty</a>).
+                        - Maps in the top [16] are all most likely above top 1 (<a href="https://impossiblelevels.com/" class="link-hover-underline link-icon" target="_blank" >ILL difficulty</a>).
                     </p>
                     <h3 style="color: #4fb6fcff"><u><a href="/assets/docs/guidelines.pdf" target="_blank">Submission Requirements</a></u></h3>
                 </div>
@@ -297,21 +312,20 @@ export default {
             this.showTagMenu = false;
         },
         async copyId(id) {
-            const isNumeric = /^[0-9]+$/.test(id);
+            const raw = String(id ?? "");
+            const cleaned = raw.replace(/\([^)]*\)/g, "").replace(/\D+/g, "");
 
-            if (isNumeric) {
+            if (/^\d+$/.test(cleaned)) {
                 try {
-                    await navigator.clipboard.writeText(id);
-                    this.addToast(`Copied ID ${id} to clipboard`);
+                    await navigator.clipboard.writeText(cleaned);
+                    this.addToast(`Copied ID ${cleaned} to clipboard`);
                 } catch {
-                    this.addToast("Failed to copy ID");
+                this.addToast("Failed to copy ID");
                 }
-            } 
-            else {
-                this.addToast(`Copied special ID: "${id}"`);
+            } else {
+                this.addToast("Failed to copy to clipboard: Invalid ID");
             }
         },
-
         addToast(message) {
             const toast = { id: Date.now() + Math.random(), message };
             this.toasts.push(toast);
@@ -322,9 +336,32 @@ export default {
                 if (i !== -1) this.toasts.splice(i, 1);
             }, 2500);
         },
-
         removeToast(index) {
             this.toasts.splice(index, 1);
         },
+        parseDescription(text) {
+            const urlRegex = /((https?:\/\/)?(www\.)?[a-zA-Z0-9-]+\.[a-z]{2,}(\/\S*)?)/gi;
+            let last = 0;
+            const parts = [];
+
+            for (const match of text.matchAll(urlRegex)) {
+                const start = match.index;
+                const raw = match[0];
+
+                if (start > last) parts.push({ type: 'text', text: text.slice(last, start) });
+
+                parts.push({
+                type: 'link',
+                text: raw,
+                href: /^https?:\/\//i.test(raw) ? raw : `https://${raw}`
+                });
+
+                last = start + raw.length;
+            }
+
+            if (last < text.length) parts.push({ type: 'text', text: text.slice(last) });
+
+            return parts;
+        }
     },
 };
