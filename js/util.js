@@ -6,7 +6,6 @@ export function getYoutubeIdFromUrl(url) {
 }
 
 function parseTimeToSeconds(time) {
-
     if (!time) return 0;
 
     if (/^\d+$/.test(time)) {

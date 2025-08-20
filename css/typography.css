@@ -316,3 +316,13 @@ td.level .active button:not(.highlight-higheffort) {
 .yellow-id {
     color: #f7fa31;
 }
+
+.meta-container p,
+.meta-container a:not(h3 a){
+    font-weight: 400;
+}
+
+.bold-line,
+.mainlist-placement{
+    font-weight: 600 !important;
+}

@@ -164,6 +164,7 @@
 }
 .page-list .meta .editors li img {
     height: 1.25rem;
+    transform: translateY(-1px);
 }
 .page-list .meta .editors li a:hover {
     text-decoration: underline;
@@ -519,6 +520,7 @@ old search bar
     opacity: 0.2;
 }
 .level-description {
+    font-weight: 400;
     color: var(--color-on-background);
     font-size: 1.1rem;
 }
@@ -529,4 +531,92 @@ old search bar
 .level .level-description {
     margin-top: -16px !important;
     margin-bottom: 1px !important; 
+}
+/*
+.copied-popup {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-background);
+    color: var(--color-on-background);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-size: 0.95rem;
+    z-index: 1000;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.fade-enter-from, .fade-leave-to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+}
+*/
+
+.copyable-id {
+    cursor: pointer;
+}
+
+.toast,
+.toast-close {
+  font-family: "Lexend Deca", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 400;
+}
+
+.toast-container {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toast {
+  min-width: 300px;
+  max-width: 380px;
+  background: color-mix(in srgb, var(--color-background) 90%, black 10%);
+  color: var(--color-on-background, #fff);
+  padding: 1rem 2.5rem 1rem 1.5rem;
+  border-radius: 0.55rem;
+  font-size: 1rem;
+  position: relative;
+}
+
+.toast-close {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+}
+.toast-close:hover {
+  opacity: 1;
+}
+
+.toast-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toast-enter-active,
+.toast-leave-active,
+.toast-move {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
 }

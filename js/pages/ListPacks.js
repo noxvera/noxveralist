@@ -78,7 +78,7 @@ export default {
                         </li>
                         <li>
                             <div class="type-title-sm">song</div>
-                            <p>{{ displayedPackLevels[selectedLevel][0].level.song || 'Free to Copy' }}</p>
+                            <p>{{ displayedPackLevels[selectedLevel][0].level.song || 'default' }}</p>
                         </li>
                     </ul>
                     <h2>Records</h2>
@@ -103,7 +103,7 @@ export default {
                 </div>
                 <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
                     ${/* <p>(ノಠ益ಠ)ノ彡┻━┻</p> */''}
-                    <p> Failed to load pack. Retry in a few minutes or notify list staff.</p>
+                    <p> Failed to load pack. Retry in a few minutes or notify list staff. </p>
                 </div>
             </div>
             <div class="meta-container">
@@ -217,7 +217,6 @@ export default {
             this.loadingPack = false;
         },
 
-        // too lazy to put this into another file
         getIdClass(id) {
             const idStr = typeof id === 'string' ? id : String(id);
             if (idStr.includes('cancelled') || idStr.includes('lost')) return 'red-id';

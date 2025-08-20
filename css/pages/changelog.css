@@ -34,23 +34,6 @@
   width: 100%;
 }
 
-
-/* scroll bar*/
-
-/*
-.page-changelog-wrapper {
-  grid-column: span 3;
-  display: grid;
-}
-
-.page-changelog-content {
-  grid-column: 2;
-  overflow-y: auto;
-  height: 100%;
-}
-*/
-
-
 main.page-changelog-wrapper {
   display: block;
   height: 100%;

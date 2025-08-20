@@ -38,7 +38,7 @@ export default {
                             <p class="type-label-lg">#{{ entry.position }}</p>
                         </td>
                         <td class="total">
-                            <p class="type-label-lg">{{ entry.user === 'unverified' ? '-' : localize(entry.total) }}</p>
+                            <p class="type-label-lg">{{ entry.user === 'Unverified' ? '-' : localize(entry.total) }}</p>
                         </td>
                         <td class="user" :class="{ 'active': selected == entry.position - 1 }">
                             <button @click="selected = entry.position - 1">
@@ -52,8 +52,7 @@ export default {
                 <div class="player">
                     <h1>#{{ selected + 1 }} {{ entry.user }}</h1>
                     <h3 class="bold-line">
-                        {{ localize(entry.total, false) }} points,
-                        <span v-if="entry.verified.length > 0">
+                        {{ localize(entry.total, false) }} points<span v-if="entry.user !== 'Unverified' && entry.verified.length > 0">,
                             Hardest: {{ entry.verified[0].level }}
                             <span v-if="entry.verified[0].rank"> (#{{ entry.verified[0].rank }})</span>
                         </span>
@@ -63,7 +62,7 @@ export default {
                             {{pack.name}}
                         </div>
                     </div>
-                    <h2> {{ entry.user === 'unverified' ? 'Unverified' : 'Verified' }} ({{ entry.verified.length }}) </h2>
+                    <h2> {{ entry.user === 'Unverified' ? 'Unverified' : 'Verified' }} ({{ entry.verified.length }}) </h2>
                     <table class="table">
                         <tr v-for="score in entry.verified">
                             <td class="rank">
@@ -129,7 +128,7 @@ export default {
 
         for (const entry of leaderboard) {
             if (entry.user === "N/A") {
-                entry.user = "unverified";
+                entry.user = "Unverified";
                 unverified.push(entry);
             } else {
                 verified.push(entry);

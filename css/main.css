@@ -125,3 +125,35 @@ input[type="checkbox"] {
     gap: 0.4em;
     margin-left: 4px;
 }
+
+/*
+.link-icon::after {
+    content: url('/assets/external-link.svg');
+    display: inline-block;
+    margin-left: 0.25em;
+    margin-top: 0.12em;
+    vertical-align: middle;
+    filter: invert(1);
+}
+*/
+
+.link-icon {
+    position: relative;
+    color: var(--color-on-background);
+}
+
+.link-icon::after {
+    content: "";
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+    margin-bottom: 0.22em;
+    margin-left: 0.2em;
+    vertical-align: middle;
+
+    background: currentColor;
+    -webkit-mask: url('/assets/external-link.svg') no-repeat center;
+    -webkit-mask-size: contain;
+    mask: url('/assets/external-link.svg') no-repeat center;
+    mask-size: contain;
+}

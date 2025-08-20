@@ -100,29 +100,24 @@ export default {
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>
-                                <p :class="getIdClass(level.id)">
-                                    ${/* 
-                                        The following is commented out because gdbrowser cant display unlisted levels for some reason
-                                        <template v-if="/^[0-9]+$/.test(level.id)">
-                                        <a :href="'https://gdbrowser.com/' + level.id" target="_blank" rel="noopener noreferrer"> */''}
-                                            {{ level.id }}
-                                        ${/* </a>
-                                    </template>
-                                    <template v-else>
-                                        {{ level.id }}
-                                    </template> */''}
-                                </p>
+                            <p 
+                                :class="[getIdClass(level.id), 'copyable-id']"
+                                @click="copyId(level.id)"
+                                title="Click to copy"
+                            >
+                                {{ level.id }}
+                            </p>
                         </li>
                         <li>
                             <div class="type-title-sm">Song</div>
                             <p>
                                 <template v-if="/^[0-9]+$/.test(level.song)">
-                                    <a :href="'https://www.newgrounds.com/audio/listen/' + level.song" target="_blank" rel="noopener noreferrer">
+                                    <a :href="'https://www.newgrounds.com/audio/listen/' + level.song" target="_blank" rel="noopener noreferrer" class="link-icon">
                                         {{ level.song }}
                                     </a>
                                 </template>
                                 <template v-else>
-                                    {{ level.song || 'Free to Copy' }}
+                                    {{ level.song || 'default' }}
                                 </template>
                             </p>
                         </li>
@@ -159,7 +154,7 @@ export default {
                         <p class="error" v-for="error of errors">{{ error }}</p>
                     </div>
                     <div class="og">
-                        <p class="type-label-md">Original Layout by <a class="link-hover-underline" href="https://tsl.pages.dev/#/" target="_blank">TSL</a></p>
+                        <p class="type-label-md">Original Layout by <a class="link-hover-underline link-icon" href="https://tsl.pages.dev/#/" target="_blank">TSL</a></p>
                     </div>
                     <template v-if="editors">
                         <h3>List Editors</h3>
@@ -178,18 +173,26 @@ export default {
                     </p>
                     <p>
                         - Qualifying percentages with an asterisk (*) indicate that it is a 2.1 percentage. 
-                        You can use the <a href="https://geode-sdk.org/mods/zsa.percentage-toggle" class="link-hover-underline" target="_blank">percentage toggle mod</a> to view 2.1 percentages in-game.
+                        You can use the <a href="https://geode-sdk.org/mods/zsa.percentage-toggle" class="link-hover-underline link-icon" target="_blank">percentage toggle mod</a> to view 2.1 percentages in-game.
                     </p>
                     <p> 
-                        - <a href="https://gdbrowser.com/u/1kv" class="link-hover-underline" target="_blank">1kV</a>, 
-                        <a href="https://gdbrowser.com/u/cyrobyte" class="link-hover-underline" target="_blank">Cyrobyte</a>, 
-                        and <a href="https://gdbrowser.com/search/19952001?user" class="link-hover-underline" target="_blank">someone (green user)</a> are all accounts belonging to me.
+                        - <a href="https://gdbrowser.com/u/1kv" class="link-hover-underline link-icon" target="_blank">1kV</a>, 
+                        <a href="https://gdbrowser.com/u/cyrobyte" class="link-hover-underline link-icon" target="_blank">Cyrobyte</a>, 
+                        and <a href="https://gdbrowser.com/search/19952001?user" class="link-hover-underline link-icon" target="_blank">someone (green user)</a> are all accounts belonging to me.
                     </p>
                     <p> 
-                        - Maps above average icedcave lvl (#18) are all most likely harder than top 1 (<a href="https://impossiblelevels.com/" class="link-hover-underline" target="_blank" >ILL difficulty</a>).
+                        - Maps above average icedcave lvl (#18) are all most likely harder than top 1 (<a href="https://impossiblelevels.com/" class="link-hover-underline link-icon" target="_blank" >ILL difficulty</a>).
                     </p>
                     <h3 style="color: #4fb6fcff"><u><a href="/assets/docs/guidelines.pdf" target="_blank">Submission Requirements</a></u></h3>
                 </div>
+            </div>
+            <div class="toast-container">
+                <transition-group name="toast" tag="div" class="toast-stack">
+                    <div v-for="(toast, index) in toasts" :key="toast.id" class="toast">
+                        <button class="toast-close" @click="removeToast(index)">×</button>
+                        {{ toast.message }}
+                    </div>
+                </transition-group>
             </div>
         </main>
     `,
@@ -212,6 +215,7 @@ export default {
         showTagMenu: false,
         showFilterMenu: false,
         availableTags,
+        toasts: [],
     }),
 
     computed: {
@@ -225,7 +229,6 @@ export default {
             const matchesSearch =
                 this.searchQuery === "" ||
                 level.name.toLowerCase().includes(this.searchQuery.toLowerCase());
-
             const matchesTags =
                 this.selectedTags.length === 0 ||
                 this.selectedTags.every(tag => tags.includes(tag));
@@ -281,15 +284,6 @@ export default {
         embed,
         score,
         getFontColour,
-        /*
-        toggleTag(tag) {
-            if (this.selectedTags.includes(tag)) {
-                this.selectedTags = this.selectedTags.filter(t => t !== tag);
-            } else {
-                this.selectedTags.push(tag);
-            }
-        }
-        */
         toggleTag(tag) {
             const i = this.selectedTags.indexOf(tag);
             if (i === -1) {
@@ -301,6 +295,36 @@ export default {
         },
         closeFilterMenu() {
             this.showTagMenu = false;
-        }     
+        },
+        async copyId(id) {
+            const isNumeric = /^[0-9]+$/.test(id);
+
+            if (isNumeric) {
+                try {
+                    await navigator.clipboard.writeText(id);
+                    this.addToast(`Copied ID ${id} to clipboard`);
+                } catch {
+                    this.addToast("Failed to copy ID");
+                }
+            } 
+            else {
+                this.addToast(`Copied special ID: "${id}"`);
+            }
+        },
+
+        addToast(message) {
+            const toast = { id: Date.now() + Math.random(), message };
+            this.toasts.push(toast);
+
+            // Auto-remove timer
+            setTimeout(() => {
+                const i = this.toasts.findIndex(t => t.id === toast.id);
+                if (i !== -1) this.toasts.splice(i, 1);
+            }, 2500);
+        },
+
+        removeToast(index) {
+            this.toasts.splice(index, 1);
+        },
     },
 };
