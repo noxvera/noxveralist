@@ -19,20 +19,20 @@ export default {
             <Spinner></Spinner>
         </main>
         <main v-else class="page-changelog-wrapper">
-        <div class="page-changelog-content">
-            <div class="page-changelog">
-                <h1>Changelog</h1>
-                <p class="changelog-subtitle">
-                    This is the list changelog. For the website changelog, 
-                    <a href="https://github.com/noxvera/noxveralist/releases" class="link-hover-underline" target="_blank">click here</a>.
-                </p>
-                <p class="changelog-subtitle">Each entry under each date is listed from newest to oldest.</p>
-                <template v-for="entry in changelog">
-                    <p class="changelog-date">{{ entry.date }}</p>
-                    <p v-for="line in entry.entries">- {{ line }}</p>
-                </template>
+            <div class="page-changelog-content">
+                <div class="page-changelog">
+                    <h1>Changelog</h1>
+                    <p class="changelog-subtitle">
+                        This is the list changelog. For the website changelog, 
+                        <a href="https://github.com/noxvera/noxveralist/releases" class="link-hover-underline" target="_blank">click here</a>.
+                    </p>
+                    <p class="changelog-subtitle">Entries under each date are listed from newest to oldest.</p>
+                    <template v-for="entry in changelog">
+                        <p class="changelog-date">{{ entry.date }}</p>
+                        <p v-for="line in entry.entries">- {{ line }}</p>
+                    </template>
+                </div>
             </div>
-        </div>
         </main>
     `
 };

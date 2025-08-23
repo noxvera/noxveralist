@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=1024" />
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=1024"/>
         <title>noxvera List</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap">
-        <link rel="stylesheet" type="text/css" href="/css/reset.css" />
-        <link rel="stylesheet" type="text/css" href="/css/typography.css" />
-        <link rel="stylesheet" type="text/css" href="/css/main.css" />
-        <link rel="stylesheet" type="text/css" href="/css/pages/list.css" />
-        <link rel="stylesheet" type="text/css" href="/css/pages/leaderboard.css"/>
-        <link rel="stylesheet" type="text/css" href="/css/pages/listpacks.css" />
-        <link rel="stylesheet" type="text/css" href="/css/pages/roulette.css" />
-        <link rel="stylesheet" type="text/css" href="/css/pages/changelog.css">
-        <link rel="stylesheet" type="text/css" href="/css/components/nav.css" />
-        <link rel="stylesheet" type="text/css" href="/css/components/btn.css" />
+        <link rel="icon" href="/favicon.ico"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/reset.css"/>
+        <link rel="stylesheet" href="/css/typography.css"/>
+        <link rel="stylesheet" href="/css/main.css"/>
+        <link rel="stylesheet" href="/css/pages/list.css"/>
+        <link rel="stylesheet" href="/css/pages/leaderboard.css"/>
+        <link rel="stylesheet" href="/css/pages/listpacks.css"/>
+        <link rel="stylesheet" href="/css/pages/roulette.css"/>
+        <link rel="stylesheet" href="/css/pages/changelog.css"/>
+        <link rel="stylesheet" href="/css/components/nav.css"/>
+        <link rel="stylesheet" href="/css/components/btn.css"/>
         <script src="https://unpkg.com/vue@3.5.18/dist/vue.global.js"></script>
         <script src="https://unpkg.com/vue-router@4.5.1/dist/vue-router.global.prod.js"></script>
-        <script type="module" src="/js/main.js"></script>
+        <script src="/js/main.js" type="module"></script>
     </head>
     <body id="app">
         <header :class="{ dark: store.dark }">
             <div class="logo">
                 <a href="https://gdbrowser.com/u/noxvera" target="_blank">
-                    <img src="/assets/list_icon.png" alt="List Icon" class="list-icon nav__cta">
+                    <img src="/assets/list_icon.png" alt="List Icon" class="list-icon nav__cta"/>
                 </a>
                 <h2>noxvera List</h2>
                 <a href="https://github.com/noxvera/noxveralist/releases" class="link-hover-underline" target="_blank">
-                <p>v1.0.3</p>
+                    <p>v1.1.0</p>
                 </a>
             </div>
             <nav class="nav">
@@ -45,35 +45,25 @@
                 </router-link>
                 <router-link class="nav__tab" to="/changelog">
                     <span class="type-label-lg">Changelog</span>
-                </router-link> 
-                <!-- <router-link class="nav__tab" to="/roulette">
+                </router-link>
+                <!--
+                <router-link class="nav__tab" to="/roulette">
                     <span class="type-label-lg">Roulette</span>
-                </router-link> -->
+                </router-link>
+                -->
                 <div class="nav__actions">
-                    <button
-                        class="nav__icon"
-                        @click.prevent="store.toggleDark()"
-                    >
-                        <img
-                            :src="store.dark ? '/assets/light.svg' : '/assets/dark.svg'"
-                            alt=""
-                        />
+                    <button class="nav__icon" @click.prevent="store.toggleDark()">
+                        <img :src="store.dark ? '/assets/light.svg' : '/assets/dark.svg'" alt=""/>
                     </button>
-                    <a 
-                        class="nav__icon" 
-                        href="#"
-                        target="_blank">
+                    <a class="nav__icon" href="#" target="_blank">
                         <img src="/assets/discord.svg" alt="Discord Logo"/>
                     </a>
-                    <a
-                        class="nav__cta type-label-lg"
-                        href="https://forms.gle/7zfoDPcoKb4pFbvs7"
-                        target="_blank"
-                        >Submit Record</a
-                    >
+                    <a class="nav__cta type-label-lg" href="https://forms.gle/7zfoDPcoKb4pFbvs7" target="_blank">
+                        Submit Record
+                    </a>
                 </div>
             </nav>
         </header>
         <router-view :class="{ dark: store.dark }"></router-view>
-    </body>
+  </body>
 </html>

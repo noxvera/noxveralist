@@ -4,7 +4,7 @@
     padding-block: 1.75rem; /* change og gap */
 }
 .page-list .level-container {
-    padding-top: 38px;   /* 32 px default */
+    padding-top: 38px; /* 32px default */
     padding-left: 6px;
 }
 .page-list .list-container {
@@ -24,7 +24,6 @@
 .page-list .list .level {
     width: 100%;
 }
-
 /* share with listpacks.js */
 .shared-list .list .level button {
     position: relative;
@@ -44,8 +43,7 @@
 .shared-list .list .level button::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0 0 0 0;
     height: 100%;
     width: 0;
     background-color: rgba(255, 255, 255, 0.11111);
@@ -73,6 +71,7 @@
     background-color: var(--color-primary);
     color: var(--color-on-primary);
 }
+
 .page-list .level-container .level {
     display: flex;
     flex-direction: column;
@@ -129,6 +128,7 @@
 .page-list .level-container .level .records .hz {
     text-align: end;
 }
+
 .page-list .meta-container .og a:hover,
 .page-list .level-container .level .records a:hover {
     text-decoration: underline;
@@ -153,14 +153,12 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    margin-top: -0.75rem; /* reduce gap from above */
 }
 .page-list .meta .editors li {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-.page-list .meta .editors {
-  margin-top: -0.75rem; /* reduce gap from above */
 }
 .page-list .meta .editors li img {
     height: 1.25rem;
@@ -169,21 +167,20 @@
 .page-list .meta .editors li a:hover {
     text-decoration: underline;
 }
+
 .meta-container h3 + p {
-  margin-top: -0.25rem;
+    margin-top: -0.25rem;
 }
 .meta-container p + h3 {
-  margin-top: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .tag p {
     font-family: "Lexend Deca", sans-serif;
-    display:block;
+    display: block;
     border-radius: 14px;
     padding: 7px;
     color: white;
-    /* mix-blend-mode: difference; */
-    /* color: rgb(128, 128, 128); */
 }
 
 .records tr.record {
@@ -193,7 +190,6 @@
     border-radius: 0.5rem;
     transition: background-color 0.3s ease;
     cursor: pointer;
-
     display: table;
     width: 100%;
     margin-bottom: 0.1rem;
@@ -205,8 +201,7 @@
 .records tr.record::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0 0 0 0;
     height: 100%;
     width: 0;
     background-color: rgba(255, 255, 255, 0.11111);
@@ -237,14 +232,14 @@
     height: 1.5rem;
 }
 .page-list .search-bar input {
-	background-color: transparent; 
-    border: none; 
+    background-color: transparent;
+    border: none;
     border-bottom: 1px solid var(--color-on-background);
-    padding: 0.5rem 0; 
-    width: 100%; 
+    padding: 0.5rem 0;
+    width: 100%;
     color: var(--color-on-background);
-    font-size: 1rem; 
-    outline: none; 
+    font-size: 1rem;
+    outline: none;
     margin-left: 10px;
 }
 
@@ -259,57 +254,14 @@
     gap: 0.4rem;
 }
 
-/*
-everything below is for rightbar
-
-.page-list .meta-container .importantnotes {
-  background-color: rgba(0, 0, 0, 0.1); /* background already there
-  transition: transform 200ms ease, background-color 200ms ease;
-  position: relative;
-  border-radius: 0.5rem;
-  padding: 1rem;
-}
-
->> put back importantnotes class at LINE 114 List.js <<
-
-.page-list .meta-container .importantnotes:hover {
-  transform: translateY(-3px); 
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.page-list .meta-container .importantnotes p {
-  margin: 2rem 0; /* spacing between paragraph
-  line-height: 1.75; /* spacing inside paragraph
-}
-
->> put back editors-container class at LINE 103 List.js
-.page-list .meta-container .editors-container {
-  background-color: rgba(0, 0, 0, 0.05);
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  transition: transform 200ms ease, background-color 200ms ease;
-}
-
-.page-list .meta-container .editors-container:hover {
-  transform: translateY(-3px);
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.page-list .meta-container .editors-container a {
-  margin: 0rem 0; /* spacing between paragraph
-  line-height: 0.2; /* spacing inside paragraph
-}
-*/
-
 .search-bar {
     position: sticky;
     top: 0;
     z-index: 999;
     background: var(--color-background);
     padding-top: 0.75rem !important;
-    padding-bottom: 1.1rem !important; /* gap for search bar bottom*/
+    padding-bottom: 1.1rem !important; /* gap for search bar bottom */
 }
-
 .search-container {
     display: flex;
     align-items: center;
@@ -325,7 +277,6 @@ everything below is for rightbar
     padding: 6px;
     cursor: pointer;
 }
-
 .filter-icon {
     width: 20px;
     height: 20px;
@@ -362,7 +313,7 @@ header.dark .filter-icon {
     border-radius: 4px;
     cursor: pointer;
 }
-/* close if click outside of filter */
+/* close if click outside filter */
 .tag-popup-overlay {
     position: fixed;
     inset: 0;
@@ -384,7 +335,7 @@ header.dark .filter-icon {
     padding: 0;
     line-height: 1;
 }
-.tag-popup .close-x:hover{
+.tag-popup .close-x:hover {
     opacity: 0.7;
 }
 
@@ -414,7 +365,6 @@ header.dark .filter-icon {
     justify-content: flex-end;
     margin-top: 0.25rem;
 }
-
 .close-btn {
     background: var(--color-primary);
     color: var(--color-on-primary);
@@ -425,7 +375,7 @@ header.dark .filter-icon {
     cursor: pointer;
 }
 
-@keyframes popup-fade-in{
+@keyframes popup-fade-in {
     from {
         opacity: 0;
         transform: scale(0.95);
@@ -466,53 +416,6 @@ header.dark .filter-icon {
     opacity: 1;
 }
 
-/*
-old search bar
-.search-bar-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.search-bar {
-    width: 250px;
-    padding: 0.5rem;
-}
-
-.filter-button {
-    padding: 0.4rem 0.6rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-}
-
-.filter-dropdown {
-    position: absolute;
-    background: #fff;
-    border: 1px solid #ccc;
-    padding: 0.5rem;
-    margin-top: 0.25rem;
-    z-index: 999;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    max-width: 300px;
-}
-
-.filter-tag {
-    padding: 0.25rem 0.5rem;
-    border: 1px solid #999;
-    border-radius: 4px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.filter-tag.active {
-    background-color: #007acc;
-    color: white;
-    border-color: #007acc;
-}
-*/
-
 .divider-line {
     width: 100%;
     height: 1.2px;
@@ -530,31 +433,8 @@ old search bar
 }
 .level .level-description {
     margin-top: -16px !important;
-    margin-bottom: 1px !important; 
+    margin-bottom: 1px !important;
 }
-/*
-.copied-popup {
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--color-background);
-    color: var(--color-on-background);
-    padding: 0.75rem 1.25rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    font-size: 0.95rem;
-    z-index: 1000;
-}
-
-.fade-enter-active, .fade-leave-active {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.fade-enter-from, .fade-leave-to {
-    opacity: 0;
-    transform: translateX(-50%) translateY(10px);
-}
-*/
 
 .copyable-id {
     cursor: pointer;
@@ -562,61 +442,57 @@ old search bar
 
 .toast,
 .toast-close {
-  font-family: "Lexend Deca", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-weight: 400;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 400;
 }
-
 .toast-container {
-  position: fixed;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 1rem;
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1rem;
 }
-
 .toast {
-  min-width: 300px;
-  max-width: 380px;
-  background: color-mix(in srgb, var(--color-background) 90%, black 10%);
-  color: var(--color-on-background, #fff);
-  padding: 1rem 2.5rem 1rem 1.5rem;
-  border-radius: 0.55rem;
-  font-size: 1rem;
-  position: relative;
+    min-width: 300px;
+    max-width: 380px;
+    background: color-mix(in srgb, var(--color-background) 80%, black 15%);
+    color: var(--color-on-background, #fff);
+    padding: 1rem 2.5rem 1rem 1.5rem;
+    border-radius: 0.55rem;
+    font-size: 1rem;
+    position: relative;
 }
-
 .toast-close {
-  position: absolute;
-  top: 0.35rem;
-  right: 0.5rem;
-  background: none;
-  border: none;
-  font-size: 1.25rem;
-  cursor: pointer;
-  color: inherit;
-  opacity: 0.7;
+    position: absolute;
+    top: 0.35rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
 }
 .toast-close:hover {
-  opacity: 1;
+    opacity: 1;
 }
-
 .toast-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .toast-enter-active,
 .toast-leave-active,
 .toast-move {
-  transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 .toast-enter-from,
 .toast-leave-to {
-  opacity: 0;
-  transform: translateY(30px);
+    opacity: 0;
+    transform: translateY(30px);
 }

@@ -30,43 +30,54 @@ export default {
             <div class="list-container">
                 <div class="filter-bar">
                     <label class="checkbox-label">
-                    <input type="checkbox" v-model="sortByMainListOrder"/>
-                    Sort by difficulty
-                </label>
+                        <input type="checkbox" v-model="sortByMainListOrder"/>
+                        Sort by difficulty
+                    </label>
                 </div>
-                <table class="list" v-if="displayedPackLevels">
-                    <tr v-for="(level, i) in displayedPackLevels">
+                <table class="list" v-if="displayedPackLevels && displayedPackLevels.length">
+                    <tr v-for="(level, i) in displayedPackLevels" :key="i">
                         <td class="rank">
                             <p class="type-label-lg">#{{ i + 1 }}</p>
                         </td>
-                        <td class="level" :class="{ 'active': selectedLevel == i, 'error': !level }">
+                        <td class="level" :class="{ 'active': selectedLevel == i, 'error': !level || !level[0]?.level }"
+                        >
                             <button
-                            @click="selectedLevel = i"
-                            :class="{
-                                'highlight-higheffort': level[0]?.level?.higheffort === true,
-                                'selected': selectedLevel === i}"
-                                :style="selectedLevel === i ? { background: pack.colour } : {}">
-                                <span class="type-label-lg">{{ level[0].level.name || \`Error (\.json)\` }}</span>
-                                <span v-if="level[0].level.subtitle" class="subtitle">{{ level[0].level.subtitle }}</span>
+                                @click="selectedLevel = i"
+                                :disabled="!level || !level[0]?.level"
+                                :class="{
+                                    'highlight-higheffort': level?.[0]?.level?.higheffort === true,
+                                    'selected': selectedLevel === i
+                                }"
+                                :style="selectedLevel === i ? { background: pack.colour } : {}"
+                            >
+                                <span class="type-label-lg">{{ level?.[0]?.level?.name || 'Error (.json)' }}</span>
+                                <span v-if="level?.[0]?.level?.subtitle" class="subtitle">{{ level[0].level.subtitle }}</span>
                             </button>
                         </td>
                     </tr>
                 </table>
             </div>
             <div class="level-container">
-                <div class="level" v-if="displayedPackLevels[selectedLevel]">
+                <div class="level" v-if="displayedPackLevels[selectedLevel] && displayedPackLevels[selectedLevel][0]?.level">
                     <h1>
                         {{ displayedPackLevels[selectedLevel][0].level.name }}
                         <span class="mainlist-placement">
                             (#{{ selectedLevelPlacement ?? 'N/A' }})
                         </span>
                     </h1>
-                    <LevelAuthors :publisher="displayedPackLevels[selectedLevel][0].level.publisher" 
+                    <LevelAuthors 
+                        :publisher="displayedPackLevels[selectedLevel][0].level.publisher" 
                         :creators="displayedPackLevels[selectedLevel][0].level.creators" 
-                        :verifier="displayedPackLevels[selectedLevel][0].level.verifier"></LevelAuthors>
+                        :verifier="displayedPackLevels[selectedLevel][0].level.verifier"
+                    />
                     <div style="display:flex">
-                        <div v-for="pack in displayedPackLevels[selectedLevel][0].level.packs" class="tag" 
-                        :style="{background:pack.colour, color:getFontColour(pack.colour)}">{{pack.name}}</div>
+                        <div 
+                            v-for="pack in displayedPackLevels[selectedLevel][0].level.packs" 
+                            class="tag" 
+                            :style="{background: pack.colour, color: getFontColour(pack.colour)}"
+                        >
+                            {{ pack.name }}
+                        </div>
                     </div>
                     <iframe class="video" :src="embed(displayedPackLevels[selectedLevel][0].level.verification)" frameborder="0"></iframe>
                     <ul class="stats">
@@ -86,23 +97,18 @@ export default {
                     <p v-else>100% or better to qualify</p>
                     <table class="records">
                         <tr v-for="record in displayedPackLevels[selectedLevel][0].level.records" class="record">
-                            <td class="percent">
-                                <p>{{ record.percent }}%</p>
-                            </td>
+                            <td class="percent"><p>{{ record.percent }}%</p></td>
                             <td class="user">
                                 <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
                             </td>
                             <td class="mobile">
                                 <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store?.dark ? '-dark' : ''}.svg\`" alt="Mobile">
                             </td>
-                            <td class="hz">
-                                <p>{{ record.hz }}Hz</p>
-                            </td>
+                            <td class="hz"><p>{{ record.hz }}Hz</p></td>
                         </tr>
                     </table>
                 </div>
                 <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
-                    ${/* <p>(ノಠ益ಠ)ノ彡┻━┻</p> */''}
                     <p> Failed to load pack. Retry in a few minutes or notify list staff. </p>
                 </div>
             </div>
@@ -121,9 +127,7 @@ export default {
                         Packs will automatically appear on your profile when all maps in the pack have been cleared. (Note that it is impossible to clear some packs due to some maps not being on the list)
                     </p>
                     <h3>About individual packs</h3>
-                        <p>
-                        [placeholder]
-                        </p>
+                    <p>[placeholder]</p>
                 </div>
             </div>
         </main>
@@ -144,94 +148,81 @@ export default {
             return this.packs[this.selected];
         },
         displayedPackLevels() {
-        if (!this.selectedPackLevels) return [];
-        if (!this.sortByMainListOrder) {
-            return this.selectedPackLevels; // natural pack order
+            if (!this.selectedPackLevels) return [];
+            if (!this.sortByMainListOrder) return this.selectedPackLevels;
+            // Sort by list order (difficulty)
+            return [...this.selectedPackLevels].sort((a, b) => {
+                const idA = a?.[0]?.level?.id;
+                const idB = b?.[0]?.level?.id;
+                const indexA = idA in this.listOrderMap ? this.listOrderMap[idA] : Infinity;
+                const indexB = idB in this.listOrderMap ? this.listOrderMap[idB] : Infinity;
+                return indexA - indexB;
+            });
+        },
+        selectedLevelPlacement() {
+            const level = this.displayedPackLevels[this.selectedLevel]?.[0]?.level;
+            if (!level) return null;
+            const placement = this.listOrderMap[level.id];
+            return placement !== undefined ? placement + 1 : null;
         }
-        // Sort by list order (difficulty)
-        return [...this.selectedPackLevels].sort((a, b) => {
-            // Defensive fallback: If no id found, sort to end
-            const idA = a?.[0]?.level?.id;
-            const idB = b?.[0]?.level?.id;
-            const indexA = idA in this.listOrderMap ? this.listOrderMap[idA] : Infinity;
-            const indexB = idB in this.listOrderMap ? this.listOrderMap[idB] : Infinity;
-            return indexA - indexB;
-        });
-    },
-    selectedLevelPlacement() {
-        const level = this.displayedPackLevels[this.selectedLevel]?.[0]?.level;
-        if (!level) return null;
-        const placement = this.listOrderMap[level.id];
-        return placement !== undefined ? placement + 1 : null; // index
-    }
     },
     async mounted() {
         this.packs = await fetchPacks();
-        this.selectedPackLevels = await fetchPackLevels(
-            this.packs[this.selected].name
-        );
+        this.selectedPackLevels = await fetchPackLevels(this.packs[this.selected].name);
 
-            const mainList = await fetchList();
+        const mainList = await fetchList();
+        this.listOrderMap = {};
+        mainList.forEach(([level], idx) => {
+            if (level && level.id) this.listOrderMap[level.id] = idx;
+        });
 
-    this.listOrderMap = {};
-    mainList.forEach(([level], idx) => {
-        if (level && level.id)
-            this.listOrderMap[level.id] = idx;
-    });
-
-    this.loading = false;
-    this.loadingPack = false;
-
-        // Error handling todo: make error handling
-        // if (!this.packs) {
-        //     this.errors = [
-        //         "Failed to load list. Retry in a few minutes or notify list staff.",
-        //     ];
-        // } else {
-        //     this.errors.push(
-        //         ...this.packs
-        //             .filter(([_, err]) => err)
-        //             .map(([_, err]) => {
-        //                 return `Failed to load level. (${err}.json)`;
-        //             })
-        //     );
-        // }
-
-        // Hide loading spinner
         this.loading = false;
         this.loadingPack = false;
+
+        /* Error handling todo: make error handling
+        if (!this.packs) {
+            this.errors = [
+                "Failed to load list. Retry in a few minutes or notify list staff.",
+            ];
+        } else {
+            this.errors.push(
+                ...this.packs
+                    .filter(([_, err]) => err)
+                    .map(([_, err]) => {
+                        return \`Failed to load level. (\${err}.json)\`;
+                    })
+            );
+        } */
     },
     methods: {
         async switchLevels(i) {
             this.loadingPack = true;
             const previousLevelId = this.selectedPackLevels[this.selectedLevel]?.[0]?.level?.id;
+
             this.selected = i;
             const newLevels = await fetchPackLevels(this.packs[this.selected].name);
             this.selectedPackLevels = newLevels;
-            const matchingIndex = newLevels.findIndex(
-            level => level?.[0]?.level?.id === previousLevelId
-            );
 
-            //stay on the same level if found
+            const matchingIndex = newLevels.findIndex(
+                level => level?.[0]?.level?.id === previousLevelId
+            );
             this.selectedLevel = matchingIndex !== -1 ? matchingIndex : 0;
             this.loadingPack = false;
         },
-
         getIdClass(id) {
-            const idStr = typeof id === 'string' ? id : String(id);
-            if (idStr.includes('cancelled') || idStr.includes('lost')) return 'red-id';
-            if (idStr.includes('unfinished')) return 'yellow-id';
-            return '';
+            const idStr = typeof id === "string" ? id : String(id);
+            if (idStr.includes("cancelled") || idStr.includes("lost")) return "red-id";
+            if (idStr.includes("unfinished")) return "yellow-id";
+            return "";
         },
         score,
         embed,
         getFontColour,
     },
+    /*
     watch: {
-        sortByMainListOrder(newVal, oldVal) {
-            // Always get ID from original unsorted list
+        sortByMainListOrder() {
             const currentLevelId = this.selectedPackLevels[this.selectedLevel]?.[0]?.level?.id;
-
             this.$nextTick(() => {
                 const newIndex = this.displayedPackLevels.findIndex(
                     level => level?.[0]?.level?.id === currentLevelId
@@ -240,4 +231,5 @@ export default {
             });
         }
     }
+    */
 };

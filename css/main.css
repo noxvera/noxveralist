@@ -24,14 +24,12 @@ header.dark {
 }
 
 html {
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
-
 html,
 body {
     height: 100%;
 }
-
 body {
     display: flex;
     flex-direction: column;
@@ -43,13 +41,9 @@ main {
     background-color: var(--color-background);
     color: var(--color-on-background);
     display: grid;
-    grid-template-columns: minmax(16rem, 1fr) minmax(16rem, 2fr) minmax(
-            16em,
-            1fr
-        );
+    grid-template-columns: minmax(16rem, 1fr) minmax(16rem, 2fr) minmax(16em, 1fr);
     column-gap: 2rem;
 }
-
 header {
     display: flex;
     padding-inline: calc(25vw - 10rem);
@@ -57,15 +51,8 @@ header {
     background-color: var(--color-primary);
     color: var(--color-on-primary);
 }
-@media screen and (min-width: 1366px) {
-    header {
-        display: grid;
-        padding-inline: 0;
-    }
-}
 header .logo {
     position: relative;
-    /* margin-left: 127px; /* 146.2187px max */
     margin-left: auto;
     margin-right: 25px;
     margin-bottom: 9px;
@@ -74,7 +61,6 @@ header .logo {
     align-items: flex-end;
     gap: 1rem;
     flex-wrap: nowrap;
-    
 }
 header .nav {
     flex: 1;
@@ -82,6 +68,13 @@ header .nav {
 
 .logo img.list-icon {
     transform: translateY(4px);
+}
+
+@media screen and (min-width: 1366px) {
+    header {
+        display: grid;
+        padding-inline: 0;
+    }
 }
 
 main {
@@ -112,11 +105,9 @@ input[type="checkbox"] {
 .link-hover-underline {
     transition: color 0.2s ease, text-decoration 0.2s ease;
 }
-
 .link-hover-underline:hover {
     color: #63c1ff;
     text-decoration: underline;
-    transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 .filter-bar {
@@ -126,34 +117,19 @@ input[type="checkbox"] {
     margin-left: 4px;
 }
 
-/*
-.link-icon::after {
-    content: url('/assets/external-link.svg');
-    display: inline-block;
-    margin-left: 0.25em;
-    margin-top: 0.12em;
-    vertical-align: middle;
-    filter: invert(1);
-}
-*/
-
 .link-icon {
     position: relative;
     color: var(--color-on-background);
 }
-
 .link-icon::after {
     content: "";
     display: inline-block;
     width: 1.1em;
     height: 1.1em;
     margin-bottom: 0.22em;
-    margin-left: 0.2em;
+    margin-left: 0.15em;
     vertical-align: middle;
-
     background: currentColor;
-    -webkit-mask: url('/assets/external-link.svg') no-repeat center;
-    -webkit-mask-size: contain;
     mask: url('/assets/external-link.svg') no-repeat center;
     mask-size: contain;
 }

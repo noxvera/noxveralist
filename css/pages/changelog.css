@@ -4,28 +4,22 @@
   white-space: nowrap;
   color: var(--color-on-background);
 }
-
 .page-changelog h1 {
   font-size: 275%;
   margin: 0 0 15px 0;
-  /* color: #ccc; */
   letter-spacing: 0.00001em; /* bruh */
 }
-
 .page-changelog .changelog-subtitle {
   font-size: 75%;
   color: #aaa;
   margin-bottom: 0.75em;
 }
-
 .page-changelog .changelog-date {
   font-size: 150%;
   font-weight: bold;
-  color: #ffffff;
-  margin-top: 1.5em;
-  margin-bottom: 0.75em;
+  color: #fff;
+  margin: 1.5em 0 0.75em 0;
 }
-
 .page-changelog p {
   font-size: 90%;
   color: #ccc;
@@ -41,7 +35,6 @@ main.page-changelog-wrapper {
   padding: 0;
   margin: 0;
 }
-
 .page-changelog-inner {
   max-width: 900px;
   margin: 0 auto;

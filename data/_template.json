@@ -1,30 +1,32 @@
 {
-    "id": 159,
-    "name": "Level Name",
-    "publisher": "Level Publisher",
-    "creators": [
-    "Creator 1",
-    "Creator 2",
-    "Creator 3"
-],
-    "verifier": "Level Verifier",
-    "verification": "Verification Video",
-    "percentToQualify": 100,
+    "id": "912",
+    "name": "mame",
+    "description": "description",
+    "publisher": "publisher",
+    "creators": ["creator 1", "creator 2"],
+    "verifier": "verifier",
+    "verification": "https://www.youtube.com/watch?v=wq4k1V1K52g",
+    "percentToQualify": "100",
+    "song": "2457",
+    // tags
+    "challenge": false,
+    "higheffort": false,
     "records": [
         {
-            "user": "Record Holder 1",
-            "link": "Record Link",
+            "user": "user 1",
+            "link": "link",
             "percent": 100,
-            "hz": 360
+            "hz": 360,
+            "mobile": true
         },
         {
-            "user": "Record Holder 2",
-            "link": "Record Link",
+            "user": "user 2",
+            "link": "link",
             "percent": 100,
             "hz": 360
         }
     ]
 }
 
-// DELETE COMMENTS WHEN WHEN USING TEMPLATE
-// put `"mobile": true' if it is a mobile record
+// DELETE COMMENTS WHEN USING TEMPLATE
+// recommended to not use integers for anything other than records

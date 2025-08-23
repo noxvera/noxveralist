@@ -1,6 +1,7 @@
 .page-leaderboard-container {
     display: block;
 }
+
 .page-leaderboard {
     height: 100%;
     display: grid;
@@ -13,6 +14,7 @@
 .page-leaderboard > div {
     overflow-y: auto;
 }
+
 .page-leaderboard .error-container {
     grid-row: 1;
     grid-column: 1 / span 2;
@@ -24,27 +26,25 @@
 }
 
 .page-leaderboard .search-bar {
-	position: sticky;
-	top: 0;
-	padding: 0.5rem 0;
+    position: sticky;
+    top: 0;
+    padding-block: 0.5rem;
     display: flex;
-	align-items: center;
+    align-items: center;
     justify-content: flex-start;
-	gap: 1rem;
-	background-color: var(--color-background);
+    gap: 1rem;
+    background-color: var(--color-background);
     z-index: 10;
 }
-
 .page-leaderboard .search-bar img {
-	width: 1.5rem;
-	height: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
-
 .page-leaderboard .search-bar input {
-	background-color: transparent; 
+    background-color: transparent; 
     border: none; 
     border-bottom: 1px solid var(--color-on-background);
-    padding: 0.5rem 0; 
+    padding: 0.5rem 0;
     width: 100%; 
     color: var(--color-on-background);
     font-size: 1rem; 
@@ -54,16 +54,15 @@
 .page-leaderboard .board-container,
 .page-leaderboard .player-container {
     grid-row: 2;
-    
 }
 .page-leaderboard .board-container {
     padding-inline: 1rem;
-	position: relative;
+    position: relative;
+}
+.page-leaderboard .player-container {
+    padding-block: 2rem;
 }
 
-.page-leaderboard .player-container {
-	padding-block: 2rem;
-}
 .page-leaderboard .board {
     table-layout: auto;
     display: block;
@@ -81,6 +80,8 @@
     width: 100%;
 }
 .page-leaderboard .board .user button {
+    position: relative;
+    overflow: hidden;
     background-color: var(--color-background);
     color: var(--color-on-background);
     border: none;
@@ -90,16 +91,36 @@
     word-break: normal;
     overflow-wrap: anywhere;
     margin-block: 0.1rem; /* gap between player button */
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 .page-leaderboard .board .user button:hover {
     background-color: var(--color-background-hover);
     color: var(--color-on-background-hover);
-    cursor: pointer;
 }
 .page-leaderboard .board .user.active button {
     background-color: var(--color-primary);
     color: var(--color-on-primary);
 }
+.page-leaderboard .board .user button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: rgba(255, 255, 255, 0.11111);
+    z-index: 0;
+    transition: width 0.3s ease;
+}
+.page-leaderboard .board .user button:hover::before {
+    width: 100%;
+}
+.page-leaderboard .board .user button > * {
+    position: relative;
+    z-index: 1;
+}
+
 .page-leaderboard .player {
     display: flex;
     flex-direction: column;
@@ -120,7 +141,6 @@
 .page-leaderboard .player .table .score p {
     text-align: end;
 }
-
 .page-leaderboard .player .packs {
     display: flex;
     flex-wrap: wrap;
@@ -132,51 +152,12 @@
     background-size: 100% 100% !important;
     border-radius: 0.6em;
 }
-
 .page-leaderboard .player .table .level {
     width: 100%;
 }
 .page-leaderboard .player .table a:hover {
     text-decoration: underline;
 }
-
-/* button transition */
-.page-leaderboard .board .user button {
-    position: relative;
-    overflow: hidden;
-    background-color: var(--color-background);
-    color: var(--color-on-background);
-    border: none;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    text-align: start;
-    word-break: normal;
-    overflow-wrap: anywhere;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.page-leaderboard .board .user button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    background-color: rgba(255, 255, 255, 0.11111);
-    z-index: 0;
-    transition: width 0.3s ease;
-}
-
-.page-leaderboard .board .user button:hover::before {
-    width: 100%;
-}
-
-.page-leaderboard .board .user button > * {
-    position: relative;
-    z-index: 1;
-}
-
 /* records */
 .page-leaderboard .table tr {
     position: relative;
@@ -187,7 +168,6 @@
     cursor: pointer;
     border-radius: 0.5em;
 }
-
 .page-leaderboard .table tr::before {
     content: "";
     position: absolute;
@@ -203,11 +183,9 @@
     border-radius: 0.5em;
     clip-path: inset(0% 100% 0% 0% round 0.5em);
 }
-
 .page-leaderboard .table tr:hover::before {
     clip-path: inset(0% -5% 0% 0% round 0.5em);
 }
-
 .page-leaderboard .table tr > * {
     position: relative;
     z-index: 1;
