@@ -190,10 +190,25 @@ export default {
     computed: {
         level() { return this.selectedLevel; },
         filteredList() {
-            return this.list.filter(([level]) =>
-                (!this.searchQuery || level.name.toLowerCase().includes(this.searchQuery.toLowerCase())) &&
-                (this.selectedTags.length === 0 || this.selectedTags.every(tag => getTags(level).includes(tag)))
+            const query = this.searchQuery.toLowerCase();
+            const selectedTagsSet = new Set(this.selectedTags);
+
+            return this.list.filter(([level]) => {
+
+            const name = String(level?.name ?? '').toLowerCase();
+            const subtitle = String(level?.subtitle ?? '').toLowerCase();
+            const id = String(level?.id ?? '').toLowerCase();
+
+            const matchesSearch = !query || (
+                name.includes(query) ||
+                subtitle.includes(query) ||
+                id.includes(query)
             );
+
+            const levelTagsSet = new Set(getTags(level));
+            const matchesTags = !selectedTagsSet.size || [...selectedTagsSet].every(tag => levelTagsSet.has(tag));
+            return matchesSearch && matchesTags;
+            });
         },
     },
     async mounted() {

@@ -433,7 +433,7 @@ header.dark .filter-icon {
 }
 .level .level-description {
     margin-top: -16px !important;
-    margin-bottom: 1px !important;
+    margin-bottom: -5px !important;
 }
 
 .copyable-id {
