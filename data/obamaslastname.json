@@ -9,5 +9,11 @@
     "percentToQualify": "100",
     "song": "653134",
     "records": [
+            {
+            "user": "noxvera",
+            "link": "#",
+            "percent": 67,
+            "hz": 240
+        }
     ]
 }

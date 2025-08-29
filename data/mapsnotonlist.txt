@@ -1,0 +1,6 @@
+maps that are not on the main list (packs only):
+thenightmareauto,
+microsoftcartesla,
+collab1,
+razing717auto2,
+iamdylansecretway

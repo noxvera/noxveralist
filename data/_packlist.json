@@ -13,27 +13,35 @@
         "levels": [
             "wenistower2019version",
             "pillars",
-            "dislikethislevel"
+            "dislikethislevel",
+            "challenge"
         ],
         "colour": "#000000"
     },
         {
         "name": "2020 Pack",
         "levels": [
-            "layout",
+            "longlayout",
             "astronaut13layout",
             "cosmiclayout",
             "microsoftcartesla",
             "collab1",
-            "xsteplayout"
+            "xsteplayout",
+            "layoutpreview",
+            "babblingerection"
         ],
         "colour": "#000000"
     },
     {
         "name": "2021 Pack",
         "levels": [
-            "plasmarush"
-            
+            "plasmarush",
+            "smykechallenge",
+            "aggressivefartchal",
+            "craving",
+            "solidpiss",
+            "part",
+            "syberchasechallenge"
         ],
         "colour": "#000000"
     },
@@ -92,7 +100,8 @@
         "levels": [
             "iamdylan",
             "theycallmedylan",
-            "iamdylanultrabuffed"
+            "iamdylanultrabuffed",
+            "iamdylansecretway"
         ],
         "colour": "#9aa398"
     },
