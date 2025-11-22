@@ -15,13 +15,17 @@ export function score(rank, percent, minPercent) {
     if (rank > 100 && percent < 100) {
         return 0;
     }
+    if (percent < minPercent){
+        return 0;
+    }
 
-    // Very Old formula
+    // formula v1
     /*
     let score = (100 / Math.sqrt((rank - 1) / 50 + 0.444444) - 50) *
         ((percent - (minPercent - 1)) / (100 - (minPercent - 1)));
     */
-    // Old formula
+   
+    // formula v2 (original)
     /*
     let score = (-24.9975*Math.pow(rank-1, 0.4) + 200) *
         ((percent - (minPercent - 1)) / (100 - (minPercent - 1)));
@@ -33,7 +37,9 @@ export function score(rank, percent, minPercent) {
 
     return Math.max(round(score), 0);
     */
-    // New formula
+
+    // formula v3 (broken)
+    /*
     let score = (-80*Math.pow(rank-1, 0.58) + 1000) *
         ((percent - (minPercent - 1)) / (100 - (minPercent - 1)));
     score = Math.max(0, score);
@@ -43,6 +49,18 @@ export function score(rank, percent, minPercent) {
     }
 
     return Math.max(round(score), 0);
+    */
+
+    // formula v4
+    let norm = Math.min(Math.max((percent - (minPercent - 1)) / (100 - (minPercent - 1)), 0), 1);
+    let score = 1000 * Math.exp(-0.04 * (rank - 1)) * Math.pow(norm, 1.2);
+    score = Math.max(1, score);
+
+    if (percent !== 100) {
+        score -= score / 3.5;
+    }
+
+    return Math.round(score * 100) / 100;
 }
 
 export function round(num) {

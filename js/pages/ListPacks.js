@@ -117,17 +117,15 @@ export default {
                     <div class="errors" v-show="errors.length > 0">
                         <p class="error" v-for="error of errors">{{ error }}</p>
                     </div>
-                    <p class="scroll-indicator">You can scroll sideways to see more packs</p>
+                    <p class="scroll-indicator">You can scroll/drag to see more packs</p>
                     <h3>About the packs</h3>
                     <p>
                         These packs are basically "map series". Maps not made by me as well as maps not on the list are included here.
                     </p>
                     <h3>How can I get these packs?</h3>
                     <p>
-                        Packs will automatically appear on your profile when all maps in the pack have been cleared. (Note that it is impossible to clear some packs due to some maps not being on the list)
+                        Packs will automatically appear on your profile when all maps in the pack have been cleared. (Unreleased maps are not counted for pack completion)
                     </p>
-                    <h3>About individual packs</h3>
-                    <p>[placeholder]</p>
                 </div>
             </div>
         </main>
@@ -142,6 +140,8 @@ export default {
         loadingPack: true,
         listOrderMap: {},
         sortByMainListOrder: false,
+        searchquery: ''
+        
     }),
     computed: {
         pack() {
@@ -152,17 +152,18 @@ export default {
             if (!this.sortByMainListOrder) return this.selectedPackLevels;
             // Sort by list order (difficulty)
             return [...this.selectedPackLevels].sort((a, b) => {
-                const idA = a?.[0]?.level?.id;
-                const idB = b?.[0]?.level?.id;
-                const indexA = idA in this.listOrderMap ? this.listOrderMap[idA] : Infinity;
-                const indexB = idB in this.listOrderMap ? this.listOrderMap[idB] : Infinity;
+                const pathA = a?.[0]?.path;
+                const pathB = b?.[0]?.path;
+                const indexA = pathA in this.listOrderMap ? this.listOrderMap[pathA] : Infinity;
+                const indexB = pathB in this.listOrderMap ? this.listOrderMap[pathB] : Infinity;
                 return indexA - indexB;
             });
         },
         selectedLevelPlacement() {
-            const level = this.displayedPackLevels[this.selectedLevel]?.[0]?.level;
-            if (!level) return null;
-            const placement = this.listOrderMap[level.id];
+            const levelEntry = this.displayedPackLevels[this.selectedLevel]?.[0];
+            if (!levelEntry) return null;
+
+            const placement = this.listOrderMap[levelEntry.path];
             return placement !== undefined ? placement + 1 : null;
         }
     },
@@ -173,7 +174,7 @@ export default {
         const mainList = await fetchList();
         this.listOrderMap = {};
         mainList.forEach(([level], idx) => {
-            if (level && level.id) this.listOrderMap[level.id] = idx;
+            if (level && level.path) this.listOrderMap[level.path] = idx;
         });
 
         this.loading = false;
@@ -193,6 +194,58 @@ export default {
                     })
             );
         } */
+        // packs-nav drag
+        this.$nextTick(() => {
+        const nav = this.$el.querySelector('.packs-nav');
+        if (!nav) return;
+        
+        let isDown = false;
+        let startX = 0;
+        let startScroll = 0;
+        let moved = false;
+
+        const onPointerMove = (e) => {
+            if (!isDown) return;
+            const dx = e.clientX - startX;
+            if (Math.abs(dx) > 10) moved = true; // click threshold
+            nav.scrollLeft = startScroll - dx;
+        };
+        const onPointerUp = () => {
+            if (!isDown) return;
+            isDown = false;
+
+            document.body.style.userSelect = '';
+            nav.style.scrollBehavior = '';
+
+            window.removeEventListener('pointermove', onPointerMove);
+            window.removeEventListener('pointerup', onPointerUp);
+            window.removeEventListener('pointercancel', onPointerUp);
+
+            if (moved) {
+            const stopClick = (ev) => {
+                ev.stopImmediatePropagation();
+                ev.preventDefault();
+                nav.removeEventListener('click', stopClick, true);
+            };
+            nav.addEventListener('click', stopClick, true);
+            }
+        };
+        const onPointerDown = (e) => {
+            if (e.pointerType === 'mouse' && e.button !== 0) return; // left button only
+            isDown = true;
+            moved = false;
+            startX = e.clientX;
+            startScroll = nav.scrollLeft;
+
+            document.body.style.userSelect = 'none';
+            nav.style.scrollBehavior = 'auto';
+
+            window.addEventListener('pointermove', onPointerMove);
+            window.addEventListener('pointerup', onPointerUp);
+            window.addEventListener('pointercancel', onPointerUp);
+        };
+        nav.addEventListener('pointerdown', onPointerDown);
+        });
     },
     methods: {
         async switchLevels(i) {

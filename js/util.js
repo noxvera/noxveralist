@@ -93,9 +93,11 @@ export function getTags(level) {
         tags.push("released");
     }
 
-    tags.push(level.verifier && level.verifier.toLowerCase() !== "n/a" ? "verified" : "unverified");
+    tags.push(level.verifier && level.verifier.toLowerCase() !== "n/a" ? "cleared" : "uncleared");
+
+    /* unused
     if (level.song === "NONG") tags.push("NONG");
     if (!level.records?.length) tags.push("no progress");
-
+    */
     return tags;
 }

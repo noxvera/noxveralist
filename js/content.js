@@ -36,7 +36,7 @@ export async function fetchList() {
                     const mapped = mapNames(level, nameMap);
                     const packs = packsList.filter(p => p.levels.includes(path));
 
-                    return [{ ...mapped, packs, path }, null];
+                    return [{ ...mapped, packs, path, rawId: level.id }, null];
                 } catch {
                     console.error(`Failed to load level #${rank + 1} ${path}.`);
                     return [null, path];
@@ -47,6 +47,24 @@ export async function fetchList() {
         console.error(`Failed to load list.`);
         return null;
     }
+}
+
+export async function fetchBenchmarks() {
+    const benchmarkConfig = await fetch('/data/_benchmarks.json').then((r) => r.json());
+    
+    // Fetch each benchmark level file
+    const benchmarkLevels = await Promise.all(
+        benchmarkConfig.map(async (config) => {
+            try {
+                const level = await fetch(`/data/${config.level}.json`).then((r) => r.json());
+                return [level, config.after, null]; // [level data, insert position, error]
+            } catch (err) {
+                return [null, config.after, config.level]; // [null, position, error]
+            }
+        })
+    );
+    
+    return benchmarkLevels;
 }
 
 export async function fetchEditors() {
@@ -121,11 +139,56 @@ export async function fetchLeaderboard() {
         });
     });
     // Handle packs
+    const listMap = {};
+    list.forEach(([lvl]) => { if (lvl && lvl.path) listMap[lvl.path] = lvl; });
+    const allPackPaths = [...new Set((packResult || []).flatMap(p => p.levels || []))];
+    const packOnlyPaths = allPackPaths.filter(p => !listMap[p]);
+    const packOnlyLevels = {};
+    await Promise.all(packOnlyPaths.map(async path => {
+    try {
+        const lvl = await (await fetch(`${dir}/${path}.json`)).json();
+        packOnlyLevels[path] = lvl;
+    } catch {
+        // ignore failures
+    }
+    }));
+
+    const packOnlyCompleted = {};
+    for (const [path, lvl] of Object.entries(packOnlyLevels)) {
+        if (!lvl) continue;
+
+        const id = lvl.id || "";
+        const isIgnored = /cancelled|lost|unfinished|unreleased/.test(String(id).toLowerCase());
+
+        if (lvl.verifier && !isIgnored) {
+            packOnlyCompleted[lvl.verifier] ??= new Set();
+            packOnlyCompleted[lvl.verifier].add(path);
+        }
+        if (Array.isArray(lvl.records)) {
+            for (const rec of lvl.records) {
+                if (rec.percent === 100) {
+                    packOnlyCompleted[rec.user] ??= new Set();
+                    packOnlyCompleted[rec.user].add(path);
+                }
+            }
+        }
+    }
+
+    const isIgnoredId = (id) => /cancelled|lost|unfinished|unreleased/.test(String(id || "").toLowerCase());
     for (let [username, data] of Object.entries(scoreMap)) {
-        let levels = [...data.verified, ...data.completed].map(x => x.path);
+        const cleared = new Set([...data.verified, ...data.completed].map(x => x.path));
+        const extra = packOnlyCompleted[username];
+        if (extra) for (const p of extra) cleared.add(p);
+
         for (let pack of packResult) {
             if (!pack.levels || pack.levels.length === 0) continue;
-            if (pack.levels.every(e1 => levels.includes(e1))) {
+
+            const required = pack.levels.filter(path => {
+                const id = listMap[path]?.rawId ?? packOnlyLevels[path]?.id ?? "";
+                return !isIgnoredId(id);
+            });
+
+            if (required.every(p => cleared.has(p))) {
                 data.packs.push(pack);
             }
         }
@@ -207,5 +270,5 @@ export async function fetchChangelog() {
 }
 
 export const availableTags = [
-    'released', 'verified', 'unverified', 'challenge', 'high effort', /* 'NONG', 'no progress' */
+    'released', 'cleared', /*'unverified',*/ 'challenge', 'high effort', /* 'NONG', 'no progress' */
 ];

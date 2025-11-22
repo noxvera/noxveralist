@@ -33,7 +33,7 @@ export default {
             <table class="board">
                 <tr v-for="entry in filteredLeaderboard" :key="entry.user + '-' + entry.position">
                 <td class="rank"><p class="type-label-lg">#{{ entry.position }}</p></td>
-                <td class="total"><p class="type-label-lg">{{ entry.user === 'Unverified' ? '-' : entry.total }}</p></td>
+                <td class="total"><p class="type-label-lg">{{ entry.user === 'Uncleared' ? 'bruh' : entry.total }}</p></td>
                 <td class="user" :class="{ active: selected === entry.position - 1 }">
                     <button @click="selected = entry.position - 1">
                     <span class="type-label-lg">{{ entry.user }}</span>
@@ -46,7 +46,7 @@ export default {
             <div class="player">
                 <h1>#{{ selected + 1 }} {{ entry.user }}</h1>
                 <h3 class="bold-line">
-                        {{ localize(entry.total, false) }} points<span v-if="entry.user !== 'Unverified' && entry.verified.length > 0">,
+                        {{ localize(entry.total, false) }} points<span v-if="entry.user !== 'Uncleared' && entry.verified.length > 0">,
                             Hardest: {{ entry.verified[0].level }}
                             <span v-if="entry.verified[0].rank"> (#{{ entry.verified[0].rank }})</span>
                         </span>
@@ -61,7 +61,7 @@ export default {
                     {{ pack.name }}
                 </div>
                 </div>
-                <h2>{{ entry.user === 'Unverified' ? 'Unverified' : 'Verified' }} ({{ entry.verified.length }})</h2>
+                <h2>{{ entry.user === 'Uncleared' ? 'Uncleared' : 'Verified' }} ({{ entry.verified.length }})</h2>
                 <table class="table">
                 <tr v-for="score in entry.verified" :key="'v-' + score.level + '-' + score.rank">
                     <td class="rank"><p>#{{ score.rank }}</p></td>
@@ -69,7 +69,7 @@ export default {
                     <td class="score"><p>+{{ localize(score.score) }}</p></td>
                 </tr>
                 </table>
-                <h2 v-if="entry.completed.length">Completed ({{ entry.completed.length }})</h2>
+                <h2 v-if="entry.completed.length">Cleared ({{ entry.completed.length }})</h2>
                 <table class="table" v-if="entry.completed.length">
                 <tr v-for="score in entry.completed" :key="'c-' + score.level + '-' + score.rank">
                     <td class="rank"><p>#{{ score.rank }}</p></td>
@@ -104,13 +104,12 @@ export default {
     },
     async mounted() {
         const [raw, err] = await fetchLeaderboard();
-        
-        // Normalize and then place "Unverified" at the end
+        // Normalize and then place "Uncleared" at the end
         const normalized = raw.map(e => ({
             ...e,
-            user: e.user === 'N/A' ? 'Unverified' : e.user
+            user: e.user === 'N/A' ? 'Uncleared' : e.user
         }));
-        normalized.sort((a, b) => (a.user === 'Unverified') - (b.user === 'Unverified'));
+        normalized.sort((a, b) => (a.user === 'Uncleared') - (b.user === 'Uncleared'));
         normalized.forEach((e, i) => (e.position = i + 1));
 
         this.leaderboard = normalized;

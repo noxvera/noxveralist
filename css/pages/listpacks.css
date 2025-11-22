@@ -9,7 +9,9 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    cursor: grab;
 }
+.packs-nav:active { cursor: grabbing; }
 .packs-nav::-webkit-scrollbar { display: none; }
 .packs-nav > div { display: flex; height: 100%; }
 .packs-nav button {

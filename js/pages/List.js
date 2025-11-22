@@ -1,7 +1,7 @@
 import { store } from '../main.js';
 import { embed, getFontColour, getTags } from '../util.js';
 import { score } from '../score.js';
-import { fetchEditors, fetchList, availableTags } from '../content.js';
+import { fetchEditors, fetchList, fetchBenchmarks, availableTags } from '../content.js';
 
 import Spinner from '../components/Spinner.js';
 import LevelAuthors from '../components/List/LevelAuthors.js';
@@ -34,12 +34,21 @@ export default {
                                 <button class="close-x" @click="closeFilterMenu">×</button>
                                 <h3>Filter by Tags</h3>
                                 <div class="tag-list">
-                                    <label v-for="tag in availableTags" :key="tag">
-                                        <input type="checkbox" :value="tag" v-model="selectedTags"/>
+                                    <button 
+                                        v-for="tag in availableTags" 
+                                        :key="tag"
+                                        @click="toggleTag(tag)"
+                                        :class="{
+                                            'tag-button': true,
+                                            'tag-include': getTagState(tag) === 'include',
+                                            'tag-exclude': getTagState(tag) === 'exclude'
+                                        }"
+                                    >
                                         {{ tag }}
-                                    </label>
+                                    </button>
                                 </div>
                                 <div class="close-wrapper">
+                                    <button class="reset-btn" @click="resetFilters">Reset</button>
                                     <button class="close-btn" @click="closeFilterMenu">Close</button>
                                 </div>
                             </div>
@@ -50,8 +59,12 @@ export default {
                     <tr v-for="([level, err], i) in filteredList" :key="i">
                         <td class="rank">
                             <p class="type-label-lg">
-                                {{ (level?.originalIndex + 1) <= 200 ? '#' + (level.originalIndex + 1) : 'Legacy' }}
+                                <template v-if="level?.isBenchmark">—</template>
+                                <template v-else>
+                                    {{ (level?.originalIndex + 1) <= 200 ? '#' + (level.originalIndex + 1) : 'Legacy' }}
+                                </template>
                             </p>
+                        </td>
                         </td>
                         <td class="level" :class="{ error: !level }">
                             <div :class="{ active: selectedLevel === level }">
@@ -70,23 +83,31 @@ export default {
                 <div v-if="level" class="level">
                     <h1>{{ level.name }}</h1>
                     <div class="divider-line"></div>
-                    <p v-if="level.description" class="level-description">
+                    <p v-if="level.description" ref="levelDesc" :class="['level-description', { clamp: !showFullDesc }]">
                         <template v-for="(part, i) in parseDescription(level.description)" :key="i">
                             <a v-if="part.type === 'link'" :href="part.href" target="_blank" rel="noopener" class="link-icon link-hover-underline">{{ part.text }}</a>
                             <span v-else>{{ part.text }}</span>
                         </template>
                     </p>
                     <p v-else class="level-description">No description has been added yet.</p>
+                    <button v-if="needsTruncation" class="show-more-btn" @click="showFullDesc = !showFullDesc">
+                        {{ showFullDesc ? 'Show less' : 'Show more' }}
+                    </button>
                     <LevelAuthors :publisher="level.publisher" :creators="level.creators" :verifier="level.verifier" />
                     <div v-if="level.packs.length" class="packs">
                         <div v-for="pack in level.packs" :key="pack.name" class="tag" :style="{ background: pack.colour, color: getFontColour(pack.colour) || '#000' }">
                             <p>{{ pack.name }}</p>
                         </div>
                     </div>
-                    <iframe class="video" :src="embed(level.verification)" frameborder="0"></iframe>
+                    <div v-if="level.videos && level.videos.length" class="videotabs">
+                        <button v-for="(video, index) in level.videos" :key="index" :class="['video-tab', { active: selectedVideoIndex === index }]" @click="selectedVideoIndex = index">
+                            {{ video.name }}
+                        </button>
+                    </div>
+                    <iframe class="video" :key="selectedVideoIndex" :src="embed(getSelectedVideoUrl())" frameborder="0"></iframe>
                     <ul class="stats">
                         <li>
-                            <div class="type-title-sm">Points when completed</div>
+                            <div class="type-title-sm">Points when cleared</div>
                             <p>{{ score(level.originalIndex + 1, 100, parseFloat(String(level.percentToQualify).replace('*', ''))) }}</p>
                         </li>
                         <li>
@@ -99,7 +120,7 @@ export default {
                                 'copyable-id'
                             ]"
                             @click="copyId(level.id)" title="Click to copy">
-                            {{ level.id }}
+                                {{ level.id }}
                             </p>
                         </li>
                         <li>
@@ -118,7 +139,7 @@ export default {
                     <p v-if="level.originalIndex + 1 <= 200">
                         <strong>{{ parseFloat(String(level.percentToQualify).replace('*', '')) }}%<span v-if="String(level.percentToQualify).includes('*')">*</span></strong> or better to qualify
                     </p>
-                    <p v-else>This level does not accept new records.</p>
+                    <p v-else>This map does not accept records.</p>
                     <table class="records">
                         <tr v-for="record in level.records" :key="record.user" class="record">
                             <td class="percent"><p>{{ record.percent }}%</p></td>
@@ -155,11 +176,11 @@ export default {
                         You can use the <a href="https://geode-sdk.org/mods/zsa.percentage-toggle" class="link-hover-underline link-icon" target="_blank">percentage toggle mod</a> to view 2.1 percentages in-game.
                     </p>
                     <p> 
-                        - <a href="https://gdbrowser.com/u/1kv" class="link-hover-underline link-icon" target="_blank">1kV</a>, 
+                        - <a href="https://gdbrowser.com/u/1kv" class="link-hover-underline link-icon" target="_blank">1kV</a>,
+                        <a href="https://gdbrowser.com/u/1kf" class="link-hover-underline link-icon" target="_blank">1kF</a>,
                         <a href="https://gdbrowser.com/u/cyrobyte" class="link-hover-underline link-icon" target="_blank">Cyrobyte</a>, 
                         and <a href="https://gdbrowser.com/search/19952001?user" class="link-hover-underline link-icon" target="_blank">someone (green user)</a> are all accounts belonging to me.
                     </p>
-                    <p> - Maps in the top [16] are all probably above top 1/<a href="https://impossiblelevels.com/" class="link-hover-underline link-icon" target="_blank" >ILL difficulty</a>. </p>
                     <h3 style="color: #4fb6fcff"><u><a href="/assets/docs/guidelines.pdf" target="_blank">Submission Requirements</a></u></h3>
                 </div>
             </div>
@@ -175,6 +196,7 @@ export default {
     `,
     data: () => ({
         list: [],
+        benchmarks: [],
         editors: [],
         loading: true,
         errors: [],
@@ -182,33 +204,35 @@ export default {
         store,
         searchQuery: '',
         selectedLevel: null,
-        selectedTags: JSON.parse(localStorage.getItem('selectedTags')) || [],
+        selectedTags: JSON.parse(localStorage.getItem('selectedTags')) || {},
         showTagMenu: false,
         availableTags,
         toasts: [],
+        showFullDesc: false,
+        needsTruncation: false,
+        selectedVideoIndex: 0,
     }),
     computed: {
         level() { return this.selectedLevel; },
+    
         filteredList() {
             const query = this.searchQuery.toLowerCase();
-            const selectedTagsSet = new Set(this.selectedTags);
-
-            return this.list.filter(([level]) => {
-
-            const name = String(level?.name ?? '').toLowerCase();
-            const subtitle = String(level?.subtitle ?? '').toLowerCase();
-            const id = String(level?.id ?? '').toLowerCase();
-
-            const matchesSearch = !query || (
-                name.includes(query) ||
-                subtitle.includes(query) ||
-                id.includes(query)
+            const filtered = this.list.filter(([level]) => 
+                this.shouldIncludeLevel(level, query)
             );
 
-            const levelTagsSet = new Set(getTags(level));
-            const matchesTags = !selectedTagsSet.size || [...selectedTagsSet].every(tag => levelTagsSet.has(tag));
-            return matchesSearch && matchesTags;
-            });
+            const result = [...filtered];
+            const sortedBenchmarks = this.benchmarks
+                .filter(b => b.level && this.shouldIncludeLevel(b.level, query))
+                .sort((a, b) => b.after - a.after);
+            for (const { level, after } of sortedBenchmarks) {
+                const insertIndex = result.findIndex(([l]) => l?.originalIndex === after);
+                if (insertIndex !== -1) {
+                    result.splice(insertIndex + 1, 0, [level, null]);
+                }
+            }
+            
+            return result;
         },
     },
     async mounted() {
@@ -217,11 +241,25 @@ export default {
             if (entry[0]) entry[0].originalIndex = i;
             return entry;
         });
+        const rawBenchmarks = await fetchBenchmarks() || [];
+        this.benchmarks = rawBenchmarks.map(([level, after, err]) => {
+            // initialize missing properties for benchmarks
+            if (level) {
+                level.isBenchmark = true;
+                level.packs = level.packs || [];
+            }
+            return {
+                level,
+                after,
+                err
+            };
+        });
         this.editors = await fetchEditors();
         if (this.filteredList.length) this.selectedLevel = this.filteredList[0][0];
         if (!this.list) this.errors = ['Failed to load list. Retry later.'];
         else this.errors.push(...this.list.filter(([_, err]) => err).map(([_, err]) => `Failed to load level. (${err}.json)`));
         if (!this.editors) this.errors.push('Failed to load list editors.');
+         this.errors.push(...this.benchmarks.filter(b => b.err).map(b => `Failed to load benchmark. (${b.err}.json)`));
         this.loading = false;
     },
     methods: {
@@ -257,6 +295,86 @@ export default {
             });
             if (last < text.length) parts.push({ type: "text", text: text.slice(last) });
             return parts;
-        }
+        },
+        checkDescriptionOverflow() {
+            this.$nextTick(() => {
+                let el = this.$refs.levelDesc;
+                el = Array.isArray(el) ? el[0] : el;
+                
+                if (!el) { 
+                    this.needsTruncation = false;
+                    return;
+                }
+
+                const origOverflow = el.style.overflow;
+                const origWebkitLineClamp = el.style.webkitLineClamp;
+                
+                el.style.overflow = 'visible';
+                el.style.webkitLineClamp = 'unset';
+
+                const fullHeight = el.scrollHeight;
+                const cs = window.getComputedStyle(el);
+                const lineHeight = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.2 || 19.2;
+
+                el.style.overflow = origOverflow;
+                el.style.webkitLineClamp = origWebkitLineClamp;
+
+                this.needsTruncation = Math.round(fullHeight / lineHeight) > 3;
+            });
+        },
+
+        toggleTag(tag) {
+            const currentState = this.selectedTags[tag];
+            const newTags = { ...this.selectedTags };
+            
+            if (!currentState) {
+                newTags[tag] = 'include';
+            } else if (currentState === 'include') {
+                newTags[tag] = 'exclude';
+            } else {
+                delete newTags[tag];
+            }
+            
+            this.selectedTags = newTags;
+            localStorage.setItem('selectedTags', JSON.stringify(newTags));
+        },
+
+        getTagState(tag) {
+            return this.selectedTags[tag] || null;
+        },
+
+        resetFilters() {
+            this.selectedTags = {};
+            localStorage.removeItem('selectedTags');
+        },
+
+        getSelectedVideoUrl() {
+            return this.level.videos?.[this.selectedVideoIndex]?.url ?? this.level.verification;
+        },
+
+        matchesSearchQuery(level, query) {
+            if (!query) return true;
+            const q = query.toLowerCase();
+            return [level?.name, level?.subtitle, level?.id]
+                .some(field => String(field ?? '').toLowerCase().includes(q));
+        },
+
+        matchesTagFilters(level) {
+            const levelTags = new Set(getTags(level));
+            return Object.entries(this.selectedTags).every(([tag, state]) => 
+                state === 'include' ? levelTags.has(tag) : !levelTags.has(tag)
+            );
+        },
+
+        shouldIncludeLevel(level, query) {
+            return this.matchesSearchQuery(level, query) && this.matchesTagFilters(level);
+        },
     },
+    watch: {
+        selectedLevel() {
+            this.selectedVideoIndex = 0;
+            this.showFullDesc = false;
+            this.checkDescriptionOverflow();
+        }
+    }
 };

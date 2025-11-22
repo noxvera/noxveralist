@@ -1,5 +1,5 @@
 .page-changelog {
-  padding: 25px;
+  padding: 27.5px;
   margin: 0 auto;
   white-space: nowrap;
   color: var(--color-on-background);
@@ -11,18 +11,21 @@
 }
 .page-changelog .changelog-subtitle {
   font-size: 75%;
-  color: #aaa;
+  color: var(--color-on-background);
+  opacity: 0.6;
   margin-bottom: 0.75em;
 }
 .page-changelog .changelog-date {
   font-size: 150%;
+  opacity: 1;
   font-weight: bold;
-  color: #fff;
+  color: var(--color-on-background);
   margin: 1.5em 0 0.75em 0;
 }
 .page-changelog p {
   font-size: 90%;
-  color: #ccc;
+  opacity: 0.7;
+  color: var(--color-on-background);
   margin: 6px 0;
   display: block;
   width: 100%;

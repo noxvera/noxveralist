@@ -47,7 +47,7 @@
     background-color: var(--color-on-primary);
     color: var(--color-primary);
     border-radius: 0.5rem;
-    box-shadow: 0 1px 0.5rem 0 rgba(200, 200, 200, 0.5);
+    box-shadow: 0 1px 0.5rem 0 rgba(200, 200, 200, 0.35);
     transition: transform 300ms ease;
 }
 .nav .nav__actions .nav__cta:hover:not(:active) {
