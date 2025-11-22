@@ -5,8 +5,14 @@
     "creators": ["noxvera"],
     "verifier": "syberchase",
     "verification": "https://youtu.be/04vif7Vau9s",
-    "percentToQualify": "60*",
+    "percentToQualify": "100",
     "song": "default",
     "records": [
+        {
+            "user": "jamalmurray",
+            "link": "https://youtu.be/_3t6hAYK9dM",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

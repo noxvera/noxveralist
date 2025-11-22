@@ -10,6 +10,12 @@
     "song": "548713",
     "records": [
         {
+            "user": "jamalmurray",
+            "link": "https://youtu.be/3MipzE_FX1I",
+            "percent": 100,
+            "hz": 240
+        },
+        {
             "user": "noxvera",
             "link": "#",
             "percent": 58,

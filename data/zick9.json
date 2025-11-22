@@ -6,7 +6,16 @@
     "publisher": "noxvera",
     "creators": ["noxvera"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/Am2vqGgaBtc",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/Am2vqGgaBtc"
+        },
+            {
+            "name": "old version",
+            "url": "https://youtu.be/pTyWz8fHL38"
+        }
+    ],
     "percentToQualify": "22",
     "song": "590533",
     "records": [

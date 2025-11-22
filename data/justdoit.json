@@ -9,11 +9,17 @@
     "percentToQualify": "100",
     "song": "default",
     "records": [
-                    {
+        {
             "user": "syberchase",
             "link": "https://youtu.be/0d3b11fwBxE",
             "percent": 100,
             "hz": 120
+        },
+        {
+            "user": "noxvera",
+            "link": "https://youtu.be/2pLNd0OoERw",
+            "percent": 100,
+            "hz": 240
         }
     ]
 }

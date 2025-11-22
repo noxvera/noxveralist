@@ -9,5 +9,11 @@
     "percentToQualify": "100",
     "song": "33326",
     "records": [
+        {
+            "user": "jamalmurray",
+            "link": "https://youtu.be/JynwpJkS5v0",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

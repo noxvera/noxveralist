@@ -1,0 +1,18 @@
+{
+    "id": "61079355",
+    "name": "Acu",
+    "description": "difficulty reference",
+    "publisher": "neigefeu",
+    "creators": [],
+    "verifier": "neigefeu",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://www.youtube.com/watch?v=z6l74Mkoxm8"
+        }
+    ],
+    "percentToQualify": "111",
+    "song": "723714",
+    "records": [
+    ]
+}

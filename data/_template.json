@@ -6,7 +6,17 @@
     "publisher": "publisher",
     "creators": ["creator 1", "creator 2"],
     "verifier": "verifier",
-    "verification": "https://www.youtube.com/watch?v=wq4k1V1K52g",
+    // "verification": "https://www.youtube.com/watch?v=wq4k1V1K52g",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://www.youtube.com/watch?v=wq4k1V1K52g"
+        },
+            {
+            "name": "old version",
+            "url": "https://www.youtube.com/watch?v=KOIEo_74L-Q&list=RDcdYoRAId6ZY&index=3"
+        }
+    ],
     "percentToQualify": "100",
     "song": "2457",
     // tags

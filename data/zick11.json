@@ -5,6 +5,16 @@
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/ztPFnJnUbFs",
+    "videos":[
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/ztPFnJnUbFs"
+        },
+        {
+        "name": "old version",
+        "url": "https://youtu.be/ATlDa6uRnLg"
+        }
+    ],
     "percentToQualify": "52",
     "song": "742681",
     "records": [

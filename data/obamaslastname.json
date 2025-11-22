@@ -6,8 +6,9 @@
     "creators": ["noxvera"],
     "verifier": "N/A",
     "verification": "https://youtu.be/ewGJyS5Q6yI",
-    "percentToQualify": "100",
+    "percentToQualify": "66",
     "song": "653134",
+    "challenge": true,
     "records": [
             {
             "user": "noxvera",

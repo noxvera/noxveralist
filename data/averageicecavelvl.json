@@ -4,7 +4,12 @@
     "publisher": "1kV",
     "creators": ["noxvera"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/Samn_FnKZ24",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/Samn_FnKZ24"
+        }
+    ],
     "percentToQualify": "28",
     "song": "742681",
     "records": [

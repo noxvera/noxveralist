@@ -2,9 +2,15 @@
     "id": "59414503",
     "name": "challenge",
     "publisher": "1kF",
+    "description": "Oldest map I made on pc thats still available, plays like shit because I made it when my hardest was like decode or something",
     "creators": ["noxvera"],
-    "verifier": "N/A",
-    "verification": "#",
+    "verifier": "jamalmurray",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/Qidx80pHHSs?t=23"
+        }
+    ],
     "percentToQualify": "100",
     "song": "713536",
     "challenge": true,
