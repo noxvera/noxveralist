@@ -1,5 +1,5 @@
 import { fetchPacks, fetchPackLevels, fetchList } from "../content.js";
-import { getFontColour, embed } from "../util.js";
+import { getFontColour, embed, addToast } from "../util.js";
 import { score } from "../score.js";
 
 import Spinner from "../components/Spinner.js";
@@ -128,6 +128,14 @@ export default {
                     </p>
                 </div>
             </div>
+            <div class="toast-container">
+                <transition-group name="toast" tag="div" class="toast-stack">
+                    <div v-for="(toast, i) in toasts" :key="toast.id" class="toast">
+                        <button class="toast-close" @click="removeToast(i)">×</button>
+                        {{ toast.message }}
+                    </div>
+                </transition-group>
+            </div>
         </main>
     `,
     data: () => ({
@@ -140,8 +148,8 @@ export default {
         loadingPack: true,
         listOrderMap: {},
         sortByMainListOrder: false,
-        searchquery: ''
-        
+        searchquery: '',
+        toasts: [],
     }),
     computed: {
         pack() {
@@ -245,6 +253,7 @@ export default {
             window.addEventListener('pointercancel', onPointerUp);
         };
         nav.addEventListener('pointerdown', onPointerDown);
+        window.addEventListener('add-toast', this.handleToastEvent);
         });
     },
     methods: {
@@ -268,9 +277,19 @@ export default {
             if (idStr.includes("unfinished")) return "yellow-id";
             return "";
         },
+        handleToastEvent(e) {
+            const toast = { id: Date.now() + Math.random(), message: e.detail.message };
+            this.toasts.push(toast);
+            setTimeout(() => this.removeToastById(toast.id), 4000);
+        },
+        removeToast(i) { this.toasts.splice(i, 1); },
+        removeToastById(id) { this.toasts = this.toasts.filter(t => t.id !== id); },
         score,
         embed,
         getFontColour,
+    },
+    beforeUnmount() {
+        window.removeEventListener('add-toast', this.handleToastEvent);
     },
     /*
     watch: {

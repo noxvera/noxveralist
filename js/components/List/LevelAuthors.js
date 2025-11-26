@@ -6,10 +6,10 @@ export default {
     },
     computed: {
         creatorsLabel() {
-        return this.creators.length <= 1 ? "Creator" : "Creators";
+            return this.creators.length <= 1 ? "Creator" : "Creators";
         },
         creatorsText() {
-        return this.creators.length ? this.creators.join(", ") : this.publisher;
+            return this.creators.length ? this.creators.join(", ") : this.publisher;
         },
     },
     template: `

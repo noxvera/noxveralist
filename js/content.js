@@ -51,8 +51,6 @@ export async function fetchList() {
 
 export async function fetchBenchmarks() {
     const benchmarkConfig = await fetch('/data/_benchmarks.json').then((r) => r.json());
-    
-    // Fetch each benchmark level file
     const benchmarkLevels = await Promise.all(
         benchmarkConfig.map(async (config) => {
             try {
@@ -63,7 +61,6 @@ export async function fetchBenchmarks() {
             }
         })
     );
-    
     return benchmarkLevels;
 }
 
@@ -199,7 +196,6 @@ export async function fetchLeaderboard() {
         const total = [verified, completed, progressed]
             .flat()
             .reduce((prev, cur) => prev + cur.score, 0);
-
         return {
             user,
             total: round(total),
@@ -270,5 +266,5 @@ export async function fetchChangelog() {
 }
 
 export const availableTags = [
-    'released', 'cleared', /*'unverified',*/ 'challenge', 'high effort', /* 'NONG', 'no progress' */
+    'cleared', 'released', /*'unverified',*/ 'challenge', 'high effort', /* 'NONG', 'no progress' */
 ];

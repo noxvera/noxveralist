@@ -61,7 +61,7 @@
 }
 .page-roulette .levels .level .actions {
     grid-column: 1 / span 2;
-    margin: 0;
+
     padding: 1rem;
     display: flex;
     gap: 1rem;
@@ -89,37 +89,10 @@
 .page-roulette .levels .results .btn {
     margin-top: 1rem;
 }
-.page-roulette .toasts-container {
-    grid-column: 2 / span 2;
-    grid-row: 1;
-    align-self: start;
-    margin-block: 2rem;
-    margin-right: 2rem;
-    overflow-y: auto;
-}
-.page-roulette .toasts {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    overflow-y: auto;
-}
-.page-roulette .toast {
-    display: flex;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background-color: #d50000;
-    color: white;
-}
 
 @media screen and (min-width: 1366px) {
     .page-roulette .levels-container {
         grid-column: 2;
         padding-right: 0;
-    }
-    .page-roulette .toasts-container {
-        grid-column: 3;
-        margin: 0;
-        padding: 2rem 2rem 2rem 0;
-        align-self: stretch;
     }
 }

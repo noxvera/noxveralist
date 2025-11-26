@@ -2,35 +2,32 @@
   padding: 27.5px;
   margin: 0 auto;
   white-space: nowrap;
-  color: var(--color-on-background);
 }
 .page-changelog h1 {
   font-size: 275%;
   margin: 0 0 15px 0;
-  letter-spacing: 0.00001em; /* bruh */
+  letter-spacing: 0.001em;
 }
 .page-changelog .changelog-subtitle {
   font-size: 75%;
-  color: var(--color-on-background);
   opacity: 0.6;
-  margin-bottom: 0.75em;
+  margin-bottom: -2px;
 }
 .page-changelog .changelog-date {
   font-size: 150%;
   opacity: 1;
   font-weight: bold;
-  color: var(--color-on-background);
   margin: 1.5em 0 0.75em 0;
+}
+.page-changelog .changelog-date:nth-of-type(3) {
+    margin-top: 26px;
 }
 .page-changelog p {
   font-size: 90%;
   opacity: 0.7;
-  color: var(--color-on-background);
   margin: 6px 0;
-  display: block;
   width: 100%;
 }
-
 main.page-changelog-wrapper {
   display: block;
   height: 100%;

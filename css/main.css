@@ -16,24 +16,18 @@ header.dark {
     --color-on-background: white;
     --color-background-hover: #27262c;
     --color-on-background-hover: white;
-    --color-primary: black;
     --color-primary-disabled: #1f213c;
-    --color-on-primary: white;
-    --color-error: #de0000;
-    --color-on-error: white;
 }
 
 html {
     overflow-x: hidden;
-}
-html,
-body {
     height: 100%;
 }
 body {
     display: flex;
     flex-direction: column;
     margin: 0;
+    height: 100%;
 }
 
 header,
@@ -52,7 +46,6 @@ header {
     color: var(--color-on-primary);
 }
 header .logo {
-    position: relative;
     margin-left: auto;
     margin-right: 25px;
     margin-bottom: 9px;
@@ -60,7 +53,6 @@ header .logo {
     display: flex;
     align-items: flex-end;
     gap: 1rem;
-    flex-wrap: nowrap;
 }
 header .nav {
     flex: 1;
@@ -118,7 +110,6 @@ input[type="checkbox"] {
 }
 
 .link-icon {
-    position: relative;
     color: var(--color-on-background);
 }
 .link-icon::after {

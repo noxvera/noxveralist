@@ -18,45 +18,33 @@
         <link rel="stylesheet" href="/css/pages/changelog.css"/>
         <link rel="stylesheet" href="/css/components/nav.css"/>
         <link rel="stylesheet" href="/css/components/btn.css"/>
-        <script src="https://unpkg.com/vue@3.5.18/dist/vue.global.js"></script>
-        <script src="https://unpkg.com/vue-router@4.5.1/dist/vue-router.global.prod.js"></script>
+        <script src="https://unpkg.com/vue@3.5.22/dist/vue.global.js"></script> <!-- DO NOT UPDATE THIS!! -->
+        <script src="https://unpkg.com/vue-router@4.6.3/dist/vue-router.global.prod.js"></script>
         <script src="/js/main.js" type="module"></script>
     </head>
     <body id="app">
         <header :class="{ dark: store.dark }">
             <div class="logo">
                 <a href="https://gdbrowser.com/u/noxvera" target="_blank">
-                    <img src="/assets/list_icon.png" alt="List Icon" class="list-icon nav__cta"/>
+                    <img src="/assets/list_icon.png" alt="List Icon" class="list-icon"/>
                 </a>
                 <h2>noxvera List</h2>
                 <a href="https://github.com/noxvera/noxveralist/releases" class="link-hover-underline" target="_blank">
-                    <p>v1.2.0</p>
+                    <p>v1.2.1</p>
                 </a>
             </div>
             <nav class="nav">
-                <router-link class="nav__tab" to="/">
-                    <span class="type-label-lg">List</span>
-                </router-link>
-                <router-link class="nav__tab" to="/list-packs">
-                    <span class="type-label-lg">Packs</span>
-                </router-link>
-                <router-link class="nav__tab" to="/leaderboard">
-                    <span class="type-label-lg">Leaderboard</span>
-                </router-link>
-                <router-link class="nav__tab" to="/changelog">
-                    <span class="type-label-lg">Changelog</span>
-                </router-link>
-                <!--
-                <router-link class="nav__tab" to="/roulette">
-                    <span class="type-label-lg">Roulette</span>
-                </router-link>
-                -->
+                <router-link class="nav__tab type-label-lg" to="/">List</router-link>
+                <router-link class="nav__tab type-label-lg" to="/list-packs">Packs</router-link>
+                <router-link class="nav__tab type-label-lg" to="/leaderboard">Leaderboard</router-link>
+                <router-link class="nav__tab type-label-lg" to="/changelog">Changelog</router-link>
+                <!-- <router-link class="nav__tab type-label-lg" to="/roulette">Roulette</router-link> -->
                 <div class="nav__actions">
-                    <button class="nav__icon" @click.prevent="store.toggleDark()">
+                    <button class="nav__icon" @click.prevent="store.toggleDark()" aria-label="Toggle dark mode">
                         <img :src="store.dark ? '/assets/light.svg' : '/assets/dark.svg'" alt=""/>
                     </button>
-                    <a class="nav__icon" href="#" target="_blank">
-                        <img src="/assets/discord.svg" alt="Discord Logo"/>
+                    <a class="nav__icon" href="https://discord.gg/t2jJqnpeYE" target="_blank" aria-label="Join Discord">
+                        <img src="/assets/discord.svg" alt=""/>
                     </a>
                     <a class="nav__cta type-label-lg" href="https://forms.gle/7zfoDPcoKb4pFbvs7" target="_blank">
                         Submit Record
@@ -65,5 +53,5 @@
             </nav>
         </header>
         <router-view :class="{ dark: store.dark }"></router-view>
-  </body>
+    </body>
 </html>

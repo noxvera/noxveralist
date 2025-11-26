@@ -101,3 +101,9 @@ export function getTags(level) {
     */
     return tags;
 }
+
+export function addToast(message) {
+    window.dispatchEvent(new CustomEvent('add-toast', { 
+        detail: { message } 
+    }));
+}

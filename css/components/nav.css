@@ -3,27 +3,27 @@
     column-gap: 2rem;
     justify-content: flex-start;
 }
-.nav .nav__tab {
+.nav__tab {
     padding-top: 4px;
+    padding-inline: 0.4rem;
     border-bottom: 4px solid transparent;
     display: flex;
     align-items: center;
-    padding-inline: 0.4rem;
-    transition: border-color 300ms ease;
     white-space: nowrap;
+    transition: border-color 300ms ease;
 }
-.nav .nav__tab.router-link-active,
-.nav .nav__tab:hover {
+.nav__tab.router-link-active,
+.nav__tab:hover {
     border-color: var(--color-on-primary);
 }
-.nav .nav__actions {
+.nav__actions {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     margin-right: -10rem;
 }
-.nav .nav__actions .nav__icon {
+.nav__icon {
     height: 3rem;
     width: 3rem;
     border: none;
@@ -35,13 +35,13 @@
     justify-content: center;
     transition: background-color 300ms ease;
 }
-.nav .nav__actions .nav__icon:hover {
+.nav__icon:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
-.nav .nav__actions .nav__icon img {
+.nav__icon img {
     height: 1.5rem;
 }
-.nav .nav__actions .nav__cta {
+.nav__cta {
     margin-left: 1rem;
     padding: 1rem;
     background-color: var(--color-on-primary);
@@ -50,12 +50,8 @@
     box-shadow: 0 1px 0.5rem 0 rgba(200, 200, 200, 0.35);
     transition: transform 300ms ease;
 }
-.nav .nav__actions .nav__cta:hover:not(:active) {
+.nav__cta:hover:not(:active) {
     transform: translateY(-2px);
-}
-.nav .nav__tab span {
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 header .nav {
     margin-left: 10px;
@@ -64,12 +60,10 @@ header .nav {
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* space between icon and text */
-    flex-wrap: nowrap;
+    gap: 0.5rem;
     white-space: nowrap;
-    text-overflow: ellipsis;
 }
-.logo img.list-icon {
+.logo .list-icon {
     height: 2rem;
 }
 
@@ -84,8 +78,6 @@ header .nav {
     }
     header .logo {
         margin: 0 0 0.5rem 0;
-        flex-wrap: nowrap;
-        gap: 0.5rem;
         width: 100%;
         justify-content: space-between;
     }
@@ -95,14 +87,14 @@ header .nav {
         gap: 0.5rem;
         width: 100%;
     }
-    .nav .nav__tab {
+    .nav__tab {
         flex-grow: 1;
         flex-basis: max-content;
         padding-inline: 0.5rem;
     }
-    .nav .nav__actions {
+    .nav__actions {
         margin-right: 0;
         width: 100%;
         justify-content: flex-end;
-  }
+    }
 }

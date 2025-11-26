@@ -149,7 +149,7 @@ p::before, p::after, .type-body::before, .type-body::after {
     animation: shine 1s ease-out;
     opacity: 1;
 }
-.highlight-higheffort > * { position: relative; z-index: 3; }
+.highlight-higheffort > * { position: relative;z-index: 3; }
 .active .highlight-higheffort { background-color: #f5bf03 !important; color: black !important; }
 td.level .active button:not(.highlight-higheffort) {
     background-color: black !important;

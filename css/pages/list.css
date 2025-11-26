@@ -1,7 +1,7 @@
 .page-list .list-container,
 .page-list .level-container,
 .page-list .meta-container {
-    padding-block: 1.75rem; /* change og gap */
+    padding-block: 1.75rem;
 }
 .page-list .level-container {
     padding-top: 38px; /* 32px default */
@@ -43,7 +43,7 @@
 .shared-list .list .level button::before {
     content: "";
     position: absolute;
-    inset: 0 0 0 0;
+    inset: 0;
     height: 100%;
     width: 0;
     background-color: rgba(255, 255, 255, 0.11111);
@@ -222,8 +222,6 @@
     padding: 0rem 0.5rem;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: rem;
     background-color: var(--color-background);
     z-index: 10;
     margin-bottom: 0.2em; /* gap between list table and search bar */
@@ -242,17 +240,6 @@
     font-size: 1rem;
     outline: none;
     margin-left: 10px;
-}
-
-.filter-bar {
-    margin-bottom: 0.6rem;
-    margin-top: 0.3rem;
-}
-
-.checkbox-label {
-    display: block;
-    align-items: center;
-    gap: 0.4rem;
 }
 
 .search-bar {
@@ -297,8 +284,6 @@ header.dark .filter-icon {
     width: 500px;
     height: 214px;
     position: relative;
-    /* animation: popup-fade-in 0.1s ease-out; */
-    transform-origin: center;
     display: flex;
     flex-direction: column;
     pointer-events: auto;
@@ -316,8 +301,11 @@ header.dark .filter-icon {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: opacity 0.2s ease;
 }
-/* close if click outside filter */
+.tag-popup button:hover {
+    opacity: 0.7;
+}
 .tag-popup-overlay {
     position: fixed;
     inset: 0;
@@ -339,11 +327,11 @@ header.dark .filter-icon {
     cursor: pointer;
     padding: 0;
     line-height: 1;
+    transition: opacity 0.2s ease;
 }
 .tag-popup .close-x:hover {
     opacity: 0.7;
 }
-
 .tag-list {
     display: flex;
     flex-wrap: wrap;
@@ -365,14 +353,20 @@ header.dark .filter-icon {
     font-family: "Lexend Deca", sans-serif;
     font-size: inherit;
     height: fit-content;
+    transition: opacity 0.2s ease;
+}
+.tag-list .tag-button:hover {
+    opacity: 0.8;
 }
 .tag-list .tag-button.tag-include {
     background: #4caf50;
     color: white;
+    opacity: 1;
 }
 .tag-list .tag-button.tag-exclude {
     background: #f44336;
     color: white;
+    opacity: 1;
 }
 .tag-list .tag-button.tag-include::before {
     content: '✓';
@@ -384,25 +378,13 @@ header.dark .filter-icon {
     margin-right: 0.5em;
     font-weight: bold;
 }
-
 .close-wrapper {
     font-family: "Lexend Deca", sans-serif;
     display: flex;
     justify-content: space-between;
     margin-top: 0.25rem;
 }
-
-.reset-btn {
-    background: var(--color-primary);
-    color: var(--color-on-primary);
-    border: none;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-    border-radius: 4px;
-    font-family: inherit;
-    cursor: pointer;
-}
-
+.reset-btn,
 .close-btn {
     background: var(--color-primary);
     color: var(--color-on-primary);
@@ -412,8 +394,12 @@ header.dark .filter-icon {
     border-radius: 4px;
     font-family: inherit;
     cursor: pointer;
+    transition: opacity 0.15s ease;
 }
-
+.reset-btn:hover,
+.close-btn:hover {
+    opacity: 0.8;
+}
 @keyframes popup-fade-in {
     from {
         opacity: 0;
@@ -434,25 +420,14 @@ header.dark .filter-icon {
         transform: scale(0.95);
     }
 }
-
-.popup-enter-active {
-    animation: popup-fade-in 0.2s ease-out forwards;
-}
-.popup-leave-active {
-    animation: popup-fade-out 0.2s ease-in forwards;
-}
-
-.overlay-enter-active,
 .overlay-leave-active {
-    transition: opacity 0.1s ease;
+    transition: opacity 0.1s ease-out;
 }
-.overlay-enter-from,
 .overlay-leave-to {
     opacity: 0;
 }
-.overlay-enter-to,
-.overlay-leave-from {
-    opacity: 1;
+.popup-enter-active {
+    animation: popup-fade-in 0.15s ease-out forwards;
 }
 
 .divider-line {
@@ -476,7 +451,6 @@ header.dark .filter-icon {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 .level .divider-line {
     margin-top: -12px !important;
 }
@@ -501,11 +475,12 @@ header.dark .filter-icon {
     flex-direction: column-reverse;
     align-items: flex-end;
     gap: 1rem;
+    z-index: 2;
 }
 .toast {
-    min-width: 300px;
-    max-width: 380px;
-    background: color-mix(in srgb, var(--color-background) 80%, black 15%);
+    min-width: 0px;
+    max-width: 405px;
+    background: color-mix(in srgb, var(--color-background) 82%, black 15%);
     color: var(--color-on-background, #fff);
     padding: 1rem 2.5rem 1rem 1.5rem;
     border-radius: 0.55rem;
@@ -532,11 +507,12 @@ header.dark .filter-icon {
     align-items: flex-end;
     gap: 0.5rem;
 }
-
 .toast-enter-active,
-.toast-leave-active,
-.toast-move {
+.toast-leave-active {
     transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.toast-move {
+    transition: transform 0.3s ease;
 }
 .toast-enter-from,
 .toast-leave-to {
@@ -545,7 +521,7 @@ header.dark .filter-icon {
 }
 .show-more-btn {
     font-family: "Lexend Deca", sans-serif;
-    text-align: left;;
+    text-align: left;
     margin-top: -18px;
     margin-left: -6px;
     margin-bottom: -10px;
@@ -567,7 +543,6 @@ header.dark .filter-icon {
     justify-content: flex-start;
     margin-bottom: 0.5rem;
 }
-
 .videotabs .video-tab {
     margin-top: -10px;
     margin-bottom: -16px;
@@ -575,7 +550,7 @@ header.dark .filter-icon {
     border-bottom: 3px solid transparent;
     display: flex;
     align-items: center;
-    transition: border-color 300ms ease, background-color 300ms ease;
+    transition: border-color 250ms ease, background-color 300ms ease;
     white-space: nowrap;
     background: none;
     border-top: none;
@@ -586,11 +561,19 @@ header.dark .filter-icon {
     font-size: 1rem;
     color: var(--color-on-background);
 }
-
 .videotabs .video-tab:hover {
     background-color: var(--color-background-hover);
 }
-
 .videotabs .video-tab.active {
     border-bottom-color: var(--color-on-background);
+}
+.videotabs .video-tab:first-child {
+    border-top-left-radius: 0.5rem;
+}
+.videotabs .video-tab:last-child {
+    border-top-right-radius: 0.5rem;
+}
+.videotabs .video-tab:only-child {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
 }
