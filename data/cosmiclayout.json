@@ -5,7 +5,12 @@
     "publisher": "Cyrobyte",
     "creators": ["noxvera"],
     "verifier": "noxvera",
-    "verification": "https://youtu.be/uRxzUMI334A",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/uRxzUMI334A"
+        }
+    ],
     "percentToQualify": "100",
     "song": "591740",
     "records": [

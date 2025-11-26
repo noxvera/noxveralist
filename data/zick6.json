@@ -5,7 +5,12 @@
     "publisher": "noxvera",
     "creators": [],
     "verifier": "noxvera",
-    "verification": "https://youtu.be/qDuu8TQcZsE",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/qDuu8TQcZsE"
+        }
+    ],
     "percentToQualify": "100",
     "song": "music library",
     "records": [
@@ -17,7 +22,7 @@
         },
         {
             "user": "syberchase",
-            "link": "https://www.youtube.com/watch?v=9Bp8Px7ryEs",
+            "link": "https://www.youtu.be/9Bp8Px7ryEs",
             "percent": 100,
             "hz": 240
         }

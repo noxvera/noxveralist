@@ -4,8 +4,13 @@
     "publisher": "noxvera",
     "creators": ["noxvera", "syberchase", "IcEDcave", "BoBoBoBoBoBoBo"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/pT7lBD4NKDk",
-    "percentToQualify": "90",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/pT7lBD4NKDk"
+        }
+    ],
+    "percentToQualify": "100",
     "song": "default",
     "records": [
     ]

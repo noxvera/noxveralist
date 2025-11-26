@@ -1,11 +1,16 @@
 {
     "id": 61263637,
     "name": "astronaut 13 layout",
-    "description": "Took a fat shit in the editor and thought it looked good.",
+    "description": "Took a fat shit in the editor and thought it looked good",
     "publisher": "Cyrobyte",
     "creators": ["noxvera"],
     "verifier": "noxvera",
-    "verification": "https://youtu.be/tnLDj0s9gzI",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/tnLDj0s9gzI"
+        }
+    ],
     "percentToQualify": "100",
     "song": "597874",
     "records": [

@@ -4,8 +4,13 @@
     "publisher": "noxvera",
     "creators": ["noxvera, syberchase"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/n8ZLkrQjm7M",
-    "percentToQualify": "27",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/n8ZLkrQjm7M"
+        }
+    ],
+    "percentToQualify": "56",
     "song": "614361",
     "records": [
         {

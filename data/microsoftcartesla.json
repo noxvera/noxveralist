@@ -4,7 +4,12 @@
     "publisher": "N/A",
     "creators": ["noxvera", "syberchase"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/FF3_9AXbGGg",
+    "videos": [
+        {
+            "name": "verification?",
+            "url": "https://youtu.be/FF3_9AXbGGg"
+        }
+    ],
     "percentToQualify": "100",
     "song": "default",
     "records": [

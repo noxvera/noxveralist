@@ -6,7 +6,12 @@
     "publisher": "1kV",
     "creators": ["noxvera"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/ZnnxArn1P9g",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/ZnnxArn1P9g"
+        }
+    ],
     "percentToQualify": "15",
     "song": "349494",
     "records": [

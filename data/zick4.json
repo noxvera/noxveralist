@@ -6,7 +6,12 @@
     "publisher": "noxvera",
     "creators": ["noxvera"],
     "verifier": "noxvera",
-    "verification": "https://youtu.be/I7RFDaxRr8g",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/I7RFDaxRr8g"
+        }
+    ],
     "percentToQualify": "100",
     "song": "473413",
     "records": [
@@ -18,7 +23,7 @@
         },
         {
             "user": "syberchase",
-            "link": "https://www.youtube.com/watch?v=A7P5OWZ-LqI",
+            "link": "https://www.youtu.be/A7P5OWZ-LqI",
             "percent": 100,
             "hz": 240
         }

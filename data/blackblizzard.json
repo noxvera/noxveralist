@@ -8,11 +8,17 @@
     "videos": [
         {
             "name": "verification",
-            "url": "https://www.youtube.com/watch?v=lsT5TjQ1Ubc"
+            "url": "https://www.youtu.be/lsT5TjQ1Ubc"
         }
     ],
     "percentToQualify": "111",
     "song": "709578",
     "records": [
+        {
+            "user": "noxvera",
+            "link": "https://youtu.be/shENFifUMrs",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

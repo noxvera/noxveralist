@@ -6,7 +6,12 @@
     "publisher": "jamalmurray",
     "creators": ["noxvera"],
     "verifier": "jamalmurray",
-    "verification": "https://youtu.be/cPvjHi4eNNY",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/cPvjHi4eNNY"
+        }
+    ],
     "percentToQualify": "100",
     "song": "161504",
     "records": [

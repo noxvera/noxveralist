@@ -4,7 +4,12 @@
     "publisher": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/8GB77fx_UxI",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/8GB77fx_UxI"
+        }
+    ],
     "percentToQualify": "100",
     "song": "default",
     "records": [

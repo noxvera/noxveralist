@@ -6,7 +6,12 @@
     "publisher": "N/A",
     "creators": ["noxvera", "Smyke"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/0bQafR-IH_8",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/0bQafR-IH_8"
+        }
+    ],
     "percentToQualify": "72",
     "song": "default",
     "records": [

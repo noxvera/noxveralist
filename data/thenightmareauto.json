@@ -1,10 +1,15 @@
 {
-    "id": "29669098",
+    "id": "29669089",
     "name": "The Nightmare auto",
     "publisher": "someone (green user)",
     "creators": ["noxvera", "Jax"],
     "verifier": "noxvera",
-    "verification": "#",
+    "videos": [
+        {
+            "name": "you do not need a video for this bro",
+            "url": "#"
+        }
+    ],
     "percentToQualify": "100",
     "song": "default",
     "records": [

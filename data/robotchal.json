@@ -5,7 +5,12 @@
     "publisher": "noxvera",
     "creators": [],
     "verifier": "jamalmurray",
-    "verification": "https://youtu.be/1DShw0RtPHA",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/1DShw0RtPHA"
+        }
+    ],
     "percentToQualify": "100",
     "song": "566004",
     "records": [

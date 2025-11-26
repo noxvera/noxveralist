@@ -7,11 +7,16 @@
     "description": "The map that started the zick series.",
     "creators": ["noxvera"],
     "verifier": "noxvera",
-    "verification": "https://youtu.be/5KdQuSc0BXY",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/5KdQuSc0BXY"
+        }
+    ],
     "percentToQualify": "100",
     "song": "643474",
     "records": [
-            {
+        {
             "user": "jamalmurray",
             "link": "https://youtu.be/TD2i4CNs3iU",
             "percent": 100,

@@ -2,10 +2,16 @@
     "higheffort": true,
     "id": 58169198,
     "name": "Pillars",
+    "description": "One of my first attempts at making a serious map that actually looked decent, would have been much better if I knew what air deco was.",
     "publisher": "Cyrobyte",
     "creators": ["noxvera"],
     "verifier": "noxvera",
-    "verification": "https://youtu.be/nX7B7qbIyzU",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/nX7B7qbIyzU"
+        }
+    ],
     "percentToQualify": "100",
     "song": "default",
     "records": [

@@ -6,7 +6,16 @@
     "publisher": "noxvera",
     "creators": [],
     "verifier": "syberchase",
-    "verification": "https://youtu.be/V1pKeVhQHg0",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "#"
+        },
+        {
+            "name": "old version (verification)",
+            "url": "https://youtu.be/V1pKeVhQHg0"
+        }
+    ],
     "percentToQualify": "100",
     "song": "161504",
     "records": [

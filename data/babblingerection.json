@@ -5,9 +5,15 @@
     "publisher": "noxvera",
     "creators": ["noxvera, syberchase"],
     "verifier": "N/A",
-    "verification": "#",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "#"
+        }
+    ],
     "percentToQualify": "100",
-    "song": "N/A",
+    "song": "NONG",
+    "nonglink": "https://songfilehub.com/home?name=tapwreck",
     "records": [
     ]
 }

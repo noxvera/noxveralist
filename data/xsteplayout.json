@@ -4,7 +4,12 @@
     "publisher": "Cyrobyte",
     "creators": ["noxvera"],
     "verifier": "noxvera",
-    "verification": "https://youtu.be/er7N3zmNl30",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/er7N3zmNl30"
+        }
+    ],
     "percentToQualify": "100",
     "song": "default",
     "records": [

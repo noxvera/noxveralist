@@ -6,7 +6,12 @@
     "publisher": "N/A",
     "creators": ["noxvera","galoche","syberchase"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/ZYE3KElKIig",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/ZYE3KElKIig"
+        }
+    ],
     "percentToQualify": "46",
     "song": "161504",
     "records": [

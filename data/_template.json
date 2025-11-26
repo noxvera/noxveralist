@@ -6,15 +6,15 @@
     "publisher": "publisher",
     "creators": ["creator 1", "creator 2"],
     "verifier": "verifier",
-    // "verification": "https://www.youtube.com/watch?v=wq4k1V1K52g",
+    // "verification": "https://youtu.be/wq4k1V1K52g",
     "videos": [
         {
             "name": "verification",
-            "url": "https://www.youtube.com/watch?v=wq4k1V1K52g"
+            "url": "https://youtu.be/wq4k1V1K52g"
         },
             {
             "name": "old version",
-            "url": "https://www.youtube.com/watch?v=KOIEo_74L-Q&list=RDcdYoRAId6ZY&index=3"
+            "url": "https://youtu.be/atgjKEgSqSU"
         }
     ],
     "percentToQualify": "100",

@@ -5,13 +5,13 @@
         "link": "https://www.youtube.com/@noxvera"
     },
     {
+        "role": "admin",
+        "name": "jamalmurrayrl",
+        "link": "https://www.youtube.com/@jamalmurrayrl"
+    },
+    {
         "role": "dev",
         "name": "noxvera",
         "link": "https://github.com/noxvera/noxveralist"
-    },
-        {
-        "role": "dev",
-        "name": "Prometheus",
-        "link": "https://www.youtube.com/@Prometheus_Alt"
     }
 ]

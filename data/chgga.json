@@ -6,7 +6,12 @@
     "publisher": "galoche",
     "creators": ["noxvera"],
     "verifier": "noxvera",
-    "verification": "https://youtu.be/j_iPZCY7Tt8?t=7",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/j_iPZCY7Tt8?t=7"
+        }
+    ],
     "percentToQualify": "100",
     "song": "default",
     "records": [

@@ -7,7 +7,12 @@
     "publisher": "noxvera",
     "creators": [],
     "verifier": "noxvera",
-    "verification": "https://youtu.be/MGRBXVuYY0M",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/MGRBXVuYY0M"
+        }
+    ],
     "percentToQualify": "100",
     "song": "383154",
     "records": [

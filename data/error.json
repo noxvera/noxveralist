@@ -4,9 +4,15 @@
     "publisher": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
-    "verification": "#",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "#"
+        }
+    ],
     "percentToQualify": "100",
-    "song": "N/A",
+    "song": "NONG",
+    "nonglink": "https://soundcloud.com/sewnfkt/everybodyisworthlessihavenosoulburneverythingdownihopeeveryonewhodiesgoestohellnomatterwhat",
     "records": [
     ]
 }

@@ -6,7 +6,12 @@
     "publisher": "Jax",
     "creators": [],
     "verifier": "Jax",
-    "verification": "https://www.youtube.com/watch?v=vYoDg7QLYW8",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://www.youtu.be/vYoDg7QLYW8"
+        }
+    ],
     "percentToQualify": "111",
     "song": "default",
     "records": [

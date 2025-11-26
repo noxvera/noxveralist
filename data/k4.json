@@ -6,9 +6,15 @@
     "publisher": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/4LHptd6w3iA",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/4LHptd6w3iA"
+        }
+    ],
     "percentToQualify": "0",
-    "song": "N/A",
+    "song": "NONG",
+    "nonglink": "https://youtu.be/db_sYdSPD24",
     "records": [
     ]
 }

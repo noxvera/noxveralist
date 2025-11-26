@@ -6,7 +6,12 @@
     "publisher": "noxvera",
     "creators": ["noxvera", "Zobros"],
     "verifier": "noxvera",
-    "verification": "https://youtu.be/4R4nLHOgVck",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/4R4nLHOgVck"
+        }
+    ],
     "percentToQualify": "100",
     "song": "624882",
     "records": [

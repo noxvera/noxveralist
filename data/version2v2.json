@@ -5,7 +5,12 @@
     "publisher": "1kV",
     "creators": ["syberchase","noxvera"],
     "verifier": "N/A",
-    "verification": "#",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "#"
+        }
+    ],
     "percentToQualify": "8",
     "song": "464352",
     "records": [

@@ -4,9 +4,14 @@
     "publisher": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
-    "verification": "#",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "#"
+        }
+    ],
     "percentToQualify": "100",
-    "song": "N/A",
+    "song": "223548",
     "records": [
     ]
 }

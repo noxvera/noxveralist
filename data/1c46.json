@@ -6,9 +6,15 @@
     "publisher": "1kV",
     "creators": ["noxvera"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/nxAIWM3phlo",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/nxAIWM3phlo"
+        }
+    ],
     "percentToQualify": "82",
-    "song": "N/A",
+    "song": "NONG",
+    "nonglink": "https://songfilehub.com/home?name=cobwebs",
     "records": [
         {
             "user": "noxvera",

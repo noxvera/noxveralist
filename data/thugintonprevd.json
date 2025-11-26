@@ -6,7 +6,12 @@
     "publisher": "1kV",
     "creators": ["syberchase", "noxvera"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/MVNtRfRdua4",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/MVNtRfRdua4"
+        }
+    ],
     "percentToQualify": "100",
     "song": "510853",
     "records": [

@@ -6,11 +6,16 @@
     "publisher": "noxvera",
     "creators": ["noxvera"],
     "verifier": "noxvera",
-    "verification": "https://youtu.be/qQedJVrH3-E",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/qQedJVrH3-E"
+        }
+    ],
     "percentToQualify": "100",
     "song": "830628",
     "records": [
-            {
+        {
             "user": "jamalmurray",
             "link": "https://youtu.be/tmy35QhYLsw",
             "percent": 100,

@@ -2,10 +2,16 @@
     "challenge": true,
     "id": 91968966,
     "name": "syberchase chaleng",
+    "description": "top 1 verification video oat",
     "publisher": "noxvera",
     "creators": ["noxvera", "RobTop"],
     "verifier": "syberchase",
-    "verification": "https://www.youtube.com/watch?v=t_Wao3f2joo",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://www.youtu.be/t_Wao3f2joo"
+        }
+    ],
     "percentToQualify": "100",
     "song": "default",
     "records": [

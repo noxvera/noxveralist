@@ -5,7 +5,12 @@
     "publisher": "noxvera",
     "creators": [],
     "verifier": "galoche",
-    "verification": "https://www.youtube.com/watch?v=b5CTvuncjww",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://www.youtu.be/b5CTvuncjww"
+        }
+    ],
     "percentToQualify": "100",
     "song": "33326",
     "records": [

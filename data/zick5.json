@@ -6,7 +6,12 @@
     "publisher": "noxvera",
     "creators": ["noxvera","Viprin"],
     "verifier": "noxvera",
-    "verification": "#",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "*"
+        }
+    ],
     "percentToQualify": "100",
     "song": "default",
     "records": [

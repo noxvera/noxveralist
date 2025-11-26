@@ -6,7 +6,12 @@
     "publisher": "noxvera",
     "creators": ["noxvera", "syberchase"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/B4dyhw61_pk",
+    "videos": [
+        {
+            "name": "verification",
+            "url": "https://youtu.be/B4dyhw61_pk"
+        }
+    ],
     "percentToQualify": "33",
     "song": "559803",
     "records": [

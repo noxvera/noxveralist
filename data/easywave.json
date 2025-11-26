@@ -5,7 +5,12 @@
     "publisher": "noxvera",
     "creators": ["noxvera"],
     "verifier": "N/A",
-    "verification": "#",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "#"
+        }
+    ],
     "percentToQualify": "16",
     "song": "598349",
     "challenge": true,

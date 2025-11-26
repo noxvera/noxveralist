@@ -4,8 +4,13 @@
     "publisher": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
-    "verification": "https://youtu.be/EM34Di7TApU",
-    "percentToQualify": "0",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/EM34Di7TApU"
+        }
+    ],
+    "percentToQualify": "17",
     "song": "611511",
     "records": [
     ]
