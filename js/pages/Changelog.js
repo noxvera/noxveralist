@@ -31,7 +31,7 @@ export default {
                 <div class="page-changelog">
                     <h1>Changelog</h1>
                     <p class="changelog-subtitle">
-                        This is the list changelog. For the website changelog, 
+                        This is the main list changelog. For the website changelog, 
                         <a href="https://github.com/noxvera/noxveralist/releases" class="link-hover-underline" target="_blank">click here</a>.
                     </p>
                     <p class="changelog-subtitle">Entries under each date are listed from newest to oldest.</p>

@@ -102,13 +102,6 @@ input[type="checkbox"] {
     text-decoration: underline;
 }
 
-.filter-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4em;
-    margin-left: 4px;
-}
-
 .link-icon {
     color: var(--color-on-background);
 }

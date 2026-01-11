@@ -4,7 +4,7 @@
     padding-block: 1.75rem;
 }
 .page-list .level-container {
-    padding-top: 38px; /* 32px default */
+    padding-top: 32px;
     padding-left: 6px;
 }
 .page-list .list-container {
@@ -289,7 +289,7 @@ header.dark .filter-icon {
     pointer-events: auto;
 }
 .tag-popup h3 {
-    margin: 2px 0 16px 0;
+    margin: 2px 0 18px 0;
     font-size: 22px;
     flex-shrink: 0;
 }
@@ -400,6 +400,17 @@ header.dark .filter-icon {
 .close-btn:hover {
     opacity: 0.8;
 }
+.filter-bar {
+    margin-top: 1rem;
+}
+.checkbox-label {
+    margin-top: 0.2832rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 1rem;
+}
 @keyframes popup-fade-in {
     from {
         opacity: 0;
@@ -441,7 +452,7 @@ header.dark .filter-icon {
     color: var(--color-on-background);
     font-size: 1.1rem;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 7px;
     box-sizing: border-box;
 }
 .level-description.clamp {
@@ -449,7 +460,6 @@ header.dark .filter-icon {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 .level .divider-line {
     margin-top: -12px !important;
@@ -566,6 +576,10 @@ header.dark .filter-icon {
 }
 .videotabs .video-tab.active {
     border-bottom-color: var(--color-on-background);
+    background-color: rgba(255, 255, 255, 0.0125);
+}
+.videotabs .video-tab.active:hover {
+    background-color: var(--color-background-hover);
 }
 .videotabs .video-tab:first-child {
     border-top-left-radius: 0.5rem;

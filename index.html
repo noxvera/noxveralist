@@ -4,7 +4,7 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=1024"/>
         <title>noxvera List</title>
-        <link rel="icon" href="/favicon.ico"/>
+        <link rel="icon" href="/assets/list_icon.png"/>
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
         <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
                 </a>
                 <h2>noxvera List</h2>
                 <a href="https://github.com/noxvera/noxveralist/releases" class="link-hover-underline" target="_blank">
-                    <p>v1.2.1</p>
+                    <p>v1.3.0</p>
                 </a>
             </div>
             <nav class="nav">
@@ -53,5 +53,15 @@
             </nav>
         </header>
         <router-view :class="{ dark: store.dark }"></router-view>
+        <div id="mobile-popup" style="display: none;" class="tag-popup-overlay" onclick="closeMobilePopup()">
+            <div class="tag-popup mobile-warning" onclick="event.stopPropagation()">
+                <h3>Warning</h3>
+                <p>Your viewing width is too small to display this website properly. If you are on mobile, I recommend switching to desktop or a larger screen.</p>
+                <div class="close-wrapper">
+                    <button class="close-btn" onclick="closeMobilePopup()">Continue</button>
+                </div>
+            </div>
+        </div>
+        <!-- localStorage.removeItem('mobileWarningShown'); to reset -->
     </body>
 </html>

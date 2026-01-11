@@ -77,7 +77,7 @@ export default {
                 <div v-if="level" class="level">
                     <h1>{{ level.name }}</h1>
                     <div class="divider-line"></div>
-                    <p v-if="level.description" ref="levelDesc" :class="['level-description', { clamp: !showFullDesc }]">
+                    <p v-if="level.description" ref="levelDesc" :class="['level-description', { clamp: needsTruncation && !showFullDesc }]">
                         <template v-for="(part, i) in parseDescription(level.description)" :key="i">
                             <a v-if="part.type === 'link'" :href="part.href" target="_blank" rel="noopener" class="link-icon link-hover-underline">{{ part.text }}</a>
                             <span v-else>{{ part.text }}</span>
@@ -164,8 +164,8 @@ export default {
                     </template>
                     <h3>Important Notes (please read!!)</h3>
                     <p> 
-                        - <a href="https://gdbrowser.com/u/1kv" class="link-hover-underline link-icon" target="_blank">1kV</a>,
-                        <a href="https://gdbrowser.com/u/1kf" class="link-hover-underline link-icon" target="_blank">1kF</a>,
+                        - <a href="https://gdbrowser.com/u/1kv" class="link-hover-underline link-icon" target="_blank">1kv</a>,
+                        <a href="https://gdbrowser.com/u/1kf" class="link-hover-underline link-icon" target="_blank">1kf</a>,
                         <a href="https://gdbrowser.com/u/cyrobyte" class="link-hover-underline link-icon" target="_blank">Cyrobyte</a>, 
                         and <a href="https://gdbrowser.com/search/19952001?user" class="link-hover-underline link-icon" target="_blank">someone (green user)</a> are all accounts belonging to me.
                     </p>

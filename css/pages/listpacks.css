@@ -19,8 +19,7 @@
     flex-shrink: 0;
     padding: 10px 25px;
     border: none;
-    border-top-left-radius: 0.75em;
-    border-top-right-radius: 0.75em;
+    border-radius: 0.75em 0.75em 0 0;
     text-align: start;
     overflow-wrap: anywhere;
     cursor: pointer;
@@ -35,16 +34,43 @@
 
 .pack-list .list-container,
 .pack-list .level-container,
-.pack-list .meta-container {
-    margin-top: 50px;
-    padding-block: 2rem;
+.pack-list .meta-container { margin-top: 50px; }
+.pack-list .list-container {
+    padding: 0 1rem 2rem;
 }
-.pack-list .list-container { padding-inline: 1rem; }
-.pack-list .meta-container { padding-right: 2rem; }
-.pack-list .list { table-layout: auto; }
-.pack-list .list .rank { text-align: end; padding-right: 1rem; }
+.pack-list .level-container {
+    padding: 32px 0 1.75rem;
+}
+.pack-list .level-container .pack-level,
+.pack-list .level-container .level {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-right: 2rem;
+    max-width: 48rem;
+}
+.pack-list .pack-level .divider-line { margin-top: -12px !important; }
+.pack-list .pack-level .level-description {
+    margin-top: -20px !important;
+    margin-bottom: -10px !important;
+}
+.pack-list .pack-level h2 {
+    margin: 0.75rem 0 -0.5rem;
+}
+.pack-list .meta-container {
+    padding: 2rem 2rem 2rem 0;
+}
+.pack-list .list {
+    table-layout: auto;
+    margin-left: 8px;
+}
+.pack-list .list .rank {
+    text-align: end;
+    padding-right: 1rem;
+}
 .pack-list .list .level { width: 100%; }
 .pack-list .list .level button { background-size: 100% 100% !important; }
+.pack-list .level .divider-line { margin-top: -20px !important; }
 
 .shared-list .list .level.error button {
     color: var(--color-error);
@@ -60,13 +86,6 @@
     color: var(--color-on-primary);
 }
 
-.pack-list .level-container .level {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding-right: 2rem;
-    max-width: 48rem;
-}
 .pack-list .level-container .level .level-publisher {
     display: grid;
     grid-template-columns: max-content 1fr;
@@ -86,18 +105,18 @@
     align-items: center;
     gap: 1rem;
 }
-
-.pack-list .level-container .level .records { table-layout: fixed; }
+.pack-list .level-container .level .records {
+    table-layout: fixed;
+}
 .pack-list .level-container .level .records tr td:not(:last-child) { padding-right: 1rem; }
 .pack-list .level-container .level .records .percent,
 .pack-list .level-container .level .records .user,
-.pack-list .level-container .level .records .hz { padding-block: 1rem; }
+.pack-list .level-container .level .records .hz { padding: 1rem 0; }
 .pack-list .level-container .level .records .user { width: 100%; }
 .pack-list .level-container .level .records .percent,
 .pack-list .level-container .level .records .hz { text-align: end; }
 .pack-list .level-container .level .records a:hover,
 .pack-list .meta-container .og a:hover { text-decoration: underline; }
-
 .pack-list .meta {
     display: flex;
     flex-direction: column;
@@ -135,7 +154,6 @@
 
 .scroll-indicator {
     font-size: 0.9em;
-    margin-bottom: -12px; /* distance between indicator and pack description */
-    margin-top: -10px;    /* distance between indicator and pack row */
+    margin: -10px 0 -12px;
     color: #999;
 }

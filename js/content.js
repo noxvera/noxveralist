@@ -171,7 +171,25 @@ export async function fetchLeaderboard() {
         }
     }
 
-    const isIgnoredId = (id) => /cancelled|lost|unfinished|unreleased/.test(String(id || "").toLowerCase());
+    function isIgnoredId(id) {
+        return /cancelled|lost|unfinished|unreleased/.test(String(id || "").toLowerCase());
+    }
+
+    function calculatePackPoints(pack, listMap, packOnlyLevels, score, list) {
+        const required = pack.levels.filter(path => {
+            const id = listMap[path]?.rawId ?? packOnlyLevels[path]?.id ?? "";
+            return !isIgnoredId(id);
+        });
+        const points = required.reduce((s, path) => {
+            const lvl = listMap[path] || packOnlyLevels[path];
+            if (!lvl) return s;
+            const rank = listMap[path] ? Math.min(list.findIndex(([l]) => l?.path === path), 199) : 199;
+            const pt = score(rank + 1, 100, Math.min(parsePercent(lvl.percentToQualify) || 100, 100));
+            return pt > 0 ? s + pt : s;
+        }, 0);
+        return Math.round(points / 2);
+    }
+    
     for (let [username, data] of Object.entries(scoreMap)) {
         const cleared = new Set([...data.verified, ...data.completed].map(x => x.path));
         const extra = packOnlyCompleted[username];
@@ -181,21 +199,23 @@ export async function fetchLeaderboard() {
             if (!pack.levels || pack.levels.length === 0) continue;
 
             const required = pack.levels.filter(path => {
-                const id = listMap[path]?.rawId ?? packOnlyLevels[path]?.id ?? "";
-                return !isIgnoredId(id);
+                if (!listMap[path]) return false;
+                return !isIgnoredId(listMap[path].rawId);;
             });
-
+            if (required.length === 0) continue;
             if (required.every(p => cleared.has(p))) {
                 data.packs.push(pack);
             }
         }
     }
-    // Wrap in extra Object containing the user and total score
+    // wrap in extra Object containing the user and total score
     let res = Object.entries(scoreMap).map(([user, scores]) => {
         const { verified, completed, progressed } = scores;
-        const total = [verified, completed, progressed]
+        const levelTotal = [verified, completed, progressed]
             .flat()
             .reduce((prev, cur) => prev + cur.score, 0);
+        const packPoints = scores.packs.reduce((sum, pack) => sum + calculatePackPoints(pack, listMap, packOnlyLevels, score, list), 0);
+        const total = levelTotal + packPoints;
         return {
             user,
             total: round(total),
