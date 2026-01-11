@@ -1,7 +1,8 @@
 {
-    "id": "122383088",
-    "name": "i am dylan secretway",
-    "publisher": "1kv",
+    "challenge": true,
+    "id": "unfinished",
+    "name": "Galapagos V",
+    "publisher": "N/A",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "videos": [
@@ -10,8 +11,8 @@
             "url": "#"
         }
     ],
-    "percentToQualify": "8",
-    "song": "639309",
+    "percentToQualify": "100",
+    "song": "NCS",
     "records": [
     ]
 }

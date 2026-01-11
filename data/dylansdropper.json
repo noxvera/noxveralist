@@ -1,0 +1,18 @@
+{
+    "id": "cancelled",
+    "name": "dylans dropper",
+    "description": "platformer made by @syberchase that I didn't even know about until recently",
+    "publisher": "N/A",
+    "creators": ["syberchase"],
+    "verifier": "N/A",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "#"
+        }
+    ],
+    "percentToQualify": "100",
+    "song": "default",
+    "records": [
+    ]
+}

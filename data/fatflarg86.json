@@ -1,0 +1,22 @@
+{
+    "challenge": true,
+    "id": "130189254",
+    "name": "fat flarg86",
+    "publisher": "1kv",
+    "creators": ["noxvera"],
+    "verifier": "N/A",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/WPhOUfL_jqE"
+        },
+        {
+            "name": "fat flarg85",
+            "url": "#"
+        }
+    ],
+    "percentToQualify": "100",
+    "song": "472169",
+    "records": [
+    ]
+}

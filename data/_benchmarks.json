@@ -1,18 +1,18 @@
 [
     {
-        "after": 12,
+        "after": 14,
         "level": "tidalwave"
     },
     {
-        "after": 32,
+        "after": 35,
         "level": "blackblizzard"
     },
     {
-        "after": 47,
+        "after": 54,
         "level": "acu"
     },
     {
-        "after": 71,
+        "after": 79,
         "level": "thenightmare"
     }
 ]

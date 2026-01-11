@@ -14,5 +14,11 @@
     "percentToQualify": "100",
     "song": "609260",
     "records": [
+        {
+            "user": "jamalmurray",
+            "link": "#",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

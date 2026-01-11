@@ -1,15 +1,15 @@
 {
     "higheffort": true,
-    "id": "unreleased",
+    "id": "130548881",
     "name": "zickscapes",
-    "description": "Robot only map inspired by qoUEO and Nullscapes. Includes a 2p dual, has a randomized last click, and is (almost) completely gridlocked. Layout built in 1 week.",
-    "publisher": "N/A",
+    "description": "Robot only map inspired by qoUEO and Nullscapes. Includes a 2p dual, has a randomized ending, and is (almost) completely gridlocked. Layout built in 1 week.",
+    "publisher": "1kv",
     "creators": ["noxvera"],
     "verifier": "N/A",
     "videos": [
         {
             "name": "showcase",
-            "url": "https://youtu.be/ce_4MguTyOM"
+            "url": "https://youtu.be/CLQDy5o43ks"
         }
     ],
     "percentToQualify": "7",

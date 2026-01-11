@@ -1,6 +1,7 @@
 [    
     {
         "name": "2017 Pack",
+        "description": "This pack contains all my maps from 2017 (that I know of). There are packs for years 2017-2021 due to most of my maps during that period being lost, usually from data issues.",
         "levels": [
             "razing717auto",
             "razing717auto2",
@@ -10,6 +11,7 @@
     },
         {
         "name": "2019 Pack",
+        "description": "This pack contains all my maps from 2019 (that I know of). There are packs for years 2017-2021 due to most of my maps during that period being lost, usually from data issues.",
         "levels": [
             "wenistower2019version",
             "pillars",
@@ -21,6 +23,7 @@
     },
         {
         "name": "2020 Pack",
+        "description": "This pack contains all my maps from 2020 (that I know of). There are packs for years 2017-2021 due to most of my maps during that period being lost, usually from data issues.",
         "levels": [
             "longlayout",
             "astronaut13layout",
@@ -35,6 +38,7 @@
     },
     {
         "name": "2021 Pack",
+        "description": "This pack contains all my maps from 2021 (that I know of). There are packs for years 2017-2021 due to most of my maps during that period being lost, usually from data issues.",
         "levels": [
             "plasmarush",
             "smykechallenge",
@@ -47,11 +51,19 @@
         "colour": "#000000"
     },
     {
-        "name": "zick Pack I",
+        "name": "Zick Pack I",
+        "description": "The first zick pack, containing the first 3 zick maps. They are all extremely easy.",
         "levels": [
             "zick1",
             "zick2",
-            "zick3",
+            "zick3"
+        ],
+        "colour": "#a200ff"
+    },
+    {
+        "name": "zick Pack II",
+        "description": "The second zick pack, containing the next 3 zick maps. Slightly harder than the first zick pack.",
+        "levels": [
             "zick4",
             "zick5",
             "zick6"
@@ -59,7 +71,8 @@
         "colour": "#a200ff"
     },
     {
-        "name": "zick Pack II",
+        "name": "zick Pack III",
+        "description": "Accidentally made zick 8 and zick 9 a bit too insane, so this pack will probably be the only zick pack that will never be cleared.",
         "levels": [
             "zick7",
             "zick8",
@@ -67,8 +80,9 @@
         ],
         "colour": "#f42c2e"
     },
-        {
-        "name": "zick Pack III",
+    {
+        "name": "zick Pack IV",
+        "description": "The last zick pack. I lost access to the in-game zick list (ID: 627) so the series ended at zick 12. These maps are extremely hard but still beatable.",
         "levels": [
             "zickx",
             "zick11",
@@ -76,19 +90,21 @@
         ],
         "colour": "#a200ff"
     },
-
-        {
+    {
         "name": "dylan Pack",
+        "description":"All maps that have 'dylan' in the title. Funnily enough, after 4 years none of these maps have actually been finished.",
         "levels": [
             "iamdylan",
             "theycallmedylan",
+            "birthofdylan",
+            "dylanstepsaside",
+            "dylansdropper",
             "iamdylanultrabuffed",
             "iamdylansecretway"
         ],
         "colour": "#9aa398"
     },
-
-        {
+    {
         "name": "Abomination Pack",
         "levels": [
             "balancedlevel",
@@ -99,8 +115,9 @@
         ],
         "colour": "#000000"
     },
-        {
+    {
         "name": "Auto Pack",
+        "description": "All my maps that are auto. Some of these weren't meant to be auto, but I made it auto so that people in-game could actually see how the map looked like.",
         "levels": [
             "cosmiclayout",
             "razing717auto2",
@@ -110,5 +127,5 @@
             "silentclubchallenge"
         ],
         "colour": "#ECBC0C"
-    }
+    } 
 ]

@@ -1,0 +1,17 @@
+{
+    "id": "unfinished",
+    "name": "Arduous Acrobatics",
+    "publisher": "N/A",
+    "creators": ["noxvera"],
+    "verifier": "N/A",
+    "videos": [
+        {
+            "name": "showcase",
+            "url": "https://youtu.be/7fGwIxdVWXM"
+        }
+    ],
+    "percentToQualify": "4",
+    "song": "402814",
+    "records": [
+    ]
+}
